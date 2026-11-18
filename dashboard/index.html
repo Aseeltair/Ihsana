@@ -1,0 +1,562 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ihsana Priority Index</title>
+<meta name="description" content="The Muslim Priority Index: the state of the Muslim world, and where giving does the most good.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#14294A; --ink-soft:rgba(20,41,74,.78); --ink-faint:rgba(20,41,74,.54);
+  --paper:#F9F5EF; --paper-2:#F1EAE0; --card:#F3EDE4; --line:rgba(20,41,74,.13);
+  --blue:#1E4F8C; --blue-2:#2A63A8; --tint:rgba(30,79,140,.08);
+  --maroon:#A8152E; --maroon-2:#8A0F24;
+  --deep:#0F2638; --deep-2:#1B3A55; --on-dark:#F6F1EA; --on-dark-soft:rgba(246,241,234,.72); --on-dark-faint:rgba(246,241,234,.5); --on-dark-line:rgba(246,241,234,.14);
+  --gold:#E9B04A; --data:#9CBDE8;
+  --fund:#E0566B; --monitor:#E9B04A; --maintain:#8EA3BA; --diaspora:#9CBDE8;
+  --health:#E0566B; --education:#3FB58E; --economic:#8C7BE6;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --sans:"Mulish",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --max:1320px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F1EBE2; --ink-soft:rgba(241,235,226,.76); --ink-faint:rgba(241,235,226,.52);
+    --paper:#0E1727; --paper-2:#16223A; --card:#16223A; --line:rgba(241,235,226,.12);
+    --blue:#8FB4E8; --blue-2:#B0CBF0; --tint:rgba(143,180,232,.12);
+    --maroon:#D93A52; --maroon-2:#E85A70; --deep:#08101D; --deep-2:#122238; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F1EBE2; --ink-soft:rgba(241,235,226,.76); --ink-faint:rgba(241,235,226,.52);
+  --paper:#0E1727; --paper-2:#16223A; --card:#16223A; --line:rgba(241,235,226,.12);
+  --blue:#8FB4E8; --blue-2:#B0CBF0; --tint:rgba(143,180,232,.12);
+  --maroon:#D93A52; --maroon-2:#E85A70; --deep:#08101D; --deep-2:#122238; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue-2);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2 em,h1 em{font-style:italic;color:var(--blue)}
+p{margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px))}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.lede{font-size:18px;color:var(--ink-soft);max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--maroon);color:#fff}
+.btn-primary:hover{background:var(--maroon-2)}
+.btn-ghost{border:1.5px solid var(--line);background:transparent;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+section{padding-block:clamp(64px,9vw,120px)}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 48px;margin-bottom:clamp(32px,5vw,56px)}
+.section-head h2{font-size:clamp(32px,4.4vw,52px);margin-top:12px;max-width:16ch}
+.section-head .lede{max-width:46ch;font-size:17px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .25s}
+header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:inline-flex;flex-direction:column;text-decoration:none;line-height:1}
+.brand-name{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.24em;margin-right:-.24em;color:var(--ink)}
+.brand-name::after{content:"";display:block;height:2px;width:28px;margin-top:7px;background:var(--maroon);border-radius:2px;transition:width .3s}
+.brand:hover .brand-name::after{width:100%}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:15.5px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--ink)}
+.nav-links a:not(.btn):hover{color:var(--blue)}
+.nav-links .btn{color:#fff;padding:11px 20px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
+@media (max-width:860px){
+  .menu-btn{display:grid;place-items:center}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 20px 20px}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav-links .btn{margin-top:16px;border:0}
+  .nav-links:not(.open){display:none}
+}
+
+/* 1 · globe hero */
+.hero{background:var(--deep);color:var(--on-dark);padding-block:clamp(40px,6vw,72px) clamp(48px,6vw,80px)}
+.hero .eyebrow{color:var(--data)}
+.hero h1{font-size:clamp(40px,5.4vw,72px);margin-top:14px}
+.hero h1 em{color:var(--data)}
+.hero .lede{color:var(--on-dark-soft);margin-top:16px;max-width:44ch}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4vw,64px);align-items:start;margin-top:clamp(28px,4vw,44px)}
+.tools{display:grid;gap:14px}
+.search{position:relative;display:flex;align-items:center;gap:10px;border:1px solid var(--on-dark-line);border-radius:999px;padding:0 18px;background:rgba(255,255,255,.04)}
+.search:focus-within{border-color:var(--data)}
+.search svg{flex:none;opacity:.7}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--on-dark);font:inherit;font-size:15.5px;padding:13px 0;outline:none}
+.search input::placeholder{color:var(--on-dark-faint)}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);padding:6px;display:grid;max-height:280px;overflow:auto}
+.sugg[hidden]{display:none}
+.sugg button{border:0;background:none;text-align:left;padding:9px 12px;border-radius:9px;cursor:pointer;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.sugg button span{color:var(--ink-faint);font-size:13px}
+.sugg button:hover,.sugg button.on{background:#F1EAE0}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.lg{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--on-dark-line);color:var(--on-dark-soft);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all .2s}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lg b{font-weight:600;color:var(--on-dark-faint)}
+.lg:hover{border-color:var(--on-dark-soft)}
+.lg[aria-pressed="true"]{border-color:var(--on-dark);color:var(--on-dark);background:rgba(255,255,255,.08)}
+.globe-box{position:relative;width:100%;max-width:620px;margin-inline:auto;aspect-ratio:1}
+#globe{width:100%;height:100%;display:block;touch-action:none;cursor:grab;user-select:none}
+#globe.dragging{cursor:grabbing}
+#globe .sphere{fill:url(#ocean);stroke:rgba(255,255,255,.14)}
+#globe .grat{fill:none;stroke:rgba(255,255,255,.12);stroke-width:.6}
+#globe .land{fill:#4F6B83;stroke:rgba(12,34,56,.55);stroke-width:.5}
+#globe .ctry{stroke:rgba(12,34,56,.75);stroke-width:.7;cursor:pointer;transition:opacity .25s}
+#globe .ctry:hover{filter:brightness(1.18)}
+#globe .dim{opacity:.22}
+#globe .sel{stroke:#fff;stroke-width:2.2}
+#globe .mk{stroke:rgba(12,34,56,.75);stroke-width:1.2;cursor:pointer}
+#globe,#globe *{outline:none}
+.tip{position:absolute;pointer-events:none;background:var(--on-dark);color:var(--deep);font-size:13px;font-weight:700;padding:6px 10px;border-radius:8px;transform:translate(-50%,-140%);white-space:nowrap}
+.g-ctrl{position:absolute;right:4px;bottom:4px;display:grid;gap:6px}
+.g-ctrl button{width:40px;height:40px;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(6,18,28,.75);color:var(--on-dark);cursor:pointer;font-size:18px;line-height:1;display:grid;place-items:center}
+.g-ctrl button:hover{border-color:var(--data)}
+.g-hint{position:absolute;left:4px;bottom:8px;font-size:12.5px;color:var(--on-dark-faint)}
+.g-load{position:absolute;inset:0;display:grid;place-items:center;color:var(--on-dark-faint);font-size:14px}
+.scroll-cue{display:inline-flex;align-items:center;gap:8px;margin-top:clamp(28px,4vw,40px);color:var(--on-dark-soft);text-decoration:none;font-size:14.5px;font-weight:600}
+.scroll-cue:hover{color:var(--on-dark)}
+
+/* brief (hero panel + drawer) */
+.brief{border:1px solid var(--on-dark-line);border-radius:20px;padding:clamp(20px,2.4vw,28px);background:rgba(255,255,255,.035);display:grid;gap:16px}
+.brief-top{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.brief .sub{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--data);font-weight:700}
+.brief h3{font-size:clamp(30px,3vw,38px);margin-top:6px}
+.badge{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--on-dark-line);border-radius:14px;overflow:hidden}
+.facts div{background:var(--deep);padding:12px 14px}
+.facts dt{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-faint);font-weight:700}
+.facts dd{margin:4px 0 0;font-family:var(--serif);font-size:20px;line-height:1.2}
+.prios{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.prio{display:grid;grid-template-columns:30px 1fr;gap:4px 10px;background:rgba(255,255,255,.05);border-radius:14px;padding:14px 16px}
+.prio .n{font-family:var(--serif);font-size:22px;color:var(--gold);line-height:1.1;grid-row:span 3}
+.prio h4{margin:0;font-size:16px;font-weight:700;line-height:1.35}
+.prio .cat{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--on-dark-faint);font-weight:600}
+.prio .cat i{width:8px;height:8px;border-radius:50%}
+.prio .stat{font-family:var(--serif);font-size:18px;color:var(--on-dark);margin-top:4px}
+.prio p{font-size:14.5px;color:var(--on-dark-soft);margin-top:4px;line-height:1.55}
+.more-btn{justify-self:start;border:1px solid var(--on-dark-line);background:none;color:var(--on-dark-soft);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer}
+.more-btn:hover{color:var(--on-dark);border-color:var(--on-dark-soft)}
+.others{display:flex;flex-wrap:wrap;gap:8px}
+.others span{border:1px solid var(--on-dark-line);border-radius:999px;padding:6px 12px;font-size:13.5px;color:var(--on-dark-soft)}
+.brief-empty{color:var(--on-dark-soft);font-size:16px;display:grid;gap:10px;justify-items:start}
+.brief-empty b{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--on-dark)}
+
+/* 2 · five priorities */
+.five-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.five{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .2s,box-shadow .2s}
+.five:hover{transform:translateY(-3px);box-shadow:0 18px 36px -26px rgba(20,41,74,.45)}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.tag i{width:9px;height:9px;border-radius:50%}
+.five h3{font-size:22px}
+.five .big{font-family:var(--serif);font-size:20px;color:var(--maroon);line-height:1.25}
+.five p{font-size:15px;color:var(--ink-soft);line-height:1.55}
+.note{margin-top:22px;font-size:13.5px;color:var(--ink-faint);max-width:90ch}
+@media (max-width:1100px){.five-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.five-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* 4 · why */
+.why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,96px);align-items:start}
+.why h2{font-size:clamp(34px,4.6vw,56px)}
+.why .lede{margin-top:22px}
+.pillars{display:grid;gap:14px;counter-reset:pl}
+.pillar{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;border-top:1px solid var(--line);padding-top:22px}
+.pillar .num{font-family:var(--serif);font-size:44px;line-height:1;color:var(--maroon);grid-row:span 2}
+.pillar h3{font-size:24px}
+.pillar p{color:var(--ink-soft);font-size:16px}
+.method{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:auto 1fr;gap:16px 24px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px)}
+.method svg{color:var(--blue)}
+.method p{color:var(--ink-soft)}
+.method p+p{margin-top:8px;font-size:14px;color:var(--ink-faint)}
+@media (max-width:900px){.why-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* 5 · newsletter */
+.news{background:var(--deep-2);color:var(--on-dark);padding-block:clamp(56px,7vw,88px)}
+.news-grid{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 56px}
+.news .eyebrow{color:var(--data)}
+.news h2{font-size:clamp(28px,3.6vw,42px);margin-top:10px}
+.news p{color:var(--on-dark-soft);margin-top:10px;max-width:46ch}
+.news form{display:flex;gap:8px;flex:1 1 380px;max-width:540px;flex-wrap:wrap}
+.news input{flex:1 1 220px;min-width:0;padding:14px 20px;border-radius:999px;border:1.5px solid var(--on-dark-line);background:rgba(255,255,255,.06);color:var(--on-dark);font:inherit;font-size:15px}
+.news input::placeholder{color:var(--on-dark-faint)}
+.news input:focus{outline:none;border-color:var(--on-dark)}
+.news .btn{background:var(--on-dark);color:var(--deep-2)}
+.news-msg{flex-basis:100%;font-size:14px;font-weight:600}
+.news small{display:block;flex-basis:100%;font-size:13px;color:var(--on-dark-faint);padding-left:6px}
+
+footer{padding-block:44px;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.foot-tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:52ch}
+.foot-meta{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--ink-faint)}
+.foot-meta a{text-decoration:none}
+.foot-meta a:hover{color:var(--ink)}
+
+/* responsive */
+@media (max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1fr)}.globe-col{order:-1}.globe-box{max-width:520px}}
+@media (max-width:600px){
+  body{font-size:16px}
+  .lede{font-size:16.5px}
+  .facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .facts div:last-child{grid-column:1/-1}
+  .news form{flex-direction:column;align-items:stretch;flex:none;max-width:none}
+  .news input{flex:none;width:100%}
+  .method{grid-template-columns:minmax(0,1fr)}
+  .g-hint{display:none}
+}
+/* hero layout: intro + tools left, globe right (mobile: intro, globe, tools) */
+.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"intro globe" "tools globe";grid-template-rows:auto 1fr;margin-top:0;align-items:start}
+.hero-grid{row-gap:24px}
+.intro{grid-area:intro}.tools{grid-area:tools;align-self:start}.globe-col{grid-area:globe;align-self:center}
+.hero h1{font-size:clamp(40px,4.6vw,64px)}
+.globe-box{width:min(100%,calc(100svh - 150px));min-width:300px}
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "globe" "tools";grid-template-rows:auto}
+  .globe-col{order:0}
+  .globe-box{width:100%;min-width:0;max-width:520px}
+}
+/* hero v3: centred globe, brief opens in a side drawer */
+.hero{text-align:center}
+.intro{display:grid;justify-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,76px)}
+.hero .lede{margin-inline:auto}
+.tools{max-width:720px;margin:clamp(24px,3vw,36px) auto 0;display:grid;gap:14px;justify-items:center}
+.tools .search{width:100%;max-width:460px;text-align:left}
+.legend{justify-content:center}
+.globe-col{margin-top:clamp(16px,2vw,28px);display:grid;justify-items:center;gap:10px}
+.globe-box{width:min(100%,760px,calc(100svh - 120px));min-width:0;max-width:none}
+.g-hint{position:static;font-size:14px;color:var(--on-dark-soft)}
+.g-hint span{color:var(--gold)}
+.scroll-cue{margin-top:clamp(20px,3vw,32px)}
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:100;pointer-events:none}
+.drawer-bg{position:absolute;inset:0;background:rgba(8,16,29,.45);opacity:0;transition:opacity .25s}
+.drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(480px,100%);background:#132B40;color:var(--on-dark);overflow:auto;padding:clamp(20px,3vw,32px);display:grid;align-content:start;gap:18px;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);box-shadow:-24px 0 60px -20px rgba(0,0,0,.5);text-align:left}
+.drawer.open{pointer-events:auto}
+.drawer.open .drawer-bg{opacity:1}
+.drawer.open .drawer-panel{transform:none}
+.drawer-panel .brief{border:0;background:none;padding:0}
+.drawer-panel .facts div{background:#132B40}
+.drawer-close{justify-self:end;width:42px;height:42px;border-radius:50%;border:1px solid var(--on-dark-line);background:none;color:var(--on-dark);cursor:pointer;font-size:22px;line-height:1;margin-bottom:-8px}
+.drawer-close:hover{border-color:var(--on-dark-soft)}
+.drawer-cta{justify-self:start}
+body.locked{overflow:hidden}
+@media (min-width:1001px){.drawer-bg{background:rgba(8,16,29,.25)}}
+.prio>*:not(.n){grid-column:2}
+.prio .n{grid-row:1 / span 4}
+.drawer-panel{box-shadow:none}
+.drawer.open .drawer-panel{box-shadow:-24px 0 60px -20px rgba(0,0,0,.5)}
+.hero{padding-top:clamp(28px,4vw,48px)}
+.hero h1{font-size:clamp(38px,5vw,68px);margin-top:10px}
+.hero .lede{margin-top:10px}
+.tools{margin-top:clamp(18px,2.4vw,28px)}
+.globe-col{margin-top:clamp(8px,1.4vw,18px)}
+/* hero fills exactly one screen on desktop/tablet; globe takes the remaining height */
+@media (min-width:700px) and (min-height:560px){
+  .hero{height:calc(100svh - 72px);min-height:560px;padding-block:clamp(16px,3vh,32px) clamp(12px,2vh,20px);display:flex;flex-direction:column}
+  .hero>.wrap{flex:1;min-height:0;display:flex;flex-direction:column;width:100%}
+  .hero h1{font-size:clamp(34px,min(4.6vw,7vh),64px);margin-top:6px}
+  .hero .lede{margin-top:6px;font-size:clamp(15px,2.1vh,18px)}
+  .tools{margin-top:clamp(10px,2vh,22px);gap:10px}
+  .tools .search input{padding-block:10px}
+  .globe-col{flex:1;min-height:0;margin-top:clamp(6px,1.2vh,14px);display:flex;flex-direction:column;align-items:center;gap:6px}
+  .globe-box{flex:1;min-height:0;height:100%;width:auto;max-width:100%;aspect-ratio:1}
+  .g-hint{flex:none;font-size:13.5px}
+  .scroll-cue{display:none}
+}
+/* header matches the dark globe section */
+header{background:var(--deep)}
+header.scrolled{border-bottom-color:var(--on-dark-line)}
+.brand-name{color:var(--on-dark)}
+.nav-links a{color:var(--on-dark-soft)}
+.nav-links a:not(.btn):hover{color:var(--on-dark)}
+.menu-btn{color:var(--on-dark);border-color:var(--on-dark-line)}
+@media (max-width:860px){
+  .nav-links{background:var(--deep);border-bottom-color:var(--on-dark-line)}
+  .nav-links a{border-bottom-color:var(--on-dark-line)}
+}
+</style>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="https://ihsana.org" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 14h14"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#overview">Overview</a>
+      <a href="#five">The five priorities</a>
+      <a href="#why">Why this dashboard</a>
+      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1 · GLOBE -->
+  <section class="hero" id="overview">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Ihsana · 2026</p>
+        <h1>The Muslim <em>Priority Index</em></h1>
+        <p class="lede">The state of the Muslim world, and where giving does the most good.</p>
+      </div>
+      <div class="tools">
+        <div class="search" id="searchBox">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+          <input id="q" type="search" placeholder="Find a country" autocomplete="off" aria-label="Find a country" aria-controls="sugg">
+          <div class="sugg" id="sugg" role="listbox" hidden></div>
+        </div>
+        <div class="legend" id="legend" role="group" aria-label="Highlight by status"></div>
+      </div>
+      <div class="globe-col">
+        <div class="globe-box" id="globeBox">
+          <div class="g-load" id="gLoad">Loading the globe…</div>
+          <svg id="globe" viewBox="0 0 600 600" role="img" aria-label="Interactive globe of the countries in the index"></svg>
+          <div class="tip" id="tip" hidden></div>
+          <div class="g-ctrl">
+            <button id="zin" aria-label="Zoom in">+</button>
+            <button id="zout" aria-label="Zoom out">−</button>
+            <button id="reset" aria-label="Reset view" title="Reset view">↺</button>
+          </div>
+        </div>
+        <p class="g-hint"><span aria-hidden="true">✦</span> Click any country to reveal its top three priorities</p>
+      </div>
+      <a class="scroll-cue" href="#five">Scroll to the five priorities <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <!-- 2 · FIVE PRIORITIES -->
+  <section id="five">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The view from above</p>
+          <h2>The five things <em>to solve.</em></h2>
+        </div>
+        <p class="lede">Look across all 58 countries and the same solvable needs surface again and again. These five recur most, the places where giving reaches the most lives.</p>
+      </div>
+      <div class="five-grid" id="fiveGrid"></div>
+      <p class="note">Death tolls summed across the 57 OIC countries · IHME Global Burden of Disease 2023. Schooling and youth figures · UNESCO and SESRIC. Country detail · Ihsana OIC Priority Investment Model 2026.</p>
+    </div>
+  </section>
+
+  <!-- 4 · WHY -->
+  <section class="why" id="why">
+    <div class="wrap">
+      <div class="why-grid">
+        <div>
+          <p class="eyebrow">Why we built this</p>
+          <h2 style="margin-top:12px">Generosity is not our problem. <em>Direction is.</em></h2>
+          <p class="lede">Every year the ummah gives hundreds of billions in zakat and sadaqah, yet much of it flows to where the need is most visible, not where it is most solvable. This dashboard exists to close that gap: a clear, honest reading of what each Muslim-majority country most urgently needs, so a family can give with the same rigour it would bring to any serious investment.</p>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><span class="num">01</span><h3>Solvable</h3><p>We surface only priorities where money reliably moves the needle: maternal survival, children in school, nutrition, livelihoods. Problems we already know how to fix.</p></div>
+          <div class="pillar"><span class="num">02</span><h3>Urgent</h3><p>Countries are ranked by the weight of need today, drawn from a transparent model across health, education and economic indicators, not by headlines or proximity.</p></div>
+          <div class="pillar"><span class="num">03</span><h3>Where to give</h3><p>Each country resolves to a short list of clear priorities. Curated, vetted charities matched to each one arrive in Ihsana v2. For now, this shows you exactly where to look.</p></div>
+        </div>
+      </div>
+      <div class="method">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="20" cy="20" r="14"/><path d="M6 20h28M20 6c4 4 6 9 6 14s-2 10-6 14c-4-4-6-9-6-14s2-10 6-14z"/></svg>
+        <div>
+          <p>Every Muslim-majority country, plus Muslim communities in the West, each resolved to its most solvable, most urgent needs.</p>
+          <p>Source · Ihsana OIC Priority Investment Model 2026 · built on World Bank · WHO · UNICEF · UNESCO UIS · UNDP indicators</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · NEWSLETTER -->
+  <section class="news">
+    <div class="wrap news-grid">
+      <div>
+        <p class="eyebrow">The Ihsana Brief</p>
+        <h2>A clearer view of where giving matters.</h2>
+        <p>A short, thoughtful note on the Muslim world's most urgent, most solvable needs, delivered occasionally.</p>
+      </div>
+      <form id="newsForm" novalidate>
+        <label for="newsEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+        <input id="newsEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn" type="submit">Subscribe</button>
+        <small>No noise. Just the signal.</small>
+        <p class="news-msg" id="newsMsg" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad, and builds a lasting civilisational legacy.</p>
+    <div class="foot-meta">
+      <a href="https://www.linkedin.com/in/hassan-majeed-a071197a/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation</a>
+      <span>© 2026 Ihsana · Figures from the Ihsana 2026 model</span>
+    </div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-bg" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <button class="drawer-close" data-close aria-label="Close">×</button>
+    <div class="brief" id="brief"></div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="world.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* data: Ihsana OIC Priority Investment Model 2026 (from dashboard.ihsana.org) */
+const DATA=[{"name":"","display":"Gaza","rank":1,"region":"Levant","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Acute nutrition (emergency)","category":"Health","desc":"Emergency-level malnutrition; immediate therapeutic feeding for children and mothers."},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty."},{"label":"Maternal & child health","category":"Health","desc":"Keeping mothers and young children alive amid a collapsed health system."}]},{"name":"Niger","display":"Niger","rank":2,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"37,625 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"33,517 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"29,074 deaths a year"}]},{"name":"Somalia","display":"Somalia","rank":3,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"20,623 mothers and newborns die each year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"19,918 deaths a year"},{"label":"Infectious disease control","category":"Health","desc":"Preventable infections that spread where clean water, sanitation and basic treatment are scarce.","stat":"32,932 deaths a year"}]},{"name":"Chad","display":"Chad","rank":4,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"29,423 mothers and newborns die each year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"39,171 deaths a year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"9,466 deaths a year"}]},{"name":"Afghanistan","display":"Afghanistan","rank":5,"region":"South Asia","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"22,294 mothers and newborns die each year"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~45% of children stunted"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"4,803 deaths a year"}]},{"name":"Mali","display":"Mali","rank":6,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"32,240 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"20,096 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"14,476 deaths a year"}]},{"name":"Djibouti","display":"Djibouti","rank":7,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"487 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"763 mothers and newborns die each year"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~26% of children stunted"}]},{"name":"Benin","display":"Benin","rank":8,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"11,121 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"13,559 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"6,010 deaths a year"}]},{"name":"Burkina Faso","display":"Burkina Faso","rank":9,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"22,270 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"10,225 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"15,593 mothers and newborns die each year"}]},{"name":"Nigeria","display":"Nigeria","rank":10,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"234,040 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"230,232 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"115,635 deaths a year"}]},{"name":"Guinea-Bissau","display":"Guinea-Bissau","rank":11,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"2,433 mothers and newborns die each year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"903 deaths a year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"589 deaths a year"}]},{"name":"Sierra Leone","display":"Sierra Leone","rank":12,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"8,475 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"11,576 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"6,654 deaths a year"}]},{"name":"Guinea","display":"Guinea","rank":13,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"13,322 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"10,891 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"5,613 deaths a year"}]},{"name":"Mauritania","display":"Mauritania","rank":14,"region":"Sub-Saharan Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"3,045 mothers and newborns die each year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"1,395 deaths a year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"963 deaths a year"}]},{"name":"Mozambique","display":"Mozambique","rank":15,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"17,119 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"12,142 deaths a year"},{"label":"Infectious disease control","category":"Health","desc":"Preventable infections that spread where clean water, sanitation and basic treatment are scarce.","stat":"9,018 deaths a year"}]},{"name":"Côte d'Ivoire","display":"Côte d'Ivoire","rank":16,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"29,315 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"28,954 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"11,532 deaths a year"}]},{"name":"Gambia","display":"Gambia","rank":17,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"2,159 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"809 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"484 deaths a year"}]},{"name":"Yemen","display":"Yemen","rank":18,"region":"Arabian Peninsula","income":"Low","clsKey":"fund","priorities":[{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~49% of children stunted"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"1,191 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"17,826 mothers and newborns die each year"}]},{"name":"Cameroon","display":"Cameroon","rank":19,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"30,193 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"16,217 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"28,148 mothers and newborns die each year"}]},{"name":"Togo","display":"Togo","rank":20,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"5,592 mothers and newborns die each year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"5,670 deaths a year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"5,255 deaths a year"}]},{"name":"Sudan","display":"Sudan","rank":21,"region":"North Africa","income":"Low","clsKey":"fund","priorities":[{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"12,272 mothers and newborns die each year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"3,456 deaths a year"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~43% of children out of school"}]},{"name":"Uganda","display":"Uganda","rank":22,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"26,470 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"8,828 deaths a year"},{"label":"Infectious disease control","category":"Health","desc":"Preventable infections that spread where clean water, sanitation and basic treatment are scarce.","stat":"12,382 deaths a year"}]},{"name":"Pakistan","display":"Pakistan","rank":23,"region":"South Asia","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~38% of children stunted"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"53,537 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"194,423 mothers and newborns die each year"}]},{"name":"Senegal","display":"Senegal","rank":24,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"4,839 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"4,196 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"13,194 mothers and newborns die each year"}]},{"name":"Comoros","display":"Comoros","rank":25,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"266 deaths a year"},{"label":"Infectious disease control","category":"Health","desc":"Preventable infections that spread where clean water, sanitation and basic treatment are scarce.","stat":"167 deaths a year"},{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"38 deaths a year"}]},{"name":"","display":"West Bank","rank":26,"region":"Levant","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young population without enough work; jobs, skills and enterprise are the priority.","stat":"~37% youth unemployment"},{"label":"Poverty & livelihoods","category":"Economic","desc":"Supporting household incomes and resilience under sustained economic pressure."},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future."}]},{"name":"Syria","display":"Syria","rank":27,"region":"Levant","income":"Lower-Middle","clsKey":"fund","priorities":[{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~28% of children stunted"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~26% of children out of school"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"128 deaths a year"}]},{"name":"Gabon","display":"Gabon","rank":28,"region":"Sub-Saharan Africa","income":"Upper-Middle","clsKey":"fund","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"752 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"339 deaths a year"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"841 mothers and newborns die each year"}]},{"name":"Indonesia","display":"Indonesia","rank":29,"region":"Southeast Asia","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"199,299 deaths a year"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~22% of children stunted"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"52,630 deaths a year"}]},{"name":"Iraq","display":"Iraq","rank":30,"region":"Levant","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~18% of children out of school"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"826 deaths a year"},{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~32% youth unemployment"}]},{"name":"Bangladesh","display":"Bangladesh","rank":31,"region":"South Asia","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"31,841 deaths a year"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~24% of children stunted"},{"label":"Maternal survival","category":"Health","desc":"Mothers and newborns still dying around childbirth from causes we know how to prevent; newborn deaths drive most of the toll, and skilled care, safe blood and basic newborn care close much of the gap.","stat":"54,578 mothers and newborns die each year"}]},{"name":"Lebanon","display":"Lebanon","rank":32,"region":"Levant","income":"Upper-Middle","clsKey":"maintain","priorities":[{"label":"Health System Reconstruction","category":"Health"},{"label":"Youth Employment & Livelihoods","category":"Economic"},{"label":"Social Protection for Displaced","category":"Health"}]},{"name":"Suriname","display":"Suriname","rank":33,"region":"Sub-Saharan Africa","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~20% of children out of school"},{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~25% youth unemployment"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"41 deaths a year"}]},{"name":"Tajikistan","display":"Tajikistan","rank":34,"region":"Central Asia","income":"Low","clsKey":"maintain","priorities":[{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"525 deaths a year"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~24% of children out of school"},{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"3,991 deaths a year"}]},{"name":"Guyana","display":"Guyana","rank":35,"region":"Latin America & Caribbean","income":"Upper-Middle","clsKey":"maintain","priorities":[{"label":"Malaria & tropical disease","category":"Health","desc":"Malaria and neglected tropical diseases; among the most cost-effective illnesses in the world to prevent and treat.","stat":"55 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"37 deaths a year"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~17% of children out of school"}]},{"name":"Libya","display":"Libya","rank":36,"region":"North Africa","income":"Upper-Middle","clsKey":"maintain","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~50% youth unemployment"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~33% have a bank account"},{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"1,143 deaths a year"}]},{"name":"Turkmenistan","display":"Turkmenistan","rank":37,"region":"Central Asia","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"2,171 deaths a year"},{"label":"Extreme poverty","category":"Economic","desc":"Households living below the survival line; direct support and livelihoods move families out of poverty fastest.","stat":"~35% living in poverty"},{"label":"Child survival (under-5)","category":"Health","desc":"Young children dying from preventable illness; vaccines, nutrition and basic primary care are among the highest-return interventions in global health.","stat":"32 under-5 deaths per 1,000"}]},{"name":"Malaysia","display":"Malaysia","rank":38,"region":"Southeast Asia","income":"Upper-Middle","clsKey":"maintain","priorities":[{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~21% of children stunted"},{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"26,292 deaths a year"},{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"1,331 deaths a year"}]},{"name":"Egypt","display":"Egypt","rank":39,"region":"North Africa","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~17% youth unemployment"},{"label":"Adult literacy","category":"Education","desc":"Adults who cannot read or write; foundational literacy underpins access to work, health and civic life.","stat":"~79% adult literacy"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~13% of children stunted"}]},{"name":"Tunisia","display":"Tunisia","rank":40,"region":"North Africa","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~39% youth unemployment"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~38% have a bank account"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~4% of children out of school"}]},{"name":"Azerbaijan","display":"Azerbaijan","rank":41,"region":"Central Asia","income":"Upper-Middle","clsKey":"maintain","priorities":[{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"4,291 deaths a year"},{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~14% youth unemployment"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~56% have a bank account"}]},{"name":"Morocco","display":"Morocco","rank":42,"region":"North Africa","income":"Lower-Middle","clsKey":"maintain","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~22% youth unemployment"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~14% of children stunted"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~44% have a bank account"}]},{"name":"Maldives","display":"Maldives","rank":43,"region":"South Asia","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"Enteric infections","category":"Health","desc":"Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.","stat":"16 deaths a year"},{"label":"Childhood nutrition & stunting","category":"Health","desc":"Chronic early malnutrition that permanently limits growth and learning; largely reversible with nutrition in the first 1,000 days.","stat":"~15% of children stunted"},{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~14% youth unemployment"}]},{"name":"Uzbekistan","display":"Uzbekistan","rank":44,"region":"Central Asia","income":"Lower-Middle","clsKey":"monitor","priorities":[{"label":"Respiratory disease & TB","category":"Health","desc":"Tuberculosis and respiratory illness; diagnosable and treatable today with proven, low-cost protocols.","stat":"15,440 deaths a year"},{"label":"Water scarcity","category":"Health","desc":"Chronic water shortage straining health, agriculture and rural livelihoods."}]},{"name":"Algeria","display":"Algeria","rank":45,"region":"North Africa","income":"Lower-Middle","clsKey":"monitor","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~30% youth unemployment"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~35% have a bank account"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~1% of children out of school"}]},{"name":"Albania","display":"Albania","rank":46,"region":"Southeast Europe","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"Youth Retention & Brain Drain Reversal","category":"Economic"},{"label":"Health & Education Workforce Retention","category":"Health"},{"label":"EU Accession Support","category":"Economic"}]},{"name":"Brunei","display":"Brunei","rank":47,"region":"Southeast Asia","income":"High","clsKey":"monitor","priorities":[{"label":"Economic Diversification & Private Sector Development","category":"Economic"},{"label":"Women's Economic Participation","category":"Economic"},{"label":"Non-oil Export Growth","category":"Economic"}]},{"name":"Jordan","display":"Jordan","rank":48,"region":"Levant","income":"Lower-Middle","clsKey":"monitor","priorities":[{"label":"Youth employment","category":"Economic","desc":"A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.","stat":"~39% youth unemployment"},{"label":"Financial inclusion","category":"Economic","desc":"Families locked out of savings, credit and safe transfers; inclusion unlocks resilience, investment and growth.","stat":"~46% have a bank account"},{"label":"Children out of school","category":"Education","desc":"Children with no access to schooling; foundational education is one of the highest-return investments a country can make in its future.","stat":"~2% of children out of school"}]},{"name":"Saudi Arabia","display":"Saudi Arabia","rank":49,"region":"Arabian Peninsula","income":"High","clsKey":"monitor","priorities":[{"label":"No urgent funding gap","category":"Economic","desc":"A high-income country with the capacity to fund its own priorities. Zakat and sadaqah are better directed to countries in greater need."}],"otherPriorities":[{"label":"Youth Employment & Saudisation"},{"label":"Economic Diversification"},{"label":"SME Development"}]},{"name":"Kyrgyzstan","display":"Kyrgyzstan","rank":50,"region":"Central Asia","income":"Lower-Middle","clsKey":"monitor","priorities":[{"label":"Household Food Security & Poverty Reduction","category":"Health"},{"label":"Women's Economic Participation","category":"Economic"},{"label":"Access to Essential Medicines","category":"Health"}]},{"name":"Oman","display":"Oman","rank":51,"region":"Arabian Peninsula","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"No urgent funding gap","category":"Economic","desc":"A high-income country with the capacity to fund its own priorities. Zakat and sadaqah are better directed to countries in greater need."}],"otherPriorities":[{"label":"Sustaining Economic Diversification"},{"label":"Women's Labour Force Participation"},{"label":"Skills Development"}]},{"name":"Iran","display":"Iran","rank":52,"region":"Eastern Mediterranean","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"Youth Employment & NEET Crisis","category":"Economic"},{"label":"Women's Labour Force Participation","category":"Economic"},{"label":"Skills-Jobs Alignment","category":"Education"}]},{"name":"Kazakhstan","display":"Kazakhstan","rank":53,"region":"Central Asia","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"Fiscal Consolidation & Debt Sustainability","category":"Economic"},{"label":"Labour Market Reform","category":"Economic"},{"label":"Non-oil Sector Development","category":"Economic"}]},{"name":"Kuwait","display":"Kuwait","rank":54,"region":"Arabian Peninsula","income":"High","clsKey":"monitor","priorities":[{"label":"No urgent funding gap","category":"Economic","desc":"A high-income country with the capacity to fund its own priorities. Zakat and sadaqah are better directed to countries in greater need."}],"otherPriorities":[{"label":"Youth Employment & Private Sector Reform"},{"label":"Economic Diversification"},{"label":"Public-Private Wage Reform"}]},{"name":"Turkey","display":"Turkey","rank":55,"region":"Eastern Mediterranean","income":"Upper-Middle","clsKey":"monitor","priorities":[{"label":"Regional Inequality & Rural Services","category":"Economic"},{"label":"Education Quality","category":"Education"},{"label":"Child Poverty Reduction","category":"Health"}]},{"name":"Qatar","display":"Qatar","rank":56,"region":"Arabian Peninsula","income":"High","clsKey":"monitor","priorities":[{"label":"No urgent funding gap","category":"Economic","desc":"A high-income country with the capacity to fund its own priorities. Zakat and sadaqah are better directed to countries in greater need."}],"otherPriorities":[{"label":"Youth Employment & Private Sector Reform"},{"label":"Economic Diversification"},{"label":"Public-Private Wage Reform"}]},{"name":"Bahrain","display":"Bahrain","rank":57,"region":"Arabian Peninsula","income":"High","clsKey":"monitor","priorities":[{"label":"No urgent funding gap","category":"Economic","desc":"A high-income country with the capacity to fund its own priorities. Zakat and sadaqah are better directed to countries in greater need."}],"otherPriorities":[{"label":"Fiscal Consolidation & Debt Sustainability"},{"label":"Labour Market Reform"},{"label":"Non-oil Sector Development"}]},{"name":"United States of America","display":"United States","rank":900,"region":"Western diaspora · 3.5–4.5M Muslims","income":"High","clsKey":"diaspora","priorities":[{"label":"Civil rights & legal defence","category":"Justice","desc":"Employment, education and immigration discrimination cases are at record highs — front-line civil-rights organisations lack the capacity to meet documented demand."},{"label":"Muslim students & youth","category":"Education","desc":"A majority of Muslim students report harassment at school; support protects a young, fast-growing generation and their access to opportunity."},{"label":"Muslim women's economic participation","category":"Economic","desc":"Women face the most compounded disadvantage — flexible work, anti-discrimination training and childcare have measurable impact and remain underfunded."}]},{"name":"United Kingdom","display":"United Kingdom","rank":901,"region":"Western diaspora · 3.9M Muslims","income":"High","clsKey":"diaspora","priorities":[{"label":"Economic inclusion & poverty","category":"Economic","desc":"Close to half of British Muslims live in or near poverty, concentrated in the most deprived areas; place-based investment closes gaps national programmes miss."},{"label":"Education into employment","category":"Education","desc":"Young British Muslims now beat the national degree average yet still face a hiring penalty — the priority is turning education into genuine labour-market access."},{"label":"Anti-Islamophobia monitoring","category":"Justice","desc":"Anti-Muslim hate incidents have risen more than fivefold since 2012; systematic monitoring keeps the problem visible to policymakers."}]}];
+
+const CLS={fund:{l:'Fund',c:'var(--fund)',hex:'#E0566B'},monitor:{l:'Monitor',c:'var(--monitor)',hex:'#E9B04A'},maintain:{l:'Maintain',c:'var(--maintain)',hex:'#8EA3BA'},diaspora:{l:'Diaspora',c:'var(--diaspora)',hex:'#9CBDE8'}};
+const CATC={Health:'var(--health)',Education:'var(--education)',Economic:'var(--economic)'};
+const ranked=DATA.filter(c=>c.clsKey!=='diaspora').length;
+DATA.forEach(c=>{c.geo=c.name||(c.display==='West Bank'?'Palestine':null)});
+const byGeo=new Map(DATA.filter(c=>c.geo).map(c=>[c.geo,c]));
+const byName=new Map(DATA.map(c=>[c.display,c]));
+const DOTS={"Bahrain":[50.55,26.07],"Comoros":[43.87,-11.88],"Maldives":[73.22,3.2],"Gaza":[34.39,31.42]};
+
+/* header */
+const menuBtn=$('#menuBtn'),links=$('#navLinks');
+menuBtn.onclick=()=>{const o=links.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)};
+links.onclick=e=>{if(e.target.closest('a')){links.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}};
+addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>8),{passive:true});
+
+/* brief */
+const badge=k=>`<span class="badge" style="background:color-mix(in srgb,${CLS[k].c} 18%,transparent);color:${CLS[k].c}"><i style="background:${CLS[k].c}"></i>${CLS[k].l}</span>`;
+function briefHTML(c,idPrefix){
+  const isD=c.clsKey==='diaspora';
+  const facts=isD?`<div><dt>Community</dt><dd>${esc(c.region.replace(/^Western diaspora\s*[·\-–—]\s*/,''))}</dd></div><div><dt>Income</dt><dd>${esc(c.income)}</dd></div><div><dt>Status</dt><dd>Diaspora</dd></div>`
+    :`<div><dt>Rank</dt><dd>${c.rank} <span style="font-size:13px;color:var(--on-dark-faint)">of ${ranked}</span></dd></div><div><dt>Region</dt><dd>${esc(c.region)}</dd></div><div><dt>Income</dt><dd>${esc(c.income)}</dd></div>`;
+  const pr=c.priorities.map((p,i)=>`<li class="prio"><span class="n">${i+1}</span><h4>${esc(p.label)}</h4><span class="cat"><i style="background:${CATC[p.category]||'var(--data)'}"></i>${esc(p.category)}</span>${p.stat?`<div class="stat">${esc(p.stat)}</div>`:''}${p.desc?`<p>${esc(p.desc)}</p>`:''}</li>`).join('');
+  const other=c.otherPriorities&&c.otherPriorities.length?`<button class="more-btn" type="button" aria-expanded="false">Show longer-term priorities</button><div class="others" hidden>${c.otherPriorities.map(o=>`<span>${esc(o.label)}</span>`).join('')}</div>`:'';
+  return `<div class="brief-top"><div><p class="sub">Top priorities</p><h3 ${idPrefix?`id="${idPrefix}Title"`:''}>${esc(c.display)}</h3></div>${badge(c.clsKey)}</div>
+    <dl class="facts" style="margin:0">${facts}</dl><ol class="prios">${pr}</ol>${other}`;
+}
+function wireMore(root){const b=root.querySelector('.more-btn');if(b)b.onclick=()=>{const o=root.querySelector('.others');o.hidden=!o.hidden;b.setAttribute('aria-expanded',!o.hidden);b.textContent=o.hidden?'Show longer-term priorities':'Hide longer-term priorities'}}
+let lastFocus=null;
+function showBrief(c){
+  const d=$('#drawer'),el=$('#brief');
+  if(!c){d.classList.remove('open');d.setAttribute('aria-hidden','true');document.body.classList.remove('locked');return}
+  el.innerHTML=briefHTML(c,'drawer');wireMore(el);
+  if(!d.classList.contains('open')){lastFocus=document.activeElement;d.classList.add('open');d.setAttribute('aria-hidden','false');document.body.classList.add('locked');d.querySelector('.drawer-close').focus({preventScroll:true})}
+  d.querySelector('.drawer-panel').scrollTop=0;
+}
+function closeBrief(){selected=null;showBrief(null);G.style();if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})}
+$('#drawer').addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeBrief()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#drawer').classList.contains('open'))closeBrief()});
+
+/* legend (globe) + chips (index) */
+const counts=Object.fromEntries(Object.keys(CLS).map(k=>[k,DATA.filter(c=>c.clsKey===k).length]));
+let gFilter=null;
+$('#legend').innerHTML=Object.keys(CLS).map(k=>`<button class="lg" type="button" data-k="${k}" aria-pressed="false"><i style="background:${CLS[k].c}"></i>${CLS[k].l} <b>${counts[k]}</b></button>`).join('');
+$('#legend').onclick=e=>{const b=e.target.closest('.lg');if(!b)return;gFilter=gFilter===b.dataset.k?null:b.dataset.k;$$('.lg').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===gFilter));G.style()};
+
+/* search with suggestions */
+(function(){
+  const q=$('#q'),s=$('#sugg');let items=[],on=0;
+  function render(){
+    const v=q.value.trim().toLowerCase();
+    items=v?DATA.filter(c=>c.display.toLowerCase().includes(v)).slice(0,8):[];
+    on=0;s.hidden=!items.length;
+    s.innerHTML=items.map((c,i)=>`<button type="button" role="option" class="${i===on?'on':''}" data-n="${esc(c.display)}">${esc(c.display)}<span>${CLS[c.clsKey].l}</span></button>`).join('');
+  }
+  function pick(n){const c=byName.get(n);if(!c)return;q.value='';s.hidden=true;select(c,true)}
+  q.addEventListener('input',render);
+  q.addEventListener('keydown',e=>{
+    if(s.hidden)return;
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();on=(on+(e.key==='ArrowDown'?1:-1)+items.length)%items.length;$$('#sugg button').forEach((b,i)=>b.classList.toggle('on',i===on))}
+    else if(e.key==='Enter'){e.preventDefault();pick(items[on].display)}
+    else if(e.key==='Escape'){s.hidden=true}
+  });
+  s.onclick=e=>{const b=e.target.closest('button');if(b)pick(b.dataset.n)};
+  document.addEventListener('click',e=>{if(!e.target.closest('#searchBox'))s.hidden=true});
+})();
+
+/* globe */
+const G={style(){},focus(){}};
+let selected=null;
+function select(c,rotate){selected=c;showBrief(c);G.style();if(rotate)G.focus(c)}
+(function(){
+  if(!window.d3||!window.topojson||!window.WORLD){$('#gLoad').textContent='The globe could not load. Use the search or the index below.';return}
+  $('#gLoad').remove();
+  const svg=d3.select('#globe'),tip=$('#tip'),box=$('#globeBox');
+  const S=270;let zoom=1,rot=[-40,-20,0],spinning=!reduce;
+  const proj=d3.geoOrthographic().scale(S).translate([300,300]).clipAngle(90).rotate(rot);
+  const path=d3.geoPath(proj);
+  const defs=svg.append('defs');
+  const og=defs.append('radialGradient').attr('id','ocean').attr('cx','38%').attr('cy','32%');
+  og.append('stop').attr('offset','0%').attr('stop-color','#2F6E9E');og.append('stop').attr('offset','100%').attr('stop-color','#163E62');
+  const sphere=svg.append('path').datum({type:'Sphere'}).attr('class','sphere');
+  const grat=svg.append('path').datum(d3.geoGraticule10()).attr('class','grat');
+  const feats=topojson.feature(WORLD,WORLD.objects.countries).features;
+  const cp=svg.append('g').selectAll('path').data(feats).join('path')
+    .attr('class',f=>byGeo.has(f.properties.name)?'ctry':'land')
+    .attr('fill',f=>{const c=byGeo.get(f.properties.name);return c?CLS[c.clsKey].hex:null});
+  const dots=Object.entries(DOTS).map(([n,ll])=>({n,ll,c:byName.get(n)})).filter(d=>d.c);
+  const mk=svg.append('g').selectAll('circle').data(dots).join('circle').attr('class','mk').attr('r',5.5).attr('fill',d=>CLS[d.c.clsKey].hex);
+  function draw(){
+    proj.rotate(rot).scale(S*zoom);
+    sphere.attr('d',path);grat.attr('d',path);cp.attr('d',path);
+    const ctr=[-rot[0],-rot[1]];
+    mk.each(function(d){const vis=d3.geoDistance(d.ll,ctr)<Math.PI/2,xy=proj(d.ll);d3.select(this).attr('cx',xy[0]).attr('cy',xy[1]).attr('display',vis?null:'none')});
+  }
+  G.style=function(){
+    cp.classed('sel',f=>selected&&byGeo.get(f.properties.name)===selected)
+      .classed('dim',f=>{const c=byGeo.get(f.properties.name);return !!(c&&gFilter&&c.clsKey!==gFilter)});
+    mk.classed('sel',d=>d.c===selected).classed('dim',d=>!!(gFilter&&d.c.clsKey!==gFilter));
+  };
+  G.focus=function(c){
+    spinning=false;
+    const d=dots.find(x=>x.c===c),f=feats.find(f=>byGeo.get(f.properties.name)===c);
+    const ll=d?d.ll:f?d3.geoCentroid(f):null;if(!ll)return;
+    const from=rot.slice(),to=[-ll[0],-ll[1]*.8,0];
+    if(reduce){rot=to;draw();return}
+    d3.transition().duration(900).tween('rot',()=>{const i=d3.interpolate(from,to);return t=>{rot=i(t);draw()}});
+  };
+  function hit(c){if(c)select(c,false)}
+  cp.filter(f=>byGeo.has(f.properties.name)).on('click',(e,f)=>hit(byGeo.get(f.properties.name)));
+  mk.on('click',(e,d)=>hit(d.c));
+  function showTip(e,c){const r=box.getBoundingClientRect();tip.hidden=false;tip.textContent=c.display;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px'}
+  cp.filter(f=>byGeo.has(f.properties.name)).on('pointermove',(e,f)=>showTip(e,byGeo.get(f.properties.name))).on('pointerleave',()=>tip.hidden=true);
+  mk.on('pointermove',(e,d)=>showTip(e,d.c)).on('pointerleave',()=>tip.hidden=true);
+  let start=null;
+  svg.call(d3.drag().on('start',e=>{spinning=false;start={x:e.x,y:e.y,r:rot.slice()};svg.classed('dragging',true)})
+    .on('drag',e=>{const k=.28/zoom;rot=[start.r[0]+(e.x-start.x)*k,Math.max(-70,Math.min(70,start.r[1]-(e.y-start.y)*k)),0];draw()})
+    .on('end',()=>svg.classed('dragging',false)));
+  $('#zin').onclick=()=>{zoom=Math.min(3,zoom*1.3);draw()};
+  $('#zout').onclick=()=>{zoom=Math.max(.8,zoom/1.3);draw()};
+  $('#reset').onclick=()=>{zoom=1;rot=[-40,-20,0];gFilter=null;$$('.lg').forEach(x=>x.setAttribute('aria-pressed',false));select(null);spinning=!reduce;draw()};
+  let last=performance.now();
+  (function tick(t){if(spinning&&!document.hidden){rot[0]+=(t-last)*.006;draw()}last=t;requestAnimationFrame(tick)})(last);
+  draw();G.style();
+})();
+/* five priorities */
+const FIVE=[
+ ['Health','Maternal survival','~960,000 mothers and newborns die each year','Mothers and newborns still dying around childbirth from causes we already know how to prevent; newborns account for most of the deaths, and skilled care saves both.'],
+ ['Health','Enteric infections','~465,000 deaths a year','Enteric infections are gut infections spread by unsafe water and food. Nearly all the deaths come from diarrhoea, and that so many die from something we can prevent with clean water and treat for pennies is a moral travesty.'],
+ ['Health','Malaria & tropical disease','~508,000 deaths a year','Malaria and neglected tropical diseases: among the most cost-effective illnesses in the world to prevent and treat.'],
+ ['Education','Children out of school','Around 110 million children','Children with no access to schooling, one of the highest-return investments a country can make in its future.'],
+ ['Economic','Youth employment','A generation of 350 million young people','A young generation ready for work; jobs, skills and enterprise turn a demographic risk into a demographic dividend.']
+];
+$('#fiveGrid').innerHTML=FIVE.map(([c,t,b,d])=>`<article class="five"><span class="tag"><i style="background:${CATC[c]}"></i>${c}</span><h3>${t}</h3><p class="big">${b}</p><p>${d}</p></article>`).join('');
+
+/* newsletter (no backend wired here) */
+$('#newsForm').addEventListener('submit',e=>{
+  e.preventDefault();const v=$('#newsEmail').value.trim(),m=$('#newsMsg');m.hidden=false;
+  m.textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'Thank you. You are on the list.':'Please enter a valid email address.';
+});
+</script>
+</html>

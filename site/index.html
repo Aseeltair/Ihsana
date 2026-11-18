@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ihsana</title>
+<meta name="description" content="Ihsana is an advisory firm helping Muslim philanthropists, family offices and foundations give where it matters most.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: original section order (hero → serve → dashboard → gap → method → insights → compass → newsletter → contact), each section given one interaction */
+:root{
+  /* warm palette: cream paper, navy ink, deep blue accent, crimson action */
+  --ink:#14294A; --ink-soft:rgba(20,41,74,.78); --ink-faint:rgba(20,41,74,.54);
+  --paper:#F9F5EF; --paper-2:#F1EAE0; --line:rgba(20,41,74,.13);
+  --olive:#1E4F8C; --olive-2:#2A63A8; --sage:#B7C4D6; --tint:rgba(30,79,140,.08);
+  --maroon:#A8152E; --maroon-2:#8A0F24;
+  --deep:#0F2638; --on-dark:#F6F1EA; --on-dark-soft:rgba(246,241,234,.74); --on-dark-line:rgba(246,241,234,.14);
+  --gold:#E9B04A; --data:#9CBDE8;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --sans:"Mulish",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --max:1180px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F1EBE2; --ink-soft:rgba(241,235,226,.76); --ink-faint:rgba(241,235,226,.52);
+    --paper:#0E1727; --paper-2:#16223A; --line:rgba(241,235,226,.12);
+    --olive:#8FB4E8; --olive-2:#B0CBF0; --sage:#3E5478; --tint:rgba(143,180,232,.12);
+    --maroon:#D93A52; --maroon-2:#E85A70; --deep:#08101D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F1EBE2; --ink-soft:rgba(241,235,226,.76); --ink-faint:rgba(241,235,226,.52);
+  --paper:#0E1727; --paper-2:#16223A; --line:rgba(241,235,226,.12);
+  --olive:#8FB4E8; --olive-2:#B0CBF0; --sage:#3E5478; --tint:rgba(143,180,232,.12);
+  --maroon:#D93A52; --maroon-2:#E85A70; --deep:#08101D; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--olive-2);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--olive)}
+.lede{font-size:18px;color:var(--ink-soft);max-width:58ch}
+section{padding-block:clamp(72px,9vw,112px)}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:48px}
+.section-head h2{font-size:clamp(30px,4vw,46px);margin-top:12px;max-width:20ch}
+.section-head .lede{max-width:46ch;font-size:17px}
+
+/* reveal: elements are visible at rest, then get a gentle lift once seen */
+.rv{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s}
+.js .rv.pre{transform:translateY(18px);opacity:.35}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:16px;height:16px;transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--maroon);color:#fff}
+.btn-primary:hover{background:var(--maroon-2)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--olive);color:var(--olive)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--maroon);transform-origin:left;transform:scaleX(0)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1}
+.brand-name{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.24em;margin-right:-.24em;color:var(--ink)}
+.brand-name::after{content:"";display:block;height:2px;width:28px;margin-top:7px;background:var(--maroon);border-radius:2px;transition:width .3s}
+.brand:hover .brand-name::after{width:100%}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:600}
+.nav-links a{text-decoration:none;color:var(--ink-soft);position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--olive);transform:scaleX(0);transition:transform .25s}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:var(--ink)}
+.nav-links a.active::after,.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+.nav-links .btn{color:#fff;padding:11px 18px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer}
+@media (max-width:920px){
+  .menu-btn{display:grid;place-items:center}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px max(20px,env(safe-area-inset-right,0px)) 20px max(20px,env(safe-area-inset-left,0px))}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav-links a::after{display:none}
+  .nav-links .btn{margin-top:16px;justify-content:center;border:0}
+  .nav-links:not(.open){display:none}
+}
+
+/* 1 · hero */
+.hero{padding-block:clamp(56px,8vw,110px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,74px);margin-top:20px}
+.hero h1 em{font-style:italic;color:var(--olive)}
+.hero::before,.hero::after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;pointer-events:none;z-index:-1}
+.hero::before{width:900px;height:900px;left:-560px;top:-640px}
+.hero::after{width:700px;height:700px;right:-420px;bottom:-520px}
+.hero{isolation:isolate}
+.hero .lede{margin-top:24px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.star-box{position:relative;aspect-ratio:1;max-width:100%;width:100%}
+#star{width:100%;height:100%;display:block;overflow:visible;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+#star .ln{fill:none;stroke:var(--olive);stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.2s cubic-bezier(.6,0,.2,1) both}
+#star .l1{stroke-width:1;opacity:.35}
+#star .l2{stroke-width:1.6;opacity:.75}
+#star .l3{stroke-width:2.2}
+#star .fillc{fill:var(--tint)}
+#star .core{fill:var(--gold);transform-origin:220px 220px;animation:pop .8s 1.4s cubic-bezier(.2,1.4,.4,1) both}
+#star .spin{transform-origin:220px 220px;animation:spin 90s linear infinite}
+#star .spin-r{transform-origin:220px 220px;animation:spin 140s linear infinite reverse}
+#star .nd{fill:var(--paper);stroke:var(--olive);stroke-width:1.4}
+@keyframes draw{from{stroke-dashoffset:1}}
+@keyframes pop{from{transform:scale(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.star-box{max-width:340px;margin-inline:auto}}
+
+/* 2 · who we serve */
+.serve{background:var(--paper-2)}
+.serve-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.serve h2{font-size:clamp(28px,3.4vw,40px);margin-top:12px}
+.serve .note{margin-top:18px;color:var(--ink-soft);max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--olive)}
+.chip[aria-selected="true"]{background:var(--olive);border-color:var(--olive);color:var(--paper)}
+.serve-panel{margin-top:22px;background:var(--paper);border-radius:18px;padding:28px;min-height:150px}
+.serve-panel h3{font-size:24px}
+.serve-panel p{color:var(--ink-soft);margin-top:10px}
+.fade{animation:fade .45s ease both}
+@keyframes fade{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:860px){.serve-grid{grid-template-columns:1fr;gap:28px}}
+
+/* 3 · priorities globe */
+.dash{background:var(--deep);color:var(--on-dark)}
+.dash .eyebrow{color:var(--data)}
+.dash .section-head .lede{color:var(--on-dark-soft)}
+.dash-ui{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:start}
+.globe-col{min-width:0;display:grid;gap:14px}
+.g-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:10px;border:1px solid var(--on-dark-line);border-radius:999px;padding:0 16px;background:rgba(255,255,255,.04)}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--on-dark);font:inherit;font-size:15px;padding:11px 0;outline:none}
+.search input::placeholder{color:rgba(238,243,243,.45)}
+.search:focus-within{border-color:var(--data)}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.lg{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--on-dark-line);color:var(--on-dark-soft);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lg[aria-pressed="true"]{border-color:var(--on-dark);color:var(--on-dark);background:rgba(255,255,255,.08)}
+.globe-box{position:relative;width:100%;max-width:640px;margin-inline:auto;aspect-ratio:1}
+#globe{width:100%;height:100%;display:block;touch-action:none;cursor:grab;user-select:none}
+#globe.dragging{cursor:grabbing}
+#globe .sphere{fill:url(#ocean);stroke:rgba(255,255,255,.14)}
+#globe .grat{fill:none;stroke:rgba(255,255,255,.14);stroke-width:.6}
+#globe .land{fill:#56738B;stroke:rgba(12,34,56,.55);stroke-width:.5}
+#globe .ctry{stroke:rgba(12,34,56,.7);stroke-width:.7;cursor:pointer;transition:opacity .25s}
+#globe .ctry:hover{filter:brightness(1.25)}
+#globe .ctry.dim,#globe .mk.dim{opacity:.3}
+#globe .ctry.sel{stroke:#fff;stroke-width:2.2}
+#globe .mk{stroke:rgba(12,34,56,.7);stroke-width:1.2;cursor:pointer}
+#globe .mk.sel{stroke:#fff;stroke-width:2.2}
+#globe .halo{display:none}
+.tip{position:absolute;pointer-events:none;background:var(--on-dark);color:var(--deep);font-size:13px;font-weight:700;padding:6px 10px;border-radius:8px;transform:translate(-50%,-140%);white-space:nowrap}
+.zoom{position:absolute;right:6px;bottom:6px;display:grid;gap:6px}
+.zoom button{width:38px;height:38px;border-radius:50%;border:1px solid var(--on-dark-line);background:rgba(6,18,28,.75);color:var(--on-dark);cursor:pointer;font-size:18px;line-height:1}
+.zoom button:hover{border-color:var(--data)}
+.g-hint{position:absolute;left:6px;bottom:10px;font-size:12.5px;color:var(--on-dark-soft)}
+.detail{border:1px solid var(--on-dark-line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:18px;background:rgba(255,255,255,.03)}
+.detail h3{font-size:32px}
+.detail .sub{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--data)}
+.detail ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:p}
+.detail li{counter-increment:p;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:rgba(255,255,255,.05);border-radius:12px;padding:12px 14px;font-size:15px}
+.detail li::before{content:counter(p);font-family:var(--serif);font-size:20px;color:var(--gold);line-height:1.1}
+.detail li small{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--on-dark-soft)}
+.detail li small i{width:8px;height:8px;border-radius:50%}
+.top-pri{border-top:1px solid var(--on-dark-line);padding-top:18px;display:grid;gap:8px}
+.top-pri .sub{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--data)}
+.pbar{display:grid;grid-template-columns:1fr auto;gap:2px 10px;background:none;border:0;padding:4px 0;cursor:pointer;text-align:left;color:var(--on-dark);font-size:13.5px}
+.pbar span:last-of-type{font-variant-numeric:tabular-nums;color:var(--on-dark-soft)}
+.pbar b{grid-column:1/-1;height:6px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden;display:block}
+.pbar b i{display:block;height:100%;background:var(--data);border-radius:9px;transition:background .2s}
+.pbar[aria-pressed="true"] b i,.pbar:hover b i{background:var(--gold)}
+.dash-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;color:var(--on-dark-soft);font-size:14px}
+.dash .btn-primary{background:var(--on-dark);color:var(--deep)}
+.dash .btn-primary:hover{background:#fff}
+@media (max-width:900px){.dash-ui{grid-template-columns:1fr}}
+
+/* 4 · impact gap */
+.gap-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.gap h2{font-size:clamp(30px,4vw,46px);margin-top:12px}
+.gap .lede{margin-top:18px}
+.calc{background:var(--paper-2);border-radius:22px;padding:clamp(22px,4vw,36px);display:grid;gap:24px}
+.calc-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.calc label{font-weight:700}
+.calc-out{font-family:var(--serif);font-size:44px;line-height:1;font-variant-numeric:tabular-nums;color:var(--olive)}
+.calc-out small{font-family:var(--sans);font-size:15px;color:var(--ink-faint);margin-left:6px}
+input[type=range]{width:100%;accent-color:var(--maroon);height:28px;cursor:pointer}
+.goals{display:grid;gap:14px}
+.goal{display:grid;gap:6px}
+.goal-row{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.goal-row b{font-variant-numeric:tabular-nums}
+.track{height:12px;border-radius:99px;background:var(--tint);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:99px;background:var(--olive);transition:width .35s cubic-bezier(.2,.7,.2,1),background .3s}
+.goal.done .track i{background:var(--maroon)}
+.goal .state{font-size:13px;color:var(--ink-faint)}
+.goal.done .state{color:var(--maroon);font-weight:700}
+.calc-note{font-size:12.5px;color:var(--ink-faint)}
+@media (max-width:900px){.gap-grid{grid-template-columns:1fr;gap:32px}}
+
+/* 5 · how we work */
+.work{background:var(--paper-2)}
+.tabs{display:inline-flex;background:var(--paper);border-radius:999px;padding:5px;gap:4px;margin-bottom:28px;flex-wrap:wrap}
+.tab{border:0;background:none;padding:11px 20px;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;color:var(--ink-soft)}
+.tab[aria-selected="true"]{background:var(--olive);color:var(--paper)}
+.path{background:var(--paper);border-radius:22px;padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.path-num{font-family:var(--serif);font-size:88px;line-height:.9;color:var(--tint);-webkit-text-stroke:1.5px var(--olive);color:transparent}
+.path h3{font-size:30px;margin-top:10px}
+.path p{color:var(--ink-soft);margin-top:14px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;align-content:start}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:14px}
+.steps li span{width:26px;height:26px;border-radius:50%;background:var(--tint);color:var(--olive);display:grid;place-items:center;font-size:13px;font-weight:700}
+@media (max-width:800px){.path{grid-template-columns:1fr;gap:24px}.path-num{font-size:64px}}
+
+/* 6 · insights */
+.ins-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 clamp(16px,3vh,28px)}
+.ins-filters button{font:600 14px var(--sans);color:var(--ink-soft);background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;transition:all .2s}
+.ins-filters button:hover{border-color:var(--olive);color:var(--olive)}
+.ins-filters button[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:var(--paper)}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ins-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+.ins-card:hover{border-color:var(--olive);box-shadow:0 14px 34px -20px rgba(20,41,74,.4);transform:translateY(-3px)}
+.ins-cover{position:relative;height:clamp(90px,17vh,170px);background:linear-gradient(135deg,var(--tint),color-mix(in srgb,var(--olive) 22%,transparent));display:grid;place-items:center;color:var(--olive)}
+.ins-cover svg{width:46px;height:46px;opacity:.85}
+.ins-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ins-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--olive)}
+.ins-meta span+span{color:var(--ink-faint);font-weight:600;letter-spacing:.02em;text-transform:none}
+.ins-card h3{font-size:21px}
+.ins-card p{margin:0;color:var(--ink-soft);font-size:15.5px}
+.ins-more{margin-top:auto;padding-top:8px;font-weight:700;font-size:14.5px;color:var(--olive)}
+.ins-new{position:absolute;top:0;left:0;margin:12px;background:var(--maroon);color:#fff;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:5px 10px}
+.ins-empty{grid-column:1/-1;color:var(--ink-faint);font-style:italic;padding:20px 0}
+.ins-foot{margin-top:32px;text-align:center}
+@media (max-width:960px){.ins-grid{grid-template-columns:1fr 1fr}.ins-grid>:nth-child(3){display:none}}
+@media (max-width:640px){.ins-grid{grid-template-columns:1fr}.ins-grid>:nth-child(3){display:flex}}
+
+/* 7 · ethical compass */
+.compass-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.wheel{width:100%;max-width:440px;aspect-ratio:1;margin-inline:auto;display:block}
+.wheel .seg{cursor:pointer;transition:fill .25s,transform .25s;transform-origin:220px 220px}
+.wheel .seg path{fill:var(--tint);stroke:var(--paper);stroke-width:4;transition:fill .25s}
+.wheel .seg:hover path{fill:color-mix(in srgb,var(--olive) 30%,transparent)}
+.wheel .seg.on path{fill:var(--olive)}
+.wheel .seg.on{transform:scale(1.04)}
+.wheel text{font-family:var(--serif);font-size:19px;font-weight:600;fill:var(--olive);pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+.wheel .seg.on text{fill:var(--paper)}
+.wheel .hub{fill:var(--paper)}
+.wheel .hub-t{font-family:var(--serif);font-size:15px;fill:var(--ink-faint);font-style:italic}
+.maq-panel h3{font-size:clamp(30px,3.6vw,42px)}
+.maq-num{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:10px}
+.maq-panel .tr{color:var(--ink-faint);font-style:italic;margin-top:4px}
+.maq-panel .desc{margin-top:18px;font-size:18px;color:var(--ink-soft);max-width:42ch}
+.maq-panel .ex{margin-top:22px;display:grid;gap:10px}
+.maq-panel .ex .eyebrow{font-size:11.5px;color:var(--ink-faint)}
+.maq-tags{display:flex;flex-wrap:wrap;gap:8px}
+.maq-tags span{background:var(--tint);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:14px}
+.maq-nav{display:flex;gap:8px;margin-top:26px}
+.maq-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:none;cursor:pointer;display:grid;place-items:center}
+.maq-nav button:hover{border-color:var(--olive)}
+.ghazali{margin-top:28px;font-size:14.5px;color:var(--ink-faint)}
+@media (max-width:860px){.compass-grid{grid-template-columns:1fr;gap:28px}}
+
+/* 8 · newsletter */
+.news{background:#1B3A55;color:var(--on-dark);padding-block:clamp(56px,7vw,80px)}
+.news-grid{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px 48px}
+.news h2{font-size:clamp(28px,3.4vw,38px)}
+.news p{opacity:.8;margin-top:8px}
+.news form{display:flex;gap:8px;flex:1 1 360px;max-width:520px;flex-wrap:wrap}
+.news input{flex:1 1 220px;min-width:0;padding:14px 18px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--paper) 35%,transparent);background:color-mix(in srgb,var(--paper) 10%,transparent);color:var(--paper);font:inherit;font-size:15px}
+.news input::placeholder{color:color-mix(in srgb,var(--paper) 60%,transparent)}
+.news input:focus{outline:none;border-color:var(--paper)}
+.news .btn{background:var(--on-dark);color:#1B3A55}
+.news-msg{flex-basis:100%;font-size:14px;font-weight:600}
+
+/* 9 · contact */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.contact h2{font-size:clamp(32px,4.4vw,52px);margin-top:12px}
+.contact .lede{margin-top:20px}
+.contact .btn{margin-top:30px}
+.card{border:1px solid var(--line);border-radius:20px;padding:10px 26px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0}
+.crow+.crow{border-top:1px solid var(--line)}
+.crow .k{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
+.crow .v{display:block;font-size:19px;font-family:var(--serif);font-variant-numeric:tabular-nums;user-select:all;overflow-wrap:anywhere}
+.copy{flex:none;border:1.5px solid var(--line);background:none;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;color:var(--olive);min-width:76px}
+.copy:hover{border-color:var(--olive)}
+.copy.ok{background:var(--olive);color:var(--paper);border-color:var(--olive)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+footer{padding-block:44px;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+.foot-tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:52ch}
+.foot-meta{display:flex;gap:20px;font-size:14px;color:var(--ink-faint)}
+.foot-meta a{text-decoration:none}
+.foot-meta a:hover{color:var(--ink)}
+
+/* ===== full-screen pages: each section fills exactly one screen below the 72px header ===== */
+html{scroll-padding-top:72px}
+.page{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;padding-block:clamp(24px,5vh,64px)}
+.page>.wrap{width:100%}
+@media (min-width:901px) and (min-height:600px){html{scroll-snap-type:y mandatory}}
+.section-head{margin-bottom:clamp(18px,4vh,44px)}
+.section-head h2{font-size:clamp(28px,min(4vw,6vh),46px)}
+.hero h1{font-size:clamp(34px,min(6vw,8.4vh),74px);margin-top:clamp(10px,2vh,20px)}
+.hero .lede{margin-top:clamp(12px,2.6vh,24px)}
+.hero-ctas{margin-top:clamp(18px,4vh,36px)}
+.star-box{width:min(100%,calc(100svh - 72px - 14vh));margin-inline:auto}
+.tabs{margin-bottom:clamp(12px,3vh,28px)}
+.path{padding:clamp(20px,4vh,44px)}
+.path-num{font-size:clamp(52px,10vh,88px)}
+.steps{gap:clamp(8px,1.4vh,12px)}
+.steps li{padding:clamp(10px,1.6vh,16px) 18px}
+.calc{gap:clamp(14px,3vh,24px)}
+.svc summary{padding:clamp(16px,2.8vh,26px) 22px}
+@media (min-width:601px){
+  .svc{position:relative}
+  .svc[open]{border-radius:18px 18px 0 0;z-index:6}
+  .svc[open] .svc-body{position:absolute;left:-1px;right:-1px;top:100%;background:var(--paper);border:1px solid var(--olive);border-top:0;border-radius:0 0 18px 18px;box-shadow:0 18px 30px -18px rgba(20,41,74,.4)}
+}
+.wheel{width:min(440px,max(260px,calc(100svh - 72px - 10vh - 170px)))}
+/* dashboard: controls · globe · country */
+.dash-ui{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"left globe right";gap:clamp(18px,2.4vw,32px);align-items:center}
+.dash-left{grid-area:left;min-width:0;display:grid;gap:18px;align-content:center}
+.dash-left .g-tools{flex-direction:column;align-items:stretch}
+.dash-left .search{flex:none}
+.globe-box{grid-area:globe;width:min(540px,max(280px,calc(100svh - 72px - 10vh - 190px)));margin:0}
+.dash .detail{grid-area:right;padding:clamp(18px,3vh,26px);gap:clamp(12px,2vh,18px)}
+.dash .detail h3{font-size:clamp(24px,4vh,32px)}
+.dash .detail li{padding:clamp(8px,1.4vh,12px) 14px}
+.dash-foot{margin-top:0;flex-direction:column;align-items:flex-start;gap:12px;border-top:1px solid var(--on-dark-line);padding-top:clamp(12px,2vh,18px);font-size:13.5px}
+.dash-foot .btn{padding:11px 18px;font-size:14px}
+.top-pri{border-top:0;padding-top:0}
+@media (max-width:1099px) and (min-width:901px){
+  .dash-ui{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"globe left" "globe right";align-items:start}
+}
+@media (max-width:900px){
+  .dash-ui{grid-template-columns:1fr;grid-template-areas:"left" "globe" "right"}
+  .globe-box{width:min(100%,520px);margin-inline:auto}
+}
+/* last page: newsletter, contact and footer together */
+.page-end{padding-block:0;justify-content:stretch}
+.page-end .news{padding-block:clamp(22px,4.5vh,52px)}
+.page-end .contact{flex:1;display:flex;align-items:center;padding-block:clamp(24px,5vh,64px)}
+.page-end .contact>.wrap{width:100%}
+.page-end footer{padding-block:clamp(16px,3vh,32px)}
+.contact h2{font-size:clamp(28px,min(4.4vw,6.4vh),52px)}
+.contact .lede{margin-top:clamp(10px,2.4vh,20px)}
+.contact .btn{margin-top:clamp(16px,3.4vh,30px)}
+.crow{padding:clamp(10px,2vh,18px) 0}
+/* short laptop screens: tighten spacing so each page still fits */
+@media (max-height:760px) and (min-width:901px){
+  .page{padding-block:20px}
+  .section-head{margin-bottom:14px;gap:8px 32px}
+  .section-head .lede{font-size:15px;line-height:1.5}
+  .eyebrow{font-size:11.5px}
+  .path{padding:18px 24px;gap:24px}
+  .path-num{font-size:44px}
+  .path h3{font-size:24px;margin-top:4px}
+  .path p{margin-top:8px;font-size:15.5px;line-height:1.55}
+  .steps li{padding:7px 14px;font-size:15px}
+  .tabs{margin-bottom:10px}
+  .tab{padding:8px 16px}
+  .dash .detail{padding:16px;gap:10px}
+  .dash .detail h3{font-size:22px}
+  .dash .detail li{padding:6px 12px;font-size:14px}
+  .detail li small{margin-top:1px}
+  .dash-foot{padding-top:10px;gap:8px;font-size:12.5px;line-height:1.45}
+  .dash-left{gap:10px}
+  .pbar{padding:2px 0;font-size:13px}
+  .lg{padding:6px 12px}
+  .search input{padding:8px 0}
+  .page-end .news{padding-block:16px}
+  .page-end .news h2{font-size:24px}
+  .page-end .news p{margin-top:2px;font-size:15px}
+  .page-end .contact{padding-block:16px}
+  .page-end .contact .lede{font-size:16px}
+  .page-end footer{padding-block:12px}
+  .page-end .card{padding:4px 22px}
+}
+
+/* ===== hero chart: cost of a goal vs total annual zakat ===== */
+.zc{margin:0;background:var(--paper-2);border-radius:24px;padding:clamp(18px,3.2vh,30px);display:grid;gap:clamp(10px,2vh,16px);min-width:0}
+.zc-tabs{display:flex;gap:4px;background:var(--paper);border-radius:999px;padding:4px;justify-self:center}
+.zc-tabs button{border:0;background:none;border-radius:999px;padding:7px 16px;font-size:13.5px;font-weight:700;color:var(--ink-soft);cursor:pointer}
+.zc-tabs button[aria-selected="true"]{background:var(--olive);color:var(--paper)}
+.zc-title{font-family:var(--serif);font-weight:600;text-align:center;font-size:clamp(22px,min(2.4vw,4.2vh),32px);line-height:1.15;min-height:2.3em;display:grid;place-items:center}
+.zc-plot{background:var(--paper);border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);align-items:end;padding:clamp(14px,3vh,28px) clamp(12px,2vw,24px) 0;height:clamp(200px,calc(100svh - 72px - 420px),380px)}
+.zc-col{height:100%;display:flex;align-items:flex-end}
+.zc-bar{width:100%;display:flex;justify-content:center;align-items:flex-start;padding-top:clamp(10px,2.4vh,22px);transition:height .7s cubic-bezier(.2,.8,.2,1)}
+.hero-grid{grid-template-columns:1.05fr .95fr}
+.zc-bar span{font-family:var(--serif);font-weight:600;font-size:clamp(15px,min(1.45vw,3vh),24px);color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.zc-bar.zakat{background:var(--olive)}
+.zc-bar.cost{background:var(--data);min-height:clamp(46px,8vh,70px);align-items:center;padding-top:0}
+.zc-bar.cost span{color:var(--deep)}
+.zc-labels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(14px,2.2vh,17px);line-height:1.25;color:var(--ink)}
+.zc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;font-size:12px;color:var(--ink-faint)}
+.zc-x{font-weight:700;color:var(--maroon);font-size:13px}
+.zc-src a{color:var(--ink-soft)}
+/* chart card (matches mockup): white card, divider under tabs, navy zakat bar, crimson cost bar, pink callout — same look in both themes */
+.zc{background:#fff;color:#14294A;border:1px solid rgba(20,41,74,.08);box-shadow:0 24px 50px -28px rgba(20,41,74,.35),0 2px 6px rgba(20,41,74,.05)}
+.zc-tabs{background:#fff;border:1px solid rgba(20,41,74,.16);box-shadow:0 12px 0 -11px rgba(20,41,74,.16)}
+.zc-tabs{position:relative}
+.zc-tabs::after{content:"";position:absolute;left:-60%;right:-60%;bottom:calc(-1 * clamp(6px,1.2vh,10px));height:1px;background:rgba(20,41,74,.14)}
+.zc-tabs{box-shadow:none}
+.zc-tabs button{color:rgba(20,41,74,.8);font-weight:600}
+.zc-tabs button[aria-selected="true"]{background:#0F2445;color:#fff}
+.zc-title{color:#14294A;font-weight:500}
+.zc-plot{background:transparent;border-bottom:1.5px solid rgba(20,41,74,.55);border-radius:0;padding-top:clamp(8px,2vh,18px)}
+.zc-bar{border-radius:6px 6px 0 0}
+.zc-bar.zakat{background:#0F2445}
+.zc-bar.zakat span{color:#fff}
+.zc-bar.cost{background:#A8152E}
+.zc-bar.cost span{color:#fff}
+.zc-bar span{font-family:var(--sans);font-weight:700}
+.zc-labels{color:#14294A;font-family:var(--sans);font-weight:500}
+.zc-foot{color:rgba(20,41,74,.7);flex-direction:column;align-items:flex-start;gap:10px}
+.zc-x{display:inline-flex;align-items:center;gap:10px;background:#F8E3E6;color:#A8152E;border-radius:999px;padding:8px 18px 8px 10px;font-size:14px}
+.zc-x::before{content:"i";display:grid;place-items:center;width:22px;height:22px;border:1.6px solid currentColor;border-radius:50%;font:700 13px/1 var(--serif);flex:none}
+.zc-src a{color:#14294A}
+@media (max-width:900px){.zc-plot{height:280px}}
+@media (max-width:420px){.zc-bar span{font-size:15px}}
+/* ===== hero: match the approved mockup ===== */
+header .wrap,.hero>.wrap{max-width:1500px;padding-left:max(clamp(20px,2.2vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,2.2vw,32px),env(safe-area-inset-right,0px))}
+header{transition:border-color .25s}
+header:not(.scrolled){border-bottom-color:transparent}
+.brand-name{font-size:clamp(23px,1.55vw,30px)}
+.nav-links{gap:clamp(28px,1.9vw,38px);font-size:clamp(15px,1vw,19px);font-weight:500}
+.nav-links a{color:var(--ink)}
+.nav-links .btn{font-size:clamp(15px,1vw,19px);font-weight:500;padding:clamp(11px,.75vw,15px) clamp(18px,1.45vw,28px)}
+.hero-grid{grid-template-columns:1.06fr .94fr;gap:clamp(40px,4.6vw,90px)}
+.hero .eyebrow{color:var(--ink);font-weight:500;letter-spacing:.08em;font-size:clamp(12.5px,.85vw,16px)}
+.hero h1{font-size:clamp(36px,min(4.1vw,9.6vh),80px);color:var(--ink);line-height:1.12;margin-top:clamp(14px,3vh,30px)}
+.hero h1 em{color:#1E4F8C}
+.hero .lede{color:var(--ink);font-size:clamp(17px,min(1.17vw,2.7vh),22px);line-height:1.62;max-width:36em;margin-top:clamp(16px,4vh,36px)}
+.hero-ctas{gap:clamp(12px,1vw,18px);margin-top:clamp(20px,5vh,46px)}
+.hero .btn{font-size:clamp(15px,1vw,19px);font-weight:500;padding:clamp(14px,1vw,20px) clamp(22px,1.7vw,32px)}
+.hero .btn-primary{box-shadow:0 14px 24px -14px rgba(168,21,46,.7)}
+.hero .btn-ghost{border:2px solid var(--ink);color:var(--ink)}
+.hero .btn-ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* card */
+.zc{background:#FFFDFA;border:0;border-radius:clamp(22px,1.7vw,32px);padding:clamp(18px,3.4vh,30px) clamp(20px,2vw,40px) clamp(18px,3.4vh,30px);box-shadow:0 30px 60px -30px rgba(20,41,74,.32),0 4px 14px rgba(20,41,74,.06);gap:0}
+.zc-tabs::after{display:none}
+.zc-tabs{border:1.5px solid rgba(20,41,74,.16);padding:4px;gap:2px}
+.zc-tabs button{font-size:clamp(14px,.9vw,17px);font-weight:500;color:#14294A;padding:clamp(7px,1.05vh,10px) clamp(16px,1.2vw,23px)}
+.zc-title{border-top:1.5px solid rgba(20,41,74,.14);margin-top:clamp(4px,.6vh,6px);padding-top:clamp(14px,3vh,26px);min-height:auto;font-size:clamp(22px,min(2.1vw,4.9vh),40px);font-weight:500;line-height:1.18}
+.zc-plot{height:clamp(140px,22vh,260px);padding:clamp(18px,4.5vh,38px) clamp(14px,1.35vw,26px) 0;gap:clamp(18px,2.6vw,50px);border-bottom:1.5px solid rgba(20,41,74,.6);margin-top:clamp(10px,2.5vh,22px)}
+.zc-bar{border-radius:6px 6px 0 0;padding-top:clamp(10px,4vh,34px)}
+.zc-bar span{font-size:clamp(17px,min(1.65vw,3.9vh),32px);font-weight:600}
+.zc-bar.cost{min-height:clamp(52px,9.4vh,78px)}
+.zc-labels{font-size:clamp(14px,min(1vw,2.4vh),19px);font-weight:500;line-height:1.5;padding-inline:clamp(14px,1.35vw,26px);gap:clamp(18px,2.6vw,50px);margin-top:clamp(10px,2.4vh,22px)}
+.zc-foot{gap:clamp(12px,2.8vh,26px);margin-top:clamp(12px,3vh,26px)}
+.zc-x{font-size:clamp(14px,min(1vw,2.3vh),19px);font-weight:600;background:#FBE4E7;padding:clamp(8px,1.4vh,12px) clamp(18px,1.5vw,28px) clamp(8px,1.4vh,12px) clamp(10px,.8vw,14px);gap:clamp(10px,1.1vw,22px)}
+.zc-x::before{width:clamp(24px,1.75vw,34px);height:clamp(24px,1.75vw,34px);font-size:clamp(14px,1vw,19px);border-width:2px}
+.zc-src{font-size:clamp(12px,.8vw,15px);color:#14294A;padding-left:clamp(4px,.8vw,16px)}
+.zc-src a{color:#14294A}
+@media (max-width:900px){.zc-plot{height:220px}}
+/* card: balanced proportions — even spacing, height in line with the text column, centred callout */
+.hero-grid{align-items:center}
+.zc{padding:clamp(18px,3vh,28px) clamp(22px,2.2vw,40px) clamp(20px,3.2vh,30px);max-width:640px;width:100%;justify-self:end}
+.zc-title{padding-top:clamp(12px,2.6vh,22px);font-size:clamp(22px,min(1.9vw,4.4vh),36px);min-height:calc(2.3em + clamp(12px,2.6vh,22px))}
+.zc-plot{margin-top:clamp(8px,1.8vh,16px);padding-top:clamp(8px,1.6vh,14px);height:clamp(150px,25vh,240px);padding-inline:clamp(10px,1.6vw,30px);gap:clamp(16px,2.2vw,40px)}
+.zc-labels{padding-inline:clamp(10px,1.6vw,30px);gap:clamp(16px,2.2vw,40px);margin-top:clamp(8px,1.8vh,16px)}
+.zc-bar{padding-top:clamp(10px,2.6vh,24px)}
+.zc-bar span{font-size:clamp(16px,min(1.45vw,3.5vh),28px)}
+.zc-foot{align-items:stretch;gap:clamp(10px,2vh,16px);margin-top:clamp(14px,2.8vh,24px)}
+.zc-x{justify-content:center}
+.zc-src{text-align:center;padding-left:0}
+/* hero spacing pass: arc kept clear of the text, even gap between text and card */
+.hero::before{width:600px;height:600px;left:-420px;top:-430px}
+.hero-grid{gap:clamp(32px,4vw,72px);grid-template-columns:minmax(0,1fr) minmax(0,660px)}
+.hero-grid>div:first-child{max-width:680px}
+.zc{max-width:660px;justify-self:end}
+.zc-foot{margin-top:clamp(12px,2.4vh,20px)}
+/* hero layout v4: comfortable side margins, compact centred composition, card tone close to the page */
+header .wrap,.hero>.wrap{max-width:1480px;padding-left:max(clamp(24px,5.5vw,84px),env(safe-area-inset-left,0px));padding-right:max(clamp(24px,5.5vw,84px),env(safe-area-inset-right,0px))}
+.hero-grid{grid-template-columns:minmax(0,clamp(560px,36vw,700px)) minmax(0,1fr);gap:clamp(40px,4.5vw,80px)}
+.hero-grid>div:first-child{max-width:none}
+.hero h1{font-size:clamp(36px,min(3.6vw,9vh),70px);max-width:9.8em}
+.hero .lede{max-width:34em;font-size:clamp(17px,min(1.1vw,2.6vh),20px)}
+.zc{max-width:680px;justify-self:end;background:#F3EDE4;border:1px solid rgba(20,41,74,.08);box-shadow:0 22px 44px -30px rgba(20,41,74,.28)}
+.zc-tabs{background:#F9F5EF}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.zc{justify-self:stretch;max-width:none}}
+/* card: narrower — tighter overall frame so the gap to the text stays small */
+header .wrap,.hero>.wrap{max-width:1400px}
+.hero-grid{grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:clamp(48px,5vw,88px)}
+.hero h1{font-size:clamp(36px,min(3.4vw,9vh),64px)}
+.hero .btn{font-size:clamp(15px,.9vw,17px);padding:clamp(13px,.9vw,17px) clamp(20px,1.5vw,28px)}
+.zc{max-width:520px;justify-self:end}
+.zc-bar span{font-size:clamp(15px,min(1.3vw,3.4vh),26px)}
+.zc-title{font-size:clamp(20px,min(1.6vw,4.2vh),32px)}
+/* ===== mobile & tablet (keep last) ===== */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .hero h1{max-width:none}
+  .hero .lede{max-width:none}
+  .zc{justify-self:stretch;max-width:560px;width:100%;margin-inline:auto}
+  .zc-plot{height:200px}
+}
+@media (max-width:600px){
+  .hero{padding-block:28px 40px}
+  .hero h1{font-size:clamp(34px,9.6vw,44px)}
+  .hero .lede{font-size:16.5px}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero .btn{justify-content:center;font-size:15.5px;padding:15px 20px}
+  .zc{padding:18px 16px 16px;border-radius:20px}
+  .zc-tabs{width:100%;justify-content:space-between}
+  .zc-tabs button{flex:1;padding:8px 6px;font-size:14px}
+  .zc-title{font-size:21px}
+  .zc-plot{height:170px;padding-inline:6px;gap:14px}
+  .zc-labels{font-size:13.5px;padding-inline:6px;gap:14px}
+  .zc-bar span{font-size:16px}
+  .zc-src{font-size:11.5px}
+  .news-grid{flex-direction:column;align-items:stretch;text-align:left}
+  .news form{max-width:none;flex:none;flex-direction:column;align-items:stretch}
+  .news input{flex:none;width:100%}
+  .news .btn{justify-content:center;width:100%}
+}
+@media (max-width:860px){
+  .compass-grid{grid-template-columns:minmax(0,1fr)}
+  .compass-grid>*{min-width:0}
+  .wheel{width:100%;max-width:340px}
+  .maq-panel .desc{max-width:none}
+}
+.hero h1:first-child{margin-top:0}
+.wheel .seg,.wheel .seg:focus{outline:none}
+.wheel .seg:focus-visible path{stroke:var(--maroon);stroke-width:3}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 14h14"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#dashboard">Priorities Dashboard</a>
+      <a href="#approach">Approach</a>
+      <a href="#insights">Insights</a>
+      <a href="#compass">Thought Leadership</a>
+      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main>
+  <!-- 1 · HERO -->
+  <section class="hero page">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Helping Muslim donors give <em>where it matters most.</em></h1>
+        <p class="lede">Ihsana is an advisory firm for Muslim philanthropists, family offices and foundations. We help you direct zakat and sadaqah with evidence, clear priorities and the Maqasid al-Sharia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn-ghost" href="#dashboard">Explore the Priorities Dashboard</a>
+        </div>
+      </div>
+      <figure class="zc" id="zc">
+        <div class="zc-tabs" role="tablist" aria-label="Choose a goal">
+          <button role="tab" aria-selected="true" data-i="0">Hunger</button>
+          <button role="tab" aria-selected="false" data-i="1">Water</button>
+          <button role="tab" aria-selected="false" data-i="2">Education</button>
+        </div>
+        <h2 class="zc-title" id="zcTitle">Can Zakat End Extreme Hunger?</h2>
+        <div class="zc-plot" aria-describedby="zcTitle">
+          <div class="zc-col"><div class="zc-bar cost" id="zcCost"><span id="zcCostV">$27 billion</span></div></div>
+          <div class="zc-col"><div class="zc-bar zakat" style="height:100%"><span>$301 billion</span></div></div>
+        </div>
+        <div class="zc-labels"><span id="zcCostL">Cost to End Extreme Hunger*</span><span>Total Annual Zakat**</span></div>
+        <figcaption class="zc-foot">
+          <span class="zc-src" id="zcSrc"></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3 · PRIORITIES DASHBOARD -->
+  <section class="dash page" id="dashboard">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">State of the Muslim World · 2026</p>
+          <h2>The Priorities Dashboard</h2>
+        </div>
+        <p class="lede">Every Muslim-majority country mapped to its three most urgent and most solvable needs. Spin the globe, click a country, or pick a priority to see where it appears.</p>
+      </div>
+
+      <div class="dash-ui rv">
+        <div class="dash-left">
+          <div class="g-tools">
+            <label class="search" for="q">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" style="opacity:.6"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>
+              <input id="q" type="search" list="ctryList" placeholder="Search a country" autocomplete="off">
+              <datalist id="ctryList"></datalist>
+            </label>
+            <div class="legend" id="legend"></div>
+          </div>
+          <div class="top-pri">
+            <span class="sub">Most common priorities · click to filter</span>
+            <div id="priBars"></div>
+          </div>
+        </div>
+        <div class="globe-box" id="globeBox">
+            <svg id="globe" viewBox="0 0 600 600" role="img" aria-label="Interactive globe of country priorities"></svg>
+            <div class="tip" id="tip" hidden></div>
+            <span class="g-hint">Drag to spin · click a country</span>
+            <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zreset" aria-label="Reset view">⟲</button></div>
+        </div>
+        <aside class="detail" aria-live="polite">
+          <div id="detail"></div>
+          <div class="dash-foot">
+        <span>A preview of the full dashboard, which includes the evidence behind each priority.</span>
+        <a class="btn btn-primary" href="../dashboard/index.html" target="_blank" rel="noopener">Open the full dashboard
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
+      </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · WHO WE SERVE -->
+  <section class="serve page">
+    <div class="wrap serve-grid">
+      <div class="rv">
+        <p class="eyebrow">Who we serve</p>
+        <h2>Built for Muslim givers</h2>
+        <p class="note">From individual donors to family offices and awqaf, we work with Muslim givers who want their zakat and sadaqah to go further. Choose a profile to see how we typically help.</p>
+      </div>
+      <div class="rv">
+        <div class="chips" role="tablist" id="serveChips"></div>
+        <div class="serve-panel" id="servePanel" role="tabpanel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · THE IMPACT GAP -->
+  <section class="gap page" id="approach">
+    <div class="wrap gap-grid">
+      <div class="rv">
+        <p class="eyebrow">The impact gap</p>
+        <h2>The capital exists. Direction is missing.</h2>
+        <p class="lede">Muslims give an estimated $301 billion in zakat every year. What holds that giving back is a lack of evidence, prioritisation and coordination.</p>
+      </div>
+      <div class="calc rv">
+        <div class="calc-top">
+          <label for="share">Share of one year’s zakat, directed by evidence</label>
+          <div class="calc-out"><span id="shareOut">$90B</span><small id="pctOut">30%</small></div>
+        </div>
+        <input id="share" type="range" min="1" max="100" value="30" aria-describedby="calcNote">
+        <div class="goals" id="goals"></div>
+        <p class="calc-note" id="calcNote">Illustrative. Cost estimates from the UN and World Bank. Annual zakat estimate: $301B.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · HOW WE WORK -->
+  <section class="work page">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">How we work</p>
+          <h2>Two pathways from intention to impact</h2>
+        </div>
+        <p class="lede">Most donors face two problems. They lack the information to choose well, and their capital is spread too thin to make a difference.</p>
+      </div>
+      <div class="tabs" role="tablist" id="pathTabs">
+        <button class="tab" role="tab" aria-selected="true" data-i="0">01 · Information gap</button>
+        <button class="tab" role="tab" aria-selected="false" data-i="1">02 · Allocation gap</button>
+      </div>
+      <div id="pathPanel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- 6 · INSIGHTS -->
+  <section class="page" id="insights">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">Insights</p>
+          <h2>Research and ideas for more effective giving</h2>
+        </div>
+        <p class="lede">Articles, analysis and field notes from the Ihsana team on where Muslim giving can do the most good.</p>
+      </div>
+      <div class="ins-filters rv" id="insFilters" role="group" aria-label="Filter articles by topic"></div>
+      <div class="ins-grid rv" id="insGrid" aria-live="polite"></div>
+      <div class="ins-foot rv"><a class="btn btn-ghost" href="#insights">View all insights</a></div>
+    </div>
+  </section>
+
+  <!-- 7 · ETHICAL COMPASS -->
+  <section class="compass page" id="compass" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">Our ethical compass</p>
+          <h2>The five higher objectives</h2>
+        </div>
+        <p class="lede">Every recommendation is grounded in Imam al-Ghazali’s Maqasid al-Sharia. Select an objective on the wheel.</p>
+      </div>
+      <div class="compass-grid rv">
+        <svg class="wheel" id="wheel" viewBox="0 0 440 440" role="tablist" aria-label="Maqasid al-Sharia"></svg>
+        <div class="maq-panel" id="maqPanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page page-end">
+  <!-- 8 · NEWSLETTER -->
+  <section class="news">
+    <div class="wrap news-grid">
+      <div>
+        <h2>The best of Ihsana, monthly</h2>
+        <p>Research, priorities and ideas for more effective Muslim giving.</p>
+      </div>
+      <form id="newsForm" novalidate>
+        <label for="newsEmail" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+        <input id="newsEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="news-msg" id="newsMsg" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 9 · CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s talk about where your giving can go further.</h2>
+        <p class="lede">A first conversation is a chance to hear about your goals and tell you honestly whether we can help.</p>
+        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="card rv">
+        <div class="crow"><div><span class="k">Email</span><span class="v">hassan@ihsana.org</span></div><button class="copy" data-copy="hassan@ihsana.org">Copy</button></div>
+        <div class="crow"><div><span class="k">United Kingdom</span><span class="v">+44 7462 910828</span></div><button class="copy" data-copy="+447462910828">Copy</button></div>
+        <div class="crow"><div><span class="k">United Arab Emirates</span><span class="v">+971 52 753 8067</span></div><button class="copy" data-copy="+971527538067">Copy</button></div>
+      </div>
+    </div>
+  </section>
+<footer>
+  <div class="wrap foot">
+    <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad and builds a lasting civilisational legacy.</p>
+    <div class="foot-meta">
+      <a href="https://www.linkedin.com/in/hassan-majeed-a071197a/" target="_blank" rel="noopener">LinkedIn</a>
+      <span>© 2026 Ihsana · All rights reserved</span>
+    </div>
+  </div>
+</footer>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="world.js"></script>
+<script>
+document.documentElement.classList.add('js');
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* header: menu, scroll progress, active link */
+const menuBtn=$('#menuBtn'),links=$('#navLinks');
+menuBtn.onclick=()=>{const o=links.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)};
+links.onclick=e=>{if(e.target.closest('a')){links.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}};
+const navMap=[['dashboard','#dashboard'],['approach','#approach'],['insights','#insights'],['compass','#compass']];
+function onScroll(){
+  const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+  document.querySelector('header').classList.toggle('scrolled',h.scrollTop>8);
+  $('#progress').style.transform=`scaleX(${max>0?h.scrollTop/max:0})`;
+  let cur=null;
+  navMap.forEach(([id])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<160&&r.bottom>160)cur=id});
+  $$('.nav-links a').forEach(a=>a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur));
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* reveal (visible at rest; only below-the-fold items get the lift) */
+if('IntersectionObserver' in window && !reduce){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}});
+}
+
+/* 1 · hero: can zakat solve it? (cost of a global goal vs total annual zakat) */
+(function(){
+  const Z=301, ZSRC='https://nzfworldwide.com/potential-global-zakat-pool-demystifying-the-numbers/';
+  const G=[
+    {t:'Can Zakat End Extreme Hunger?',v:27,l:'Cost to End Extreme Hunger*',s:'https://www.oxfamamerica.org/explore/stories/how-much-money-would-it-take-to-end-world-hunger/',sn:'Oxfam America'},
+    {t:'Can Zakat Provide Universal Access to Drinking Water?',v:114,l:'Cost to Achieve Universal Access to Safe Drinking Water*',s:'https://www.unesco.org/reports/wwdr/2021/en/valuing-water-supply-sanitation-services',sn:'UNESCO, WWDR 2021'},
+    {t:'Can Zakat Bridge the Global Education Funding Gap?',v:97,l:'Cost to Educate All Out of School Children*',s:'https://news.un.org/en/story/2023/04/1135697',sn:'UN News / UNESCO, 2023 (additional funding)'}
+  ];
+  const tabs=$$('#zc .zc-tabs button'),bar=$('#zcCost');
+  function show(i){
+    const g=G[i];
+    tabs.forEach((b,j)=>b.setAttribute('aria-selected',i===j));
+    $('#zcTitle').textContent=g.t;$('#zcCostV').textContent='$'+g.v+' billion';$('#zcCostL').textContent=g.l;
+    bar.style.height=(g.v/Z*100)+'%';
+    $('#zcSrc').innerHTML='* <a href="'+g.s+'" target="_blank" rel="noopener">'+esc(g.sn)+'</a> &nbsp;|&nbsp; ** <a href="'+ZSRC+'" target="_blank" rel="noopener">NZF Worldwide</a>';
+  }
+  tabs.forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+  show(0);
+})();
+
+/* 2 · who we serve */
+const SERVE=[
+  ['Family offices','Giving that matches the rigour of your investments. We build a multi-generational giving strategy that the whole family can own, and give the next generation a structured way to take part.'],
+  ['Private foundations','Sharper focus for an existing grant portfolio. We review where your grants go today, test them against evidence, and help the board agree on fewer, bigger priorities.'],
+  ['UHNW donors','A clear thesis for personal giving. We turn your values and your zakat obligation into a short list of high-impact opportunities, with diligence done on each.'],
+  ['Wealth advisors','A specialist partner for clients who ask about Islamic giving. We work alongside you on zakat calculation, governance and where to give, so you can serve the whole client.'],
+  ['Institutional givers','Evidence and coordination at scale. We help corporate and institutional givers align programmes with community priorities and co-invest with peers.'],
+  ['Endowments & awqaf','Governance and strategy for perpetual capital. We help awqaf decide how returns are distributed, measure what they achieve, and keep them true to the founder’s intent.']
+];
+(function(){
+  const wrap=$('#serveChips'),panel=$('#servePanel');
+  SERVE.forEach(([n],i)=>{const b=document.createElement('button');b.className='chip';b.role='tab';b.textContent=n;b.onclick=()=>pick(i);wrap.appendChild(b)});
+  function pick(i){
+    [...wrap.children].forEach((b,j)=>b.setAttribute('aria-selected',i===j));
+    panel.innerHTML=`<div class="fade"><h3>${esc(SERVE[i][0])}</h3><p>${esc(SERVE[i][1])}</p></div>`;
+  }
+  pick(0);
+})();
+
+/* 3 · dashboard preview (data from dashboard.ihsana.org) */
+const D=[
+['Afghanistan','Asia','Maternal survival|Child survival (under-5)|Children out of school'],
+['Albania','Europe & Americas','Youth retention & brain drain reversal|Health & education workforce retention|EU accession support'],
+['Algeria','Africa','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Azerbaijan','Asia','Economic diversification & private sector|Women’s economic participation|Non-oil export growth'],
+['Bahrain','Middle East','Fiscal consolidation & debt sustainability|Labour market reform|Non-oil sector development'],
+['Bangladesh','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Benin','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Brunei','Asia','Maternal survival|Childhood nutrition & stunting|Respiratory disease & TB'],
+['Burkina Faso','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Cameroon','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Chad','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Comoros','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Côte d’Ivoire','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Djibouti','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Egypt','Africa','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Gabon','Africa','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Gambia','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Guinea','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Guinea-Bissau','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Guyana','Europe & Americas','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Indonesia','Asia','Regional inequality & eastern province development|Human capital & skills|Energy subsidy reform'],
+['Iran','Middle East','Household food security & poverty reduction|Women’s economic participation|Access to essential medicines'],
+['Iraq','Middle East','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Jordan','Middle East','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Kazakhstan','Asia','Regional inequality & rural services|Education quality|Child poverty reduction'],
+['Kuwait','Middle East','Youth employment & private sector reform|Economic diversification|Public-private wage reform'],
+['Kyrgyzstan','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Lebanon','Middle East','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Libya','Africa','Health system reconstruction|Youth employment & livelihoods|Social protection for displaced'],
+['Malaysia','Asia','Skills & education-labour market alignment|Regional inequality (Sabah/Sarawak)|TVET reform'],
+['Maldives','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Mali','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Mauritania','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Morocco','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Mozambique','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Niger','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Nigeria','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Oman','Middle East','Youth employment & Omanisation|Economic diversification|SME development'],
+['Pakistan','Asia','Maternal survival|Child survival (under-5)|Children out of school'],
+['Palestine','Middle East','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Qatar','Middle East','Private sector development & Qatarisation|Education-labour alignment'],
+['Saudi Arabia','Middle East','Sustaining economic diversification|Women’s labour force participation|Skills development'],
+['Senegal','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Sierra Leone','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Somalia','Africa','Maternal survival|Child survival (under-5)|Respiratory disease & TB'],
+['Sudan','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Suriname','Europe & Americas','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Syria','Middle East','Maternal survival|Children out of school|Childhood nutrition & stunting'],
+['Tajikistan','Asia','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Togo','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['Tunisia','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
+['Turkey','Middle East','Youth employment & NEET crisis|Women’s labour force participation|Skills-jobs alignment'],
+['Turkmenistan','Asia','Respiratory disease & TB|Childhood nutrition & stunting|Infectious disease control'],
+['UAE','Middle East','Emiratisation & private sector development|Education-labour alignment'],
+['Uganda','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
+['United Kingdom','Europe & Americas','Economic inclusion & poverty|Education into employment|Anti-Islamophobia monitoring'],
+['United States','Europe & Americas','Civil rights & legal defence|Muslim students & youth|Muslim women’s economic participation'],
+['Uzbekistan','Asia','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
+['Yemen','Middle East','Maternal survival|Children out of school|Respiratory disease & TB']
+].map(([n,r,p])=>({n,r,p:p.split('|')}));
+(function(){
+  const G={"Côte d’Ivoire":"Côte d'Ivoire","UAE":"United Arab Emirates","United States":"United States of America"};
+  const DOTS={"Bahrain":[50.55,26.07],"Comoros":[43.87,-11.88],"Maldives":[73.22,3.2]};
+  const CAT={Health:'#FF8A3D',Education:'#22D3A0',Economic:'#8B6CFF'};
+  const cat=p=>/survival|TB|disease|nutrition|stunting|medicine|health|food security/i.test(p)?'Health':/school|education|skills|TVET|human capital|students/i.test(p)?'Education':'Economic';
+  D.forEach(c=>{c.g=G[c.n]||c.n;c.cat=cat(c.p[0])});
+  const byG=new Map(D.map(c=>[c.g,c]));byG.set('Somaliland',byG.get('Somalia'));
+
+  const svg=d3.select('#globe'),tip=$('#tip'),box=$('#globeBox'),detail=$('#detail'),q=$('#q');
+  const S=280;let zoom=1,rot=[-50,-18,0],spinning=!reduce,sel='Pakistan',catF=null,priF=null;
+  const proj=d3.geoOrthographic().scale(S).translate([300,300]).clipAngle(90).rotate(rot);
+  const path=d3.geoPath(proj);
+  const defs=svg.append('defs');
+  const og=defs.append('radialGradient').attr('id','ocean').attr('cx','38%').attr('cy','32%');
+  og.append('stop').attr('offset','0%').attr('stop-color','#3A8BCB');og.append('stop').attr('offset','100%').attr('stop-color','#1A5287');
+  const hg=defs.append('radialGradient').attr('id','halo');
+  hg.append('stop').attr('offset','86%').attr('stop-color','#9CBDE8').attr('stop-opacity',.28);hg.append('stop').attr('offset','100%').attr('stop-color','#9CBDE8').attr('stop-opacity',0);
+  const halo=svg.append('circle').attr('class','halo').attr('cx',300).attr('cy',300);
+  const sphere=svg.append('path').datum({type:'Sphere'}).attr('class','sphere');
+  const grat=svg.append('path').datum(d3.geoGraticule10()).attr('class','grat');
+  const feats=topojson.feature(WORLD,WORLD.objects.countries).features;
+  const cp=svg.append('g').selectAll('path').data(feats).join('path')
+    .attr('class',f=>byG.has(f.properties.name)?'ctry':'land')
+    .attr('fill',f=>{const c=byG.get(f.properties.name);return c?CAT[c.cat]:null});
+  const dots=Object.entries(DOTS).map(([n,ll])=>({n,ll,c:byG.get(n)}));
+  const mk=svg.append('g').selectAll('circle').data(dots).join('circle').attr('class','mk').attr('r',5).attr('fill',d=>CAT[d.c.cat]);
+
+  function draw(){
+    proj.rotate(rot).scale(S*zoom);
+    halo.attr('r',S*zoom*1.1);sphere.attr('d',path);grat.attr('d',path);cp.attr('d',path);
+    const ctr=[-rot[0],-rot[1]];
+    mk.each(function(d){const vis=d3.geoDistance(d.ll,ctr)<Math.PI/2,xy=proj(d.ll);d3.select(this).attr('cx',xy[0]).attr('cy',xy[1]).attr('display',vis?null:'none')});
+  }
+  function style(){
+    const ok=c=>c&&(!catF||c.cat===catF)&&(!priF||c.p.includes(priF));
+    cp.filter('.ctry').classed('dim',f=>!ok(byG.get(f.properties.name))).classed('sel',f=>{const c=byG.get(f.properties.name);return !!c&&c.n===sel});
+    cp.filter('.sel').raise();
+    mk.classed('dim',d=>!ok(d.c)).classed('sel',d=>d.n===sel);
+    $$('.lg').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===catF));
+    $$('.pbar').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===priF));
+  }
+  function show(name,fly){
+    const c=D.find(x=>x.n===name);if(!c)return;sel=c.n;style();
+    detail.innerHTML=`<div class="fade" style="display:grid;gap:14px"><span class="sub">${esc(c.r)} · Top priorities</span><h3>${esc(c.n)}</h3><ol>${c.p.map(p=>`<li><span>${esc(p)}<small><i style="background:${CAT[cat(p)]}"></i>${cat(p)}</small></span></li>`).join('')}</ol></div>`;
+    if(!fly)return;
+    spinning=false;
+    const f=feats.find(f=>f.properties.name===c.g),ll=f?d3.geoCentroid(f):DOTS[c.n];
+    const from=rot.slice(),to=[-ll[0],-ll[1]*.8,0];
+    while(to[0]-from[0]>180)to[0]-=360;while(from[0]-to[0]>180)to[0]+=360;
+    if(reduce){rot=to;draw();return}
+    const it=d3.interpolate(from,to);
+    svg.interrupt().transition().duration(1000).ease(d3.easeCubicInOut).tween('r',()=>t=>{rot=it(t);draw()});
+  }
+  const hit=s=>s.on('click',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(c)show(c.n,true)})
+    .on('pointermove',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(!c){tip.hidden=true;return}const r=box.getBoundingClientRect();tip.hidden=false;tip.textContent=c.n;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px'})
+    .on('pointerleave',()=>{tip.hidden=true});
+  hit(cp.filter('.ctry'));hit(mk);
+  svg.call(d3.drag()
+    .on('start',()=>{spinning=false;svg.classed('dragging',true);svg.interrupt()})
+    .on('drag',e=>{const k=.3/zoom;rot[0]+=e.dx*k;rot[1]=Math.max(-70,Math.min(70,rot[1]-e.dy*k));draw()})
+    .on('end',()=>svg.classed('dragging',false)));
+  const setZ=z=>{zoom=Math.max(.8,Math.min(4,z));draw()};
+  $('#zin').onclick=()=>setZ(zoom*1.35);$('#zout').onclick=()=>setZ(zoom/1.35);
+  $('#zreset').onclick=()=>{zoom=1;catF=null;priF=null;q.value='';show('Pakistan',true)};
+  d3.timer(()=>{if(spinning&&!document.hidden){rot[0]+=.12;draw()}});
+
+  const lg=$('#legend');
+  Object.entries(CAT).forEach(([k,v])=>{const b=document.createElement('button');b.className='lg';b.dataset.c=k;b.setAttribute('aria-pressed','false');b.title='Countries whose #1 priority is '+k.toLowerCase();b.innerHTML=`<i style="background:${v}"></i>${k}`;b.onclick=()=>{catF=catF===k?null:k;style()};lg.appendChild(b)});
+  const counts={};D.forEach(c=>c.p.forEach(p=>counts[p]=(counts[p]||0)+1));
+  const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5),maxC=top[0][1];
+  const bars=$('#priBars');
+  bars.innerHTML=top.map(([p,n])=>`<button class="pbar" data-p="${esc(p)}" aria-pressed="false"><span>${esc(p)}</span><span>${n} countries</span><b><i style="width:${n/maxC*100}%"></i></b></button>`).join('');
+  bars.onclick=e=>{const b=e.target.closest('.pbar');if(!b)return;priF=priF===b.dataset.p?null:b.dataset.p;style()};
+  $('#ctryList').innerHTML=D.map(c=>`<option value="${esc(c.n)}">`).join('');
+  const go=()=>{const v=q.value.trim().toLowerCase();if(!v)return;const c=D.find(x=>x.n.toLowerCase()===v)||D.find(x=>x.n.toLowerCase().startsWith(v));if(c)show(c.n,true)};
+  q.addEventListener('change',go);q.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go()}});
+
+  draw();show(sel,false);
+})();
+
+/* 4 · impact gap calculator */
+(function(){
+  const Z=301, G=[['End world hunger',40],['End extreme poverty',175]];
+  const r=$('#share'),goals=$('#goals');
+  goals.innerHTML=G.map(([n,c])=>`<div class="goal"><div class="goal-row"><span>${n}</span><b>$${c}B / year</b></div><div class="track"><i></i></div><span class="state"></span></div>`).join('');
+  function upd(){
+    const pct=+r.value, amt=Z*pct/100;
+    $('#shareOut').textContent='$'+Math.round(amt)+'B';$('#pctOut').textContent=pct+'%';
+    $$('.goal').forEach((g,i)=>{
+      const c=G[i][1],f=Math.min(1,amt/c);
+      g.querySelector('i').style.width=(f*100)+'%';
+      g.classList.toggle('done',f>=1);
+      g.querySelector('.state').textContent=f>=1?`Fully funded, ${(amt/c).toFixed(1)}× over`:`${Math.round(f*100)}% funded`;
+    });
+  }
+  r.oninput=upd;upd();
+})();
+
+/* 5 · how we work */
+const PATHS=[
+  {n:'01',t:'Closing the information gap',d:'Root-cause research and evidence, so you fund the drivers of a problem and not only its symptoms.',s:['Map the need: what is most urgent in each country and sector','Find the root causes behind it','Review the evidence on what works and what it costs','Publish priorities, starting with the State of the Muslim World']},
+  {n:'02',t:'Closing the allocation gap',d:'Strategic advisory and an investment-style giving portfolio that turns your values and the evidence into decisions.',s:['Agree your giving thesis and horizon','Design a portfolio across causes and partners','Diligence, structure and fund each position','Measure, review and rebalance every year']}
+];
+(function(){
+  const tabs=$$('#pathTabs .tab'),panel=$('#pathPanel');
+  function show(i){
+    tabs.forEach((t,j)=>t.setAttribute('aria-selected',i===j));
+    const p=PATHS[i];
+    panel.innerHTML=`<div class="path fade"><div><div class="path-num">${p.n}</div><h3>${p.t}</h3><p>${p.d}</p></div><ol class="steps">${p.s.map((x,k)=>`<li><span>${k+1}</span>${x}</li>`).join('')}</ol></div>`;
+  }
+  tabs.forEach((t,i)=>t.onclick=()=>show(i));
+  show(0);
+})();
+
+/* 6 · insights — add new articles to the top of INS (newest first; the 3 most recent are shown) */
+const INS_IC={
+ Zakat:'<path d="M20 6l12 5v8c0 8-5 13-12 15-7-2-12-7-12-15v-8z"/><path d="M15 20l3.5 3.5L26 16"/>',
+ Research:'<path d="M6 34h28"/><path d="M10 28v-6M17 28V16M24 28v-9M31 28V9"/>',
+ Strategy:'<circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="7"/><circle cx="20" cy="20" r="1.5" fill="currentColor"/>',
+ Maqasid:'<circle cx="20" cy="20" r="14"/><path d="M20 6v28M6 20h28"/>'
+};
+const INS=[
+ {c:'Research',t:'Where can Muslim giving do the most good in 2027?',e:'A first look at the priorities dashboard: the gaps that are large, neglected and solvable.',d:'Nov 2026',r:8,u:'#'},
+ {c:'Zakat',t:'Can zakat close the gap on safe drinking water?',e:'What it would cost, who is left out, and how zakat rules apply to water infrastructure.',d:'Oct 2026',r:6,u:'#'},
+ {c:'Strategy',t:'Writing your first giving thesis',e:'A practical guide for families and foundations deciding what their giving should achieve.',d:'Sep 2026',r:5,u:'#'},
+ {c:'Maqasid',t:'The Maqasid as a lens for impact',e:'How al-Ghazali’s five higher objectives can guide modern philanthropic choices.',d:'Aug 2026',r:7,u:'#'},
+ {c:'Research',t:'Measuring what changed, not just what was spent',e:'Simple outcome frameworks donors can ask their partners for.',d:'Jul 2026',r:4,u:'#'}
+];
+(function(){
+  const cats=['All',...new Set(INS.map(a=>a.c))];let cur='All';
+  const f=$('#insFilters'),g=$('#insGrid');
+  f.innerHTML=cats.map(c=>`<button type="button" data-c="${c}" aria-pressed="${c===cur}">${c}</button>`).join('');
+  function render(){
+    const list=INS.filter(a=>cur==='All'||a.c===cur);
+    g.innerHTML=list.length?list.slice(0,3).map((a,i)=>`<a class="ins-card fade" href="${a.u}"><div class="ins-cover">${i===0&&cur==='All'?'<span class="ins-new">Latest</span>':''}<svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">${INS_IC[a.c]||INS_IC.Research}</svg></div><div class="ins-body"><div class="ins-meta"><span>${esc(a.c)}</span><span>${a.d} · ${a.r} min read</span></div><h3>${esc(a.t)}</h3><p>${esc(a.e)}</p><span class="ins-more">Read article →</span></div></a>`).join(''):'<p class="ins-empty">No articles in this topic yet.</p>';
+  }
+  f.onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.c;$$('#insFilters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
+  render();
+})();
+
+/* 7 · ethical compass wheel */
+const MAQ=[
+ {en:'Faith',tr:'al-Din',d:'Protecting religious life, learning and the institutions that hold communities together.',ex:['Muslim students & youth','Anti-Islamophobia monitoring','Civil rights & legal defence']},
+ {en:'Life',tr:'al-Nafs',d:'Protecting life and health, from a mother’s survival in childbirth to a child’s fifth birthday.',ex:['Maternal survival','Child survival (under-5)','Respiratory disease & TB']},
+ {en:'Intellect',tr:'al-Aql',d:'Protecting the mind through education, skills and access to knowledge.',ex:['Children out of school','Education quality','Skills development']},
+ {en:'Progeny',tr:'al-Nasl',d:'Protecting families and the next generation, so children grow up healthy and secure.',ex:['Childhood nutrition & stunting','Child poverty reduction','Youth retention']},
+ {en:'Wealth',tr:'al-Mal',d:'Protecting livelihoods and economic dignity, so people can provide for themselves.',ex:['Women’s economic participation','Youth employment','Economic inclusion & poverty']}
+];
+(function(){
+  const svg=$('#wheel'),panel=$('#maqPanel'),C=220,R1=210,R0=82,N=5;let cur=1;
+  const pt=(r,a)=>[C+r*Math.cos(a),C+r*Math.sin(a)];
+  let h='';
+  MAQ.forEach((m,i)=>{
+    const a0=-Math.PI/2+i*2*Math.PI/N-Math.PI/N, a1=a0+2*Math.PI/N, am=(a0+a1)/2;
+    const [x0,y0]=pt(R1,a0),[x1,y1]=pt(R1,a1),[x2,y2]=pt(R0,a1),[x3,y3]=pt(R0,a0),[tx,ty]=pt((R1+R0)/2,am);
+    h+=`<g class="seg" role="tab" tabindex="0" data-i="${i}" aria-label="${m.en}"><path d="M${x0} ${y0}A${R1} ${R1} 0 0 1 ${x1} ${y1}L${x2} ${y2}A${R0} ${R0} 0 0 0 ${x3} ${y3}Z"/><text x="${tx}" y="${ty}">${m.en}</text></g>`;
+  });
+  h+=`<circle class="hub" cx="${C}" cy="${C}" r="${R0-8}"/><text class="hub-t" x="${C}" y="${C}">Maqasid</text>`;
+  svg.innerHTML=h;
+  function show(i){
+    cur=(i+N)%N;const m=MAQ[cur];
+    $$('#wheel .seg').forEach((g,j)=>{g.classList.toggle('on',j===cur);g.setAttribute('aria-selected',j===cur)});
+    panel.innerHTML=`<div class="fade"><span class="maq-num">Objective ${cur+1} of 5</span><h3>${m.en}</h3><p class="tr">${m.tr}</p><p class="desc">${m.d}</p>
+      <div class="ex"><span class="eyebrow">Related priorities on the dashboard</span><div class="maq-tags">${m.ex.map(x=>`<span>${x}</span>`).join('')}</div></div>
+      <div class="maq-nav"><button aria-label="Previous objective" data-d="-1"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg></button><button aria-label="Next objective" data-d="1"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3l5 5-5 5"/></svg></button></div>
+      <p class="ghazali">After Imam al-Ghazali’s five higher objectives in <em>al-Mustasfa</em>.</p></div>`;
+  }
+  svg.addEventListener('click',e=>{const g=e.target.closest('.seg');if(g)show(+g.dataset.i)});
+  svg.addEventListener('keydown',e=>{const g=e.target.closest('.seg');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();show(+g.dataset.i)}});
+  panel.addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(b)show(cur+ +b.dataset.d)});
+  show(cur);
+})();
+
+/* 8 · newsletter */
+$('#newsForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const inp=$('#newsEmail'),msg=$('#newsMsg');msg.hidden=false;
+  if(!inp.checkValidity()||!inp.value){msg.textContent='Enter a valid email address, like name@example.com.';inp.focus();return}
+  // TODO: connect to the newsletter provider
+  msg.textContent='Thank you. You’re on the list.';inp.value='';
+});
+
+/* 9 · copy buttons */
+$$('.copy').forEach(b=>b.onclick=()=>{
+  const done=()=>{b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1600)};
+  const sel=()=>{const v=b.previousElementSibling.querySelector('.v'),r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(b.dataset.copy).then(done,sel)}catch(e){sel()}
+});
+</script>
+</body>
+</html>
