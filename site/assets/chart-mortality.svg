@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Deaths from three preventable causes across OIC countries</title>
+  <desc id="desc">Horizontal bar chart showing about 960,000 maternal and newborn deaths, 508,000 malaria and tropical disease deaths, and 465,000 enteric infection deaths each year. Illustrative sample data.</desc>
+  <rect width="960" height="520" fill="#FBF7F1"/>
+  <text x="64" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#14294A">Three preventable causes, one pattern</text>
+  <text x="64" y="86" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5E6D80">Estimated annual deaths across OIC countries · illustrative sample</text>
+
+  <!-- grid -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5E6D80">
+    <line x1="290" y1="132" x2="290" y2="392" stroke="#D9D0C4" stroke-width="1"/>
+    <line x1="430" y1="132" x2="430" y2="392" stroke="#E6DED3" stroke-width="1"/>
+    <line x1="570" y1="132" x2="570" y2="392" stroke="#E6DED3" stroke-width="1"/>
+    <line x1="710" y1="132" x2="710" y2="392" stroke="#E6DED3" stroke-width="1"/>
+    <line x1="850" y1="132" x2="850" y2="392" stroke="#E6DED3" stroke-width="1"/>
+    <text x="284" y="416" text-anchor="middle">0</text>
+    <text x="430" y="416" text-anchor="middle">250k</text>
+    <text x="570" y="416" text-anchor="middle">500k</text>
+    <text x="710" y="416" text-anchor="middle">750k</text>
+    <text x="850" y="416" text-anchor="middle">1m</text>
+  </g>
+
+  <g font-family="Helvetica, Arial, sans-serif">
+    <text x="64" y="166" font-size="17" font-weight="bold" fill="#14294A">Maternal &amp; newborn</text>
+    <text x="64" y="188" font-size="13" fill="#5E6D80">around childbirth</text>
+    <rect x="290" y="146" width="537" height="36" rx="5" fill="#A8152E"/>
+    <text x="815" y="170" text-anchor="end" font-size="18" font-weight="bold" fill="#FFFFFF">960,000</text>
+
+    <text x="64" y="250" font-size="17" font-weight="bold" fill="#14294A">Malaria &amp; tropical disease</text>
+    <text x="64" y="272" font-size="13" fill="#5E6D80">preventable and treatable</text>
+    <rect x="290" y="230" width="284" height="36" rx="5" fill="#1E4F8C"/>
+    <text x="562" y="254" text-anchor="end" font-size="18" font-weight="bold" fill="#FFFFFF">508,000</text>
+
+    <text x="64" y="334" font-size="17" font-weight="bold" fill="#14294A">Enteric infections</text>
+    <text x="64" y="356" font-size="13" fill="#5E6D80">unsafe water and food</text>
+    <rect x="290" y="314" width="260" height="36" rx="5" fill="#3B7EA1"/>
+    <text x="538" y="338" text-anchor="end" font-size="18" font-weight="bold" fill="#FFFFFF">465,000</text>
+  </g>
+
+  <line x1="64" y1="446" x2="896" y2="446" stroke="#D9D0C4"/>
+  <text x="64" y="474" font-family="Helvetica, Arial, sans-serif" font-size="12.5" fill="#5E6D80">Sample figures based on the Ihsana OIC Priority Investment Model preview. Not for citation.</text>
+</svg>

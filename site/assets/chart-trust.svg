@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative relationship between institutional trust and formal financial inclusion</title>
+  <desc id="desc">Scatter plot of five OIC countries. Higher institutional trust tends to align with higher formal financial inclusion, but the data is an illustrative sample and does not establish causation.</desc>
+  <rect width="960" height="520" fill="#FBF7F1"/>
+  <text x="64" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#14294A">Trust and the cost of doing business</text>
+  <text x="64" y="86" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5E6D80">Institutional trust and formal financial inclusion · illustrative sample</text>
+
+  <!-- plot frame and grid -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5E6D80">
+    <line x1="100" y1="420" x2="880" y2="420" stroke="#C9BFB2"/>
+    <line x1="100" y1="120" x2="100" y2="420" stroke="#C9BFB2"/>
+    <line x1="100" y1="345" x2="880" y2="345" stroke="#E6DED3"/>
+    <line x1="100" y1="270" x2="880" y2="270" stroke="#E6DED3"/>
+    <line x1="100" y1="195" x2="880" y2="195" stroke="#E6DED3"/>
+    <line x1="100" y1="120" x2="880" y2="120" stroke="#E6DED3"/>
+    <text x="88" y="425" text-anchor="end">0</text>
+    <text x="88" y="350" text-anchor="end">25</text>
+    <text x="88" y="275" text-anchor="end">50</text>
+    <text x="88" y="200" text-anchor="end">75</text>
+    <text x="88" y="125" text-anchor="end">100</text>
+    <text x="100" y="448" text-anchor="middle">0</text>
+    <text x="295" y="448" text-anchor="middle">25</text>
+    <text x="490" y="448" text-anchor="middle">50</text>
+    <text x="685" y="448" text-anchor="middle">75</text>
+    <text x="880" y="448" text-anchor="middle">100</text>
+    <text x="490" y="478" text-anchor="middle" font-size="13" fill="#5E6D80">Institutional trust index (illustrative)</text>
+    <text x="44" y="270" text-anchor="middle" transform="rotate(-90 44 270)" font-size="13" fill="#5E6D80">Formal financial inclusion (%)</text>
+  </g>
+
+  <line x1="318" y1="348" x2="552" y2="276" stroke="#1E4F8C" stroke-width="2" stroke-dasharray="7 6" opacity=".45"/>
+
+  <g font-family="Helvetica, Arial, sans-serif">
+    <circle cx="318" cy="348" r="8" fill="#A8152E"/>
+    <text x="332" y="344" font-size="14" font-weight="bold" fill="#14294A">Burkina Faso</text>
+
+    <circle cx="381" cy="288" r="8" fill="#1E4F8C"/>
+    <text x="395" y="284" font-size="14" font-weight="bold" fill="#14294A">Nigeria</text>
+
+    <circle cx="467" cy="297" r="8" fill="#1E4F8C"/>
+    <text x="481" y="293" font-size="14" font-weight="bold" fill="#14294A">Morocco</text>
+
+    <circle cx="529" cy="276" r="8" fill="#1E4F8C"/>
+    <text x="543" y="272" font-size="14" font-weight="bold" fill="#14294A">Tunisia</text>
+
+    <circle cx="552" cy="288" r="8" fill="#1E4F8C"/>
+    <text x="566" y="304" font-size="14" font-weight="bold" fill="#14294A">Jordan</text>
+  </g>
+
+  <text x="64" y="502" font-family="Helvetica, Arial, sans-serif" font-size="12.5" fill="#5E6D80">Illustrative index built for this preview; not a survey dataset. Correlation does not establish causation.</text>
+</svg>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Methodology · Ihsana</title>
+<meta name="description" content="How Ihsana ranks priorities in the Priorities Dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/ihsana.css">
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 14h14"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#approach">Approach</a>
+      <a href="insights.html">Insights</a>
+      <a href="cases.html">Case Studies</a>
+      <a href="../dashboard/index.html">Priorities Dashboard</a>
+      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>How we rank <em>priorities</em></h1>
+      <p class="lede" style="max-width:64ch">A transparent account of how Ihsana turns country data into a short list of solvable priorities — and what the model does not claim to do.</p>
+      <p class="sample-note">Draft preview · final methodology text will be provided by Ihsana</p>
+      <div class="notice"><p><strong>Text to be provided by Ihsana.</strong> Anfal is drafting the final methodology. The structure and explanation below describe how this preview works, so the page can be reviewed and linked from articles and the dashboard before publication.</p></div>
+    </div>
+  </section>
+
+  <div class="wrap method">
+    <nav class="toc" aria-label="On this page">
+      <span class="eyebrow">On this page</span>
+      <ol>
+        <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#measures">What the model measures</a></li>
+        <li><a href="#sources">Where the data comes from</a></li>
+        <li><a href="#ranking">How a country is ranked</a></li>
+        <li><a href="#priorities">How a priority is chosen</a></li>
+        <li><a href="#status">What the status labels mean</a></li>
+        <li><a href="#limits">Limits and caveats</a></li>
+        <li><a href="#use">How to use the dashboard</a></li>
+        <li><a href="#updates">Review and updates</a></li>
+      </ol>
+    </nav>
+
+    <div class="method-content">
+      <div id="purpose">
+        <h2>Purpose</h2>
+        <p>The Priorities Dashboard exists to answer a practical question: <strong>where can a donor’s next commitment do the most measurable good?</strong> It is not a ranking of need alone, and it is not a ranking of charity quality. It is a starting point for a country, a problem and a conversation.</p>
+        <p>The model narrows a long list of development indicators into three priorities per country. It favours problems that are large, urgent, solvable with known interventions, and neglected relative to their burden.</p>
+        <div class="callout"><p>The output is a short list, not a verdict. Every priority still requires diligence on the partner, the delivery model and the local context.</p></div>
+      </div>
+
+      <div id="measures">
+        <h2>What the model measures</h2>
+        <p>Each country is described by three elements: the scale of preventable suffering, the existence of proven interventions, and the country’s capacity to deliver them. The model then groups specific needs under the five Maqasid:</p>
+        <table class="data-table">
+          <caption class="sr">The five Maqasid and the needs the model groups under them</caption>
+          <thead><tr><th scope="col">Maqsad</th><th scope="col">Typical needs in the model</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Life</strong> · al-Nafs</td><td>Maternal survival, newborn survival, enteric infections, malaria and tropical disease</td></tr>
+            <tr><td><strong>Progeny</strong> · al-Nasl</td><td>Childhood nutrition, maternal and child health, family stability</td></tr>
+            <tr><td><strong>Intellect</strong> · al-Aql</td><td>Children out of school, learning quality, skills and training</td></tr>
+            <tr><td><strong>Wealth</strong> · al-Mal</td><td>Youth employment, women’s economic participation, financial inclusion</td></tr>
+            <tr><td><strong>Faith</strong> · al-Din</td><td>Religious life, community institutions, civil and religious rights</td></tr>
+          </tbody>
+        </table>
+        <p>Where a country has a distinctive burden — a collapsed health system, a displacement crisis, a very young labour market — the model allows that context to change which priority rises to the top. The framework is consistent; the answer is country-specific.</p>
+      </div>
+
+      <div id="sources">
+        <h2>Where the data comes from</h2>
+        <p>The published model draws on international health, education and economic datasets, then applies Ihsana’s analytical judgements. The preview uses a curated 27-country subset so the interactions can be tested without publishing the full private dataset.</p>
+        <p>For a production release, the team will document each indicator, its source, its year and any transformation applied. A donor should be able to trace a priority back to the evidence behind it.</p>
+        <div class="notice"><p><strong>Preview note.</strong> Country figures, ranks and priority text in this local build are illustrative samples from the supplied dashboard reference. They are not a substitute for the final published data.</p></div>
+      </div>
+
+      <div id="ranking">
+        <h2>How a country is ranked</h2>
+        <p>The country rank is a composite. It combines the scale of preventable need with the degree to which the need is solvable and the presence of delivery constraints. A country can rise in the ranking because its burden is large, because its burden is unusually solvable, or because both are true.</p>
+        <h3>The four tests</h3>
+        <ol>
+          <li><strong>Burden.</strong> How many people are affected, and how severe is the consequence?</li>
+          <li><strong>Solvability.</strong> Is there a proven intervention, and what does it cost per outcome?</li>
+          <li><strong>Readiness.</strong> Can a credible partner deliver at scale in the current context?</li>
+          <li><strong>Neglect.</strong> Is the need underfunded relative to its share of the burden?</li>
+        </ol>
+        <p>The rank is a prompt for diligence, not a substitute for it. Two countries with similar scores can require very different giving strategies.</p>
+      </div>
+
+      <div id="priorities">
+        <h2>How a priority is chosen</h2>
+        <p>Within each country, needs are grouped into candidate priorities. A candidate rises when it is large, tractable and underweighted. It falls when the binding constraint is political, when no credible delivery route exists, or when the evidence for the intervention is weak.</p>
+        <p>Each priority card in the dashboard therefore answers three questions: what is the need, why is it solvable, and what would a donor actually fund? Where the model has a headline figure, it is shown; where it does not, the card describes the need without inventing a number.</p>
+        <div class="callout"><p>Read the five priority cards as a portfolio of problems, not as a menu of charities. The next step is to match a priority to a partner with a delivery model that can be measured.</p></div>
+      </div>
+
+      <div id="status">
+        <h2>What the status labels mean</h2>
+        <p>Every country carries one status label. The label describes the giving stance the model recommends, not the worth of the people who live there.</p>
+        <table class="data-table">
+          <caption class="sr">Status labels used in the dashboard</caption>
+          <thead><tr><th scope="col">Status</th><th scope="col">What it means for a donor</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fund</strong></td><td>Urgent, solvable needs where additional funding can change outcomes now.</td></tr>
+            <tr><td><strong>Monitor</strong></td><td>Important needs, but the funding case or local capacity needs closer review.</td></tr>
+            <tr><td><strong>Maintain</strong></td><td>Progress is holding; protect gains and improve delivery rather than scale.</td></tr>
+            <tr><td><strong>Diaspora</strong></td><td>Muslim communities in Western countries with distinct inclusion priorities.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="limits">
+        <h2>Limits and caveats</h2>
+        <ul>
+          <li>The model cannot capture every local reality. It is a national lens, and needs vary within countries.</li>
+          <li>Rankings are sensitive to data quality and year. A change in the source data can move a country.</li>
+          <li>Solvability is not the same as political feasibility. A proven intervention can still be blocked.</li>
+          <li>The dashboard does not vet individual charities. Partner diligence remains a separate step.</li>
+          <li>Figures marked as illustrative in this preview must not be cited as published Ihsana data.</li>
+        </ul>
+      </div>
+
+      <div id="use">
+        <h2>How to use the dashboard</h2>
+        <p>Start with a country that matters to you, or filter by status to see where additional funding is most likely to change outcomes. Read the three priorities. Then ask three questions before committing:</p>
+        <ol>
+          <li>Which Maqsad does this protect, and how would we know it worked?</li>
+          <li>What is the binding constraint, and does the proposed partner address it?</li>
+          <li>What would we stop funding to make this commitment serious?</li>
+        </ol>
+        <p>Those questions are the bridge between a dashboard and a giving strategy. If you want help answering them, <a href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener" style="color:var(--olive)">get in touch</a>.</p>
+        <p><a class="link-arrow" href="../dashboard/index.html">Open the Priorities Dashboard <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></p>
+      </div>
+
+      <div id="updates">
+        <h2>Review and updates</h2>
+        <p>The model is reviewed as new data becomes available. In production, the team updates the underlying data monthly and records the date of the last review on the dashboard. Changes to the ranking method will be versioned so that older analyses remain intelligible.</p>
+        <p class="sample-note">Draft preview · updated November 2026 · final text to be provided by Ihsana</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="index.html" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
+        <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad — and builds a lasting civilisational legacy.</p>
+      </div>
+      <div class="foot-col">
+        <h2>Explore</h2>
+        <a href="index.html#approach">Approach</a>
+        <a href="insights.html">Insights</a>
+        <a href="cases.html">Case Studies</a>
+        <a href="../dashboard/index.html">Priorities Dashboard</a>
+        <a href="methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h2>Contact</h2>
+        <a href="mailto:info@ihsana.org">info@ihsana.org</a>
+        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Ihsana · All rights reserved</span>
+      <a href="https://www.linkedin.com/in/hassan-majeed-a071197a/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/data.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/ihsana.js"></script>
+</body>
+</html>

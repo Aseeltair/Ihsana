@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ihsana</title>
+<title>Ihsana · Helping Muslim donors give where it matters most</title>
 <meta name="description" content="Ihsana is an advisory firm helping Muslim philanthropists, family offices and foundations give where it matters most.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,6 +121,19 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:co
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.star-box{max-width:340px;margin-inline:auto}}
 
+.hero-start{margin-top:clamp(14px,2.6vh,22px);font-size:15px;color:var(--ink-soft)}
+.hero-start a{color:var(--olive);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.hero-start a svg{width:14px;height:14px;transition:transform .2s}
+.hero-start a:hover svg{transform:translateX(3px)}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;color:var(--olive);font-weight:700;font-size:15px;text-decoration:none}
+.link-arrow svg{width:15px;height:15px;transition:transform .2s}
+.link-arrow:hover svg{transform:translateX(3px)}
+.sample-note{font-size:12.5px;color:var(--ink-faint);margin-top:clamp(10px,2vh,18px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.labels{display:flex;flex-wrap:wrap;gap:6px}
+.labels span{font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:999px;background:var(--tint);color:var(--olive)}
+.labels span.type,.labels span+span:last-child{background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+
 /* 2 · who we serve */
 .serve{background:var(--paper-2)}
 .serve-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
@@ -189,6 +202,21 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:co
 .dash .btn-primary{background:var(--on-dark);color:var(--deep)}
 .dash .btn-primary:hover{background:#fff}
 @media (max-width:900px){.dash-ui{grid-template-columns:1fr}}
+.lg b{font-weight:700;color:var(--on-dark-soft);font-variant-numeric:tabular-nums}
+.g-help{font-size:13px;color:var(--on-dark-soft);line-height:1.55}
+.g-help b{color:var(--on-dark)}
+.brief{display:grid;gap:14px}
+.brief-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.brief-top h3{margin-top:4px}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 18%,transparent);white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:12px 0;border-block:1px solid var(--on-dark-line)}
+.facts dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-soft)}
+.facts dd{margin:2px 0 0;font-size:14.5px;font-weight:600;line-height:1.35}
+.facts small{font-size:12px;color:var(--on-dark-soft);font-weight:500}
+.dash-more{color:var(--data);font-weight:700;text-decoration:none;font-size:13.5px}
+.dash-more:hover{color:var(--on-dark)}
+#globe:focus-visible{outline:2px solid var(--data);outline-offset:4px;border-radius:50%}
 
 /* 4 · impact gap */
 .gap-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
@@ -271,14 +299,54 @@ input[type=range]{width:100%;accent-color:var(--maroon);height:28px;cursor:point
 .maq-nav{display:flex;gap:8px;margin-top:26px}
 .maq-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:none;cursor:pointer;display:grid;place-items:center}
 .maq-nav button:hover{border-color:var(--olive)}
+.maq-sec{margin-top:12px;font-size:15px;color:var(--ink-soft);max-width:48ch}
+.maq-sec b{color:var(--ink)}
 .ghazali{margin-top:28px;font-size:14.5px;color:var(--ink-faint)}
 @media (max-width:860px){.compass-grid{grid-template-columns:1fr;gap:28px}}
+
+/* 5c · client stories */
+.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.4vh,22px)}
+.case-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+.case-card:hover{border-color:var(--olive);box-shadow:0 14px 34px -20px rgba(20,41,74,.4);transform:translateY(-3px)}
+.case-cover{position:relative;background:var(--tint);min-height:100%}
+.case-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.case-cover span{position:absolute;left:12px;top:12px;background:var(--paper);color:var(--olive);font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.case-body{padding:clamp(16px,2.6vh,24px);display:grid;gap:clamp(6px,1.2vh,10px);align-content:start}
+.case-body h3{font-size:clamp(19px,2.8vh,23px)}
+.case-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+.case-body .case-result{color:var(--ink)}
+.case-body blockquote{margin:0;padding-left:12px;border-left:2px solid var(--maroon);font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+@media (max-width:900px){.case-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.case-card{grid-template-columns:minmax(0,1fr)}.case-cover{min-height:150px}}
+
+/* 5b · advisory services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vh,20px)}
+.svc-card{border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2.8vh,26px);background:var(--paper)}
+.svc-n{font-family:var(--serif);font-size:clamp(26px,4vh,34px);line-height:1;color:transparent;-webkit-text-stroke:1.2px var(--olive)}
+.svc-card h3{font-size:clamp(19px,2.8vh,22px);margin-top:clamp(8px,1.4vh,12px)}
+.svc-card p{color:var(--ink-soft);margin-top:8px;font-size:15.5px;line-height:1.55}
+
+.maq-compare{margin-top:clamp(14px,3vh,28px);border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.maq-compare summary{cursor:pointer;padding:14px 20px;font-weight:700;color:var(--olive);list-style-position:inside}
+.maq-table-wrap{overflow-x:auto;padding:0 20px 16px}
+.maq-table{width:100%;border-collapse:collapse;font-size:15px}
+.maq-table th{text-align:left;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+.maq-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
+.maq-table tr:last-child td{border-bottom:0}
+.maq-table td strong{color:var(--ink)}
+.maq-table td em{color:var(--ink-faint)}
+.maq-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;margin-top:clamp(10px,2vh,18px)}
+.maq-foot .sample-note{margin:0}
+.head-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.ins-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ins-body .labels{margin-bottom:2px}
 
 /* 8 · newsletter */
 .news{background:#1B3A55;color:var(--on-dark);padding-block:clamp(56px,7vw,80px)}
 .news-grid{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px 48px}
 .news h2{font-size:clamp(28px,3.4vw,38px)}
 .news p{opacity:.8;margin-top:8px}
+.news .eyebrow{opacity:1;margin:0 0 8px;color:var(--on-dark-soft)}
 .news form{display:flex;gap:8px;flex:1 1 360px;max-width:520px;flex-wrap:wrap}
 .news input{flex:1 1 220px;min-width:0;padding:14px 18px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--paper) 35%,transparent);background:color-mix(in srgb,var(--paper) 10%,transparent);color:var(--paper);font:inherit;font-size:15px}
 .news input::placeholder{color:color-mix(in srgb,var(--paper) 60%,transparent)}
@@ -302,7 +370,15 @@ input[type=range]{width:100%;accent-color:var(--maroon);height:28px;cursor:point
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 
 footer{padding-block:44px;border-top:1px solid var(--line)}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+.foot-top{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:28px 40px;align-items:start}
+.foot-top .foot-tag{margin-top:14px}
+.foot-col{display:grid;gap:8px;justify-items:start;font-size:15px}
+.foot-col h2{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
+.foot-col a:not(.btn){text-decoration:none;color:var(--ink-soft)}
+.foot-col a:not(.btn):hover{color:var(--ink)}
+.foot-col .btn{margin-top:6px;padding:10px 16px;font-size:14px}
+footer .foot-meta{justify-content:space-between;margin-top:clamp(16px,3vh,28px);padding-top:clamp(12px,2vh,18px);border-top:1px solid var(--line)}
+@media (max-width:760px){.foot-top{grid-template-columns:1fr 1fr}.foot-top>div:first-child{grid-column:1/-1}}
 .foot-tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:52ch}
 .foot-meta{display:flex;gap:20px;font-size:14px;color:var(--ink-faint)}
 .foot-meta a{text-decoration:none}
@@ -529,6 +605,12 @@ header .wrap,.hero>.wrap{max-width:1400px}
   .news input{flex:none;width:100%}
   .news .btn{justify-content:center;width:100%}
 }
+@media (max-width:900px){
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .svc-grid{grid-template-columns:minmax(0,1fr)}
+}
 @media (max-width:860px){
   .compass-grid{grid-template-columns:minmax(0,1fr)}
   .compass-grid>*{min-width:0}
@@ -549,11 +631,11 @@ header .wrap,.hero>.wrap{max-width:1400px}
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 14h14"/></svg>
     </button>
     <nav class="nav-links" id="navLinks">
-      <a href="#dashboard">Priorities Dashboard</a>
       <a href="#approach">Approach</a>
-      <a href="#insights">Insights</a>
-      <a href="#compass">Thought Leadership</a>
-      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation</a>
+      <a href="insights.html">Insights</a>
+      <a href="cases.html">Case Studies</a>
+      <a href="../dashboard/index.html">Priorities Dashboard</a>
+      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
     </nav>
   </div>
   <div class="progress" id="progress"></div>
@@ -567,10 +649,11 @@ header .wrap,.hero>.wrap{max-width:1400px}
         <h1>Helping Muslim donors give <em>where it matters most.</em></h1>
         <p class="lede">Ihsana is an advisory firm for Muslim philanthropists, family offices and foundations. We help you direct zakat and sadaqah with evidence, clear priorities and the Maqasid al-Sharia.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation
+          <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-          <a class="btn btn-ghost" href="#dashboard">Explore the Priorities Dashboard</a>
+          <a class="btn btn-ghost" href="../dashboard/index.html">Explore the Priorities Dashboard</a>
         </div>
+        <p class="hero-start">New to Ihsana? <a href="article.html?id=who-is-ihsana">Start here: read Who is Ihsana? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></p>
       </div>
       <figure class="zc" id="zc">
         <div class="zc-tabs" role="tablist" aria-label="Choose a goal">
@@ -585,9 +668,25 @@ header .wrap,.hero>.wrap{max-width:1400px}
         </div>
         <div class="zc-labels"><span id="zcCostL">Cost to End Extreme Hunger*</span><span>Total Annual Zakat**</span></div>
         <figcaption class="zc-foot">
+          <span class="zc-src">Illustrative comparison of annual estimates</span>
           <span class="zc-src" id="zcSrc"></span>
         </figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- 2 · WHO WE SERVE -->
+  <section class="serve page">
+    <div class="wrap serve-grid">
+      <div class="rv">
+        <p class="eyebrow">Who we serve</p>
+        <h2>Built for Muslim givers</h2>
+        <p class="note">We work with a small number of families and institutions whose giving deserves the same discipline they bring to their capital. Choose a profile to see how we typically help.</p>
+      </div>
+      <div class="rv">
+        <div class="chips" role="tablist" id="serveChips"></div>
+        <div class="serve-panel" id="servePanel" role="tabpanel"></div>
+      </div>
     </div>
   </section>
 
@@ -596,10 +695,10 @@ header .wrap,.hero>.wrap{max-width:1400px}
     <div class="wrap">
       <div class="section-head rv">
         <div>
-          <p class="eyebrow">State of the Muslim World · 2026</p>
-          <h2>The Priorities Dashboard</h2>
+          <p class="eyebrow">The State of the Muslim World · 2026</p>
+          <h2>See exactly where the next dinar <em>does the most good</em>.</h2>
         </div>
-        <p class="lede">Every Muslim-majority country mapped to its three most urgent and most solvable needs. Spin the globe, click a country, or pick a priority to see where it appears.</p>
+        <p class="lede">Our Priorities Dashboard maps Muslim-majority countries to their three most solvable, most urgent needs — an honest, at-a-glance reading of where to give.</p>
       </div>
 
       <div class="dash-ui rv">
@@ -610,42 +709,23 @@ header .wrap,.hero>.wrap{max-width:1400px}
               <input id="q" type="search" list="ctryList" placeholder="Search a country" autocomplete="off">
               <datalist id="ctryList"></datalist>
             </label>
-            <div class="legend" id="legend"></div>
+            <div class="legend" id="legend" role="group" aria-label="Filter by status"></div>
           </div>
-          <div class="top-pri">
-            <span class="sub">Most common priorities · click to filter</span>
-            <div id="priBars"></div>
-          </div>
+          <p class="g-help"><b>Drag</b> to rotate · <b>+ / −</b> to zoom · <b>Search</b> for a country. Keyboard: focus the globe and use the arrow keys.</p>
         </div>
         <div class="globe-box" id="globeBox">
-            <svg id="globe" viewBox="0 0 600 600" role="img" aria-label="Interactive globe of country priorities"></svg>
+            <svg id="globe" viewBox="0 0 600 600" role="img" tabindex="0" aria-label="Interactive globe of the countries in the Ihsana priority model. Use the country search or the zoom controls."></svg>
             <div class="tip" id="tip" hidden></div>
-            <span class="g-hint">Drag to spin · click a country</span>
             <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zreset" aria-label="Reset view">⟲</button></div>
         </div>
         <aside class="detail" aria-live="polite">
           <div id="detail"></div>
           <div class="dash-foot">
-        <span>A preview of the full dashboard, which includes the evidence behind each priority.</span>
-        <a class="btn btn-primary" href="../dashboard/index.html" target="_blank" rel="noopener">Open the full dashboard
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-      </div>
+            <span>Sample dataset · 27 countries from the published model · illustrative preview</span>
+            <a class="btn btn-primary" href="../dashboard/index.html">Open the Priorities Dashboard <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a class="dash-more" href="../dashboard/index.html">See every priority →</a>
+          </div>
         </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2 · WHO WE SERVE -->
-  <section class="serve page">
-    <div class="wrap serve-grid">
-      <div class="rv">
-        <p class="eyebrow">Who we serve</p>
-        <h2>Built for Muslim givers</h2>
-        <p class="note">From individual donors to family offices and awqaf, we work with Muslim givers who want their zakat and sadaqah to go further. Choose a profile to see how we typically help.</p>
-      </div>
-      <div class="rv">
-        <div class="chips" role="tablist" id="serveChips"></div>
-        <div class="serve-panel" id="servePanel" role="tabpanel"></div>
       </div>
     </div>
   </section>
@@ -655,8 +735,8 @@ header .wrap,.hero>.wrap{max-width:1400px}
     <div class="wrap gap-grid">
       <div class="rv">
         <p class="eyebrow">The impact gap</p>
-        <h2>The capital exists. Direction is missing.</h2>
-        <p class="lede">Muslims give an estimated $301 billion in zakat every year. What holds that giving back is a lack of evidence, prioritisation and coordination.</p>
+        <h2>The $301 billion <em>paradox</em>.</h2>
+        <p class="lede">Every year, an estimated $301 billion is given in zakat — enough to address the world’s most entrenched challenges, from extreme hunger to preventable death. Yet systemic crises persist and lives are lost to entirely solvable causes. The constraint is not capital. It is the absence of strategic evidence, disciplined prioritisation, and coordination — the same disciplines any serious investor takes for granted.</p>
       </div>
       <div class="calc rv">
         <div class="calc-top">
@@ -665,7 +745,7 @@ header .wrap,.hero>.wrap{max-width:1400px}
         </div>
         <input id="share" type="range" min="1" max="100" value="30" aria-describedby="calcNote">
         <div class="goals" id="goals"></div>
-        <p class="calc-note" id="calcNote">Illustrative. Cost estimates from the UN and World Bank. Annual zakat estimate: $301B.</p>
+        <p class="calc-note" id="calcNote">Illustrative scenarios based on a $301B annual zakat estimate. Each goal is compared separately.</p>
       </div>
     </div>
   </section>
@@ -676,48 +756,98 @@ header .wrap,.hero>.wrap{max-width:1400px}
       <div class="section-head rv">
         <div>
           <p class="eyebrow">How we work</p>
-          <h2>Two pathways from intention to impact</h2>
+          <h2>We close the <em>double-impact gap</em>.</h2>
         </div>
-        <p class="lede">Most donors face two problems. They lack the information to choose well, and their capital is spread too thin to make a difference.</p>
+        <p class="lede">Two pathways from intention to impact: build the evidence, then direct capital toward the priorities it reveals.</p>
       </div>
       <div class="tabs" role="tablist" id="pathTabs">
-        <button class="tab" role="tab" aria-selected="true" data-i="0">01 · Information gap</button>
-        <button class="tab" role="tab" aria-selected="false" data-i="1">02 · Allocation gap</button>
+        <button class="tab" role="tab" aria-selected="true" data-i="0">Closing the information gap</button>
+        <button class="tab" role="tab" aria-selected="false" data-i="1">Closing the allocation gap</button>
       </div>
       <div id="pathPanel" role="tabpanel"></div>
     </div>
   </section>
 
-  <!-- 6 · INSIGHTS -->
-  <section class="page" id="insights">
+  <!-- 5b · ADVISORY SERVICES -->
+  <section class="page" id="services">
     <div class="wrap">
       <div class="section-head rv">
         <div>
-          <p class="eyebrow">Insights</p>
-          <h2>Research and ideas for more effective giving</h2>
+          <p class="eyebrow">Advisory services</p>
+          <h2>Capital allocation, done <em>with rigour</em>.</h2>
         </div>
-        <p class="lede">Articles, analysis and field notes from the Ihsana team on where Muslim giving can do the most good.</p>
+        <p class="lede">A partnership from thesis to measured outcome, designed for families who expect their philanthropy to be governed as carefully as their capital.</p>
       </div>
-      <div class="ins-filters rv" id="insFilters" role="group" aria-label="Filter articles by topic"></div>
-      <div class="ins-grid rv" id="insGrid" aria-live="polite"></div>
-      <div class="ins-foot rv"><a class="btn btn-ghost" href="#insights">View all insights</a></div>
+      <div class="svc-grid rv" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <!-- 5c · CLIENT STORIES -->
+  <section class="page" id="stories" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">Client stories</p>
+          <h2>How we helped our clients give with purpose and lasting impact.</h2>
+        </div>
+        <a class="btn btn-ghost" href="cases.html">See all case studies <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="case-grid rv" id="homeCases"></div>
+      <p class="sample-note rv">Illustrative sample case studies · figures and quotes are for preview only</p>
     </div>
   </section>
 
   <!-- 7 · ETHICAL COMPASS -->
-  <section class="compass page" id="compass" style="background:var(--paper-2)">
+  <section class="compass page" id="compass" >
     <div class="wrap">
       <div class="section-head rv">
         <div>
           <p class="eyebrow">Our ethical compass</p>
-          <h2>The five higher objectives</h2>
+          <h2>Grounded in the <em>Maqasid al-Sharia</em>.</h2>
         </div>
-        <p class="lede">Every recommendation is grounded in Imam al-Ghazali’s Maqasid al-Sharia. Select an objective on the wheel.</p>
+        <p class="lede">No allocation is value-neutral. Our work is anchored in Imam al-Ghazali’s five higher objectives of the sharia, each translated into the sectors and indicators where capital does the most good.</p>
       </div>
       <div class="compass-grid rv">
         <svg class="wheel" id="wheel" viewBox="0 0 440 440" role="tablist" aria-label="Maqasid al-Sharia"></svg>
         <div class="maq-panel" id="maqPanel" aria-live="polite"></div>
       </div>
+      <details class="maq-compare rv"><summary>Compare all five objectives</summary>
+        <div class="maq-table-wrap">
+          <table class="maq-table">
+            <caption class="sr">The five Maqasid, their sectors and what Ihsana funds and measures</caption>
+            <thead><tr><th scope="col">Objective</th><th scope="col">Sector</th><th scope="col">What we fund and measure</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Faith</strong> <em>al-Din</em></td><td>Religious life and community</td><td>Freedom to worship, community institutions, civil and religious rights</td></tr>
+              <tr><td><strong>Life</strong> <em>al-Nafs</em></td><td>Health and survival</td><td>Maternal survival, child survival, disease control</td></tr>
+              <tr><td><strong>Intellect</strong> <em>al-Aql</em></td><td>Education</td><td>Children in school, literacy, skills and training</td></tr>
+              <tr><td><strong>Progeny</strong> <em>al-Nasl</em></td><td>Family and the next generation</td><td>Childhood nutrition, maternal and child health, family stability</td></tr>
+              <tr><td><strong>Wealth</strong> <em>al-Mal</em></td><td>Economic wellbeing</td><td>Poverty reduction, employment, financial inclusion</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="maq-foot rv">
+        <p class="sample-note">Framework summary · full article in Insights</p>
+        <a class="link-arrow" href="article.html?id=five-maqasid">Read how the five Maqasid shape our priorities <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · INSIGHTS -->
+  <section class="page" id="insights" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <p class="eyebrow">Latest from Insights</p>
+          <h2>New research, plainly written.</h2>
+        </div>
+        <div class="head-actions">
+          <a class="btn btn-ghost" href="assets/ihsana-sample-report-2026.pdf" download>Download our latest report (PDF)</a>
+          <a class="link-arrow" href="insights.html">See all articles <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+      <div class="ins-grid rv" id="insGrid"></div>
+      <p class="sample-note rv">Sample articles and report · local preview content</p>
     </div>
   </section>
 
@@ -726,8 +856,9 @@ header .wrap,.hero>.wrap{max-width:1400px}
   <section class="news">
     <div class="wrap news-grid">
       <div>
-        <h2>The best of Ihsana, monthly</h2>
-        <p>Research, priorities and ideas for more effective Muslim giving.</p>
+        <p class="eyebrow">Stay informed</p>
+        <h2>The best of Ihsana</h2>
+        <p>Occasional research and perspectives on crises across the Muslim world, strategic philanthropy, and priority-based giving.</p>
       </div>
       <form id="newsForm" novalidate>
         <label for="newsEmail" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
@@ -742,23 +873,41 @@ header .wrap,.hero>.wrap{max-width:1400px}
   <section class="contact" id="contact">
     <div class="wrap contact-grid">
       <div class="rv">
-        <p class="eyebrow">Contact</p>
-        <h2>Let’s talk about where your giving can go further.</h2>
-        <p class="lede">A first conversation is a chance to hear about your goals and tell you honestly whether we can help.</p>
-        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a consultation
+        <p class="eyebrow">Start a conversation</p>
+        <h2>Let’s allocate with <em>intention</em>.</h2>
+        <p class="lede">We work with a limited number of principals each year. Tell us about your giving, and we’ll arrange a confidential consultation.</p>
+        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
       <div class="card rv">
-        <div class="crow"><div><span class="k">Email</span><span class="v">hassan@ihsana.org</span></div><button class="copy" data-copy="hassan@ihsana.org">Copy</button></div>
+        <div class="crow"><div><span class="k">Email</span><span class="v"><a href="mailto:info@ihsana.org">info@ihsana.org</a></span></div><button class="copy" data-copy="info@ihsana.org">Copy</button></div>
       </div>
     </div>
   </section>
 <footer>
-  <div class="wrap foot">
-    <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad and builds a lasting civilisational legacy.</p>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
+        <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad — and builds a lasting civilisational legacy.</p>
+      </div>
+      <div class="foot-col">
+        <h2>Explore</h2>
+        <a href="#approach">Approach</a>
+        <a href="insights.html">Insights</a>
+        <a href="cases.html">Case Studies</a>
+        <a href="../dashboard/index.html">Priorities Dashboard</a>
+        <a href="methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h2>Contact</h2>
+        <a href="mailto:info@ihsana.org">info@ihsana.org</a>
+        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
+      </div>
+    </div>
     <div class="foot-meta">
-      <a href="https://www.linkedin.com/in/hassan-majeed-a071197a/" target="_blank" rel="noopener">LinkedIn</a>
       <span>© 2026 Ihsana · All rights reserved</span>
+      <a href="https://www.linkedin.com/in/hassan-majeed-a071197a/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </footer>
@@ -768,6 +917,8 @@ header .wrap,.hero>.wrap{max-width:1400px}
 <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script src="world.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/content.js"></script>
 <script>
 document.documentElement.classList.add('js');
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -778,7 +929,7 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 const menuBtn=$('#menuBtn'),links=$('#navLinks');
 menuBtn.onclick=()=>{const o=links.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)};
 links.onclick=e=>{if(e.target.closest('a')){links.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}};
-const navMap=[['dashboard','#dashboard'],['approach','#approach'],['insights','#insights'],['compass','#compass']];
+const navMap=[['approach','#approach']];
 function onScroll(){
   const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
   document.querySelector('header').classList.toggle('scrolled',h.scrollTop>8);
@@ -819,7 +970,7 @@ if('IntersectionObserver' in window && !reduce){
 const SERVE=[
   ['Family offices','Giving that matches the rigour of your investments. We build a multi-generational giving strategy that the whole family can own, and give the next generation a structured way to take part.'],
   ['Private foundations','Sharper focus for an existing grant portfolio. We review where your grants go today, test them against evidence, and help the board agree on fewer, bigger priorities.'],
-  ['UHNW donors','A clear thesis for personal giving. We turn your values and your zakat obligation into a short list of high-impact opportunities, with diligence done on each.'],
+  ['Ultra-high-net-worth donors','A clear thesis for personal giving. We turn your values and your zakat obligation into a short list of high-impact opportunities, with diligence done on each.'],
   ['Wealth advisors','A specialist partner for clients who ask about Islamic giving. We work alongside you on zakat calculation, governance and where to give, so you can serve the whole client.'],
   ['Institutional givers','Evidence and coordination at scale. We help corporate and institutional givers align programmes with community priorities and co-invest with peers.'],
   ['Endowments & awqaf','Governance and strategy for perpetual capital. We help awqaf decide how returns are distributed, measure what they achieve, and keep them true to the founder’s intent.']
@@ -834,146 +985,93 @@ const SERVE=[
   pick(0);
 })();
 
-/* 3 · dashboard preview (data from dashboard.ihsana.org) */
-const D=[
-['Afghanistan','Asia','Maternal survival|Child survival (under-5)|Children out of school'],
-['Albania','Europe & Americas','Youth retention & brain drain reversal|Health & education workforce retention|EU accession support'],
-['Algeria','Africa','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Azerbaijan','Asia','Economic diversification & private sector|Women’s economic participation|Non-oil export growth'],
-['Bahrain','Middle East','Fiscal consolidation & debt sustainability|Labour market reform|Non-oil sector development'],
-['Bangladesh','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Benin','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Brunei','Asia','Maternal survival|Childhood nutrition & stunting|Respiratory disease & TB'],
-['Burkina Faso','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Cameroon','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Chad','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Comoros','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Côte d’Ivoire','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Djibouti','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Egypt','Africa','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Gabon','Africa','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Gambia','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Guinea','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Guinea-Bissau','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Guyana','Europe & Americas','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Indonesia','Asia','Regional inequality & eastern province development|Human capital & skills|Energy subsidy reform'],
-['Iran','Middle East','Household food security & poverty reduction|Women’s economic participation|Access to essential medicines'],
-['Iraq','Middle East','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Jordan','Middle East','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Kazakhstan','Asia','Regional inequality & rural services|Education quality|Child poverty reduction'],
-['Kuwait','Middle East','Youth employment & private sector reform|Economic diversification|Public-private wage reform'],
-['Kyrgyzstan','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Lebanon','Middle East','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Libya','Africa','Health system reconstruction|Youth employment & livelihoods|Social protection for displaced'],
-['Malaysia','Asia','Skills & education-labour market alignment|Regional inequality (Sabah/Sarawak)|TVET reform'],
-['Maldives','Asia','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Mali','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Mauritania','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Morocco','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Mozambique','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Niger','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Nigeria','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Oman','Middle East','Youth employment & Omanisation|Economic diversification|SME development'],
-['Pakistan','Asia','Maternal survival|Child survival (under-5)|Children out of school'],
-['Palestine','Middle East','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Qatar','Middle East','Private sector development & Qatarisation|Education-labour alignment'],
-['Saudi Arabia','Middle East','Sustaining economic diversification|Women’s labour force participation|Skills development'],
-['Senegal','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Sierra Leone','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Somalia','Africa','Maternal survival|Child survival (under-5)|Respiratory disease & TB'],
-['Sudan','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Suriname','Europe & Americas','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Syria','Middle East','Maternal survival|Children out of school|Childhood nutrition & stunting'],
-['Tajikistan','Asia','Children out of school|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Togo','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['Tunisia','Africa','Maternal survival|Children out of school|Respiratory disease & TB'],
-['Turkey','Middle East','Youth employment & NEET crisis|Women’s labour force participation|Skills-jobs alignment'],
-['Turkmenistan','Asia','Respiratory disease & TB|Childhood nutrition & stunting|Infectious disease control'],
-['UAE','Middle East','Emiratisation & private sector development|Education-labour alignment'],
-['Uganda','Africa','Maternal survival|Child survival (under-5)|Children out of school'],
-['United Kingdom','Europe & Americas','Economic inclusion & poverty|Education into employment|Anti-Islamophobia monitoring'],
-['United States','Europe & Americas','Civil rights & legal defence|Muslim students & youth|Muslim women’s economic participation'],
-['Uzbekistan','Asia','Maternal survival|Respiratory disease & TB|Childhood nutrition & stunting'],
-['Yemen','Middle East','Maternal survival|Children out of school|Respiratory disease & TB']
-].map(([n,r,p])=>({n,r,p:p.split('|')}));
+/* 3 · priorities globe preview (data: assets/data.js, a sample of the published model) */
 (function(){
-  const G={"Côte d’Ivoire":"Côte d'Ivoire","UAE":"United Arab Emirates","United States":"United States of America"};
-  const DOTS={"Bahrain":[50.55,26.07],"Comoros":[43.87,-11.88],"Maldives":[73.22,3.2]};
-  const CAT={Health:'#FF8A3D',Education:'#22D3A0',Economic:'#8B6CFF'};
-  const cat=p=>/survival|TB|disease|nutrition|stunting|medicine|health|food security/i.test(p)?'Health':/school|education|skills|TVET|human capital|students/i.test(p)?'Education':'Economic';
-  D.forEach(c=>{c.g=G[c.n]||c.n;c.cat=cat(c.p[0])});
-  const byG=new Map(D.map(c=>[c.g,c]));byG.set('Somaliland',byG.get('Somalia'));
-
+  const C=window.IHSANA_COUNTRIES||[],ST=window.IHSANA_STATUS||{},CATS=window.IHSANA_CATEGORY||{},DOTS=window.IHSANA_DOTS||{};
+  const hex=k=>ST[k]?ST[k].hex:'#9CBDE8', chex=k=>CATS[k]?CATS[k].hex:'#9CBDE8', lab=k=>ST[k]?ST[k].label:k;
+  const byG=new Map(C.filter(c=>c.geo&&c.display!=='Gaza').map(c=>[c.geo,c]));
+  const byN=new Map(C.map(c=>[c.display,c]));
+  const DEF='Gaza';
   const svg=d3.select('#globe'),tip=$('#tip'),box=$('#globeBox'),detail=$('#detail'),q=$('#q');
-  const S=280;let zoom=1,rot=[-50,-18,0],spinning=!reduce,sel='Pakistan',catF=null,priF=null;
+  const S=280;let zoom=1,rot=[-40,-20,0],spinning=!reduce,sel=null,filt=null;
   const proj=d3.geoOrthographic().scale(S).translate([300,300]).clipAngle(90).rotate(rot);
   const path=d3.geoPath(proj);
   const defs=svg.append('defs');
   const og=defs.append('radialGradient').attr('id','ocean').attr('cx','38%').attr('cy','32%');
   og.append('stop').attr('offset','0%').attr('stop-color','#3A8BCB');og.append('stop').attr('offset','100%').attr('stop-color','#1A5287');
-  const hg=defs.append('radialGradient').attr('id','halo');
-  hg.append('stop').attr('offset','86%').attr('stop-color','#9CBDE8').attr('stop-opacity',.28);hg.append('stop').attr('offset','100%').attr('stop-color','#9CBDE8').attr('stop-opacity',0);
-  const halo=svg.append('circle').attr('class','halo').attr('cx',300).attr('cy',300);
   const sphere=svg.append('path').datum({type:'Sphere'}).attr('class','sphere');
   const grat=svg.append('path').datum(d3.geoGraticule10()).attr('class','grat');
   const feats=topojson.feature(WORLD,WORLD.objects.countries).features;
   const cp=svg.append('g').selectAll('path').data(feats).join('path')
     .attr('class',f=>byG.has(f.properties.name)?'ctry':'land')
-    .attr('fill',f=>{const c=byG.get(f.properties.name);return c?CAT[c.cat]:null});
-  const dots=Object.entries(DOTS).map(([n,ll])=>({n,ll,c:byG.get(n)}));
-  const mk=svg.append('g').selectAll('circle').data(dots).join('circle').attr('class','mk').attr('r',5).attr('fill',d=>CAT[d.c.cat]);
+    .attr('fill',f=>{const c=byG.get(f.properties.name);return c?hex(c.clsKey):null});
+  const dots=Object.entries(DOTS).map(([n,ll])=>({n,ll,c:byN.get(n)})).filter(d=>d.c);
+  const mk=svg.append('g').selectAll('circle').data(dots).join('circle').attr('class','mk').attr('r',5.8).attr('fill',d=>hex(d.c.clsKey));
 
   function draw(){
     proj.rotate(rot).scale(S*zoom);
-    halo.attr('r',S*zoom*1.1);sphere.attr('d',path);grat.attr('d',path);cp.attr('d',path);
+    sphere.attr('d',path);grat.attr('d',path);cp.attr('d',path);
     const ctr=[-rot[0],-rot[1]];
     mk.each(function(d){const vis=d3.geoDistance(d.ll,ctr)<Math.PI/2,xy=proj(d.ll);d3.select(this).attr('cx',xy[0]).attr('cy',xy[1]).attr('display',vis?null:'none')});
   }
   function style(){
-    const ok=c=>c&&(!catF||c.cat===catF)&&(!priF||c.p.includes(priF));
-    cp.filter('.ctry').classed('dim',f=>!ok(byG.get(f.properties.name))).classed('sel',f=>{const c=byG.get(f.properties.name);return !!c&&c.n===sel});
+    const dim=c=>!!(c&&filt&&c.clsKey!==filt);
+    cp.filter('.ctry').classed('dim',f=>dim(byG.get(f.properties.name))).classed('sel',f=>byG.get(f.properties.name)===sel);
     cp.filter('.sel').raise();
-    mk.classed('dim',d=>!ok(d.c)).classed('sel',d=>d.n===sel);
-    $$('.lg').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===catF));
-    $$('.pbar').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===priF));
+    mk.classed('dim',d=>dim(d.c)).classed('sel',d=>d.c===sel);
+    $$('.lg').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===filt));
   }
-  function show(name,fly){
-    const c=D.find(x=>x.n===name);if(!c)return;sel=c.n;style();
-    detail.innerHTML=`<div class="fade" style="display:grid;gap:14px"><span class="sub">${esc(c.r)} · Top priorities</span><h3>${esc(c.n)}</h3><ol>${c.p.map(p=>`<li><span>${esc(p)}<small><i style="background:${CAT[cat(p)]}"></i>${cat(p)}</small></span></li>`).join('')}</ol></div>`;
+  function facts(c){
+    if(c.clsKey==='diaspora')return `<div><dt>Community</dt><dd>${esc(String(c.region||'').replace(/^Western diaspora\s*[·\-–—]\s*/i,''))}</dd></div><div><dt>Income</dt><dd>${esc(c.income||'')}</dd></div><div><dt>Status</dt><dd>Diaspora</dd></div>`;
+    return `<div><dt>Rank</dt><dd>${c.rank} <small>of 57</small></dd></div><div><dt>Region</dt><dd>${esc(c.region||'')}</dd></div><div><dt>Income</dt><dd>${esc(c.income||'')}</dd></div>`;
+  }
+  function show(c,fly){
+    if(!c)return;sel=c;style();
+    detail.innerHTML=`<div class="fade brief"><div class="brief-top"><div><span class="sub">Top priorities</span><h3>${esc(c.display)}</h3></div><span class="badge" style="--c:${hex(c.clsKey)}"><i></i>${esc(lab(c.clsKey))}</span></div>
+      <dl class="facts">${facts(c)}</dl>
+      <ol>${(c.priorities||[]).map(p=>`<li><span>${esc(p.label)}<small><i style="background:${chex(p.category)}"></i>${esc(p.category)}</small></span></li>`).join('')}</ol></div>`;
     if(!fly)return;
     spinning=false;
-    const f=feats.find(f=>f.properties.name===c.g),ll=f?d3.geoCentroid(f):DOTS[c.n];
-    const from=rot.slice(),to=[-ll[0],-ll[1]*.8,0];
+    const d=dots.find(x=>x.c===c),f=feats.find(f=>byG.get(f.properties.name)===c),ll=d?d.ll:f?d3.geoCentroid(f):null;
+    if(!ll)return;
+    const from=rot.slice(),to=[-ll[0],-ll[1]*.82,0];
     while(to[0]-from[0]>180)to[0]-=360;while(from[0]-to[0]>180)to[0]+=360;
     if(reduce){rot=to;draw();return}
     const it=d3.interpolate(from,to);
     svg.interrupt().transition().duration(1000).ease(d3.easeCubicInOut).tween('r',()=>t=>{rot=it(t);draw()});
   }
-  const hit=s=>s.on('click',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(c)show(c.n,true)})
-    .on('pointermove',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(!c){tip.hidden=true;return}const r=box.getBoundingClientRect();tip.hidden=false;tip.textContent=c.n;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px'})
+  const hit=s=>s.on('click',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(c)show(c,true)})
+    .on('pointermove',(e,d)=>{const c=d.c||byG.get(d.properties.name);if(!c){tip.hidden=true;return}const r=box.getBoundingClientRect();tip.hidden=false;tip.textContent=c.display;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px'})
     .on('pointerleave',()=>{tip.hidden=true});
   hit(cp.filter('.ctry'));hit(mk);
   svg.call(d3.drag()
     .on('start',()=>{spinning=false;svg.classed('dragging',true);svg.interrupt()})
     .on('drag',e=>{const k=.3/zoom;rot[0]+=e.dx*k;rot[1]=Math.max(-70,Math.min(70,rot[1]-e.dy*k));draw()})
     .on('end',()=>svg.classed('dragging',false)));
-  const setZ=z=>{zoom=Math.max(.8,Math.min(4,z));draw()};
-  $('#zin').onclick=()=>setZ(zoom*1.35);$('#zout').onclick=()=>setZ(zoom/1.35);
-  $('#zreset').onclick=()=>{zoom=1;catF=null;priF=null;q.value='';show('Pakistan',true)};
-  d3.timer(()=>{if(spinning&&!document.hidden){rot[0]+=.12;draw()}});
+  const setZ=z=>{spinning=false;zoom=Math.max(.9,Math.min(3.4,z));draw()};
+  $('#zin').onclick=()=>setZ(zoom*1.28);$('#zout').onclick=()=>setZ(zoom/1.28);
+  $('#zreset').onclick=()=>{zoom=1;rot=[-40,-20,0];filt=null;q.value='';show(byN.get(DEF)||C[0],false);draw()};
+  document.getElementById('globe').addEventListener('keydown',e=>{
+    const k=e.key,st=10;
+    if(k==='ArrowLeft')rot[0]-=st;else if(k==='ArrowRight')rot[0]+=st;
+    else if(k==='ArrowUp')rot[1]=Math.max(-70,rot[1]-st);else if(k==='ArrowDown')rot[1]=Math.min(70,rot[1]+st);
+    else if(k==='+'||k==='=')zoom=Math.min(3.4,zoom*1.2);else if(k==='-'||k==='_')zoom=Math.max(.9,zoom/1.2);
+    else if(k==='Home'){zoom=1;rot=[-40,-20,0]}else return;
+    e.preventDefault();spinning=false;draw();
+  });
+  box.addEventListener('pointerenter',()=>{spinning=false});
+  d3.timer(()=>{if(spinning&&!document.hidden){rot[0]+=.08;draw()}});
 
+  const counts={};C.forEach(c=>counts[c.clsKey]=(counts[c.clsKey]||0)+1);
   const lg=$('#legend');
-  Object.entries(CAT).forEach(([k,v])=>{const b=document.createElement('button');b.className='lg';b.dataset.c=k;b.setAttribute('aria-pressed','false');b.title='Countries whose #1 priority is '+k.toLowerCase();b.innerHTML=`<i style="background:${v}"></i>${k}`;b.onclick=()=>{catF=catF===k?null:k;style()};lg.appendChild(b)});
-  const counts={};D.forEach(c=>c.p.forEach(p=>counts[p]=(counts[p]||0)+1));
-  const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5),maxC=top[0][1];
-  const bars=$('#priBars');
-  bars.innerHTML=top.map(([p,n])=>`<button class="pbar" data-p="${esc(p)}" aria-pressed="false"><span>${esc(p)}</span><span>${n} countries</span><b><i style="width:${n/maxC*100}%"></i></b></button>`).join('');
-  bars.onclick=e=>{const b=e.target.closest('.pbar');if(!b)return;priF=priF===b.dataset.p?null:b.dataset.p;style()};
-  $('#ctryList').innerHTML=D.map(c=>`<option value="${esc(c.n)}">`).join('');
-  const go=()=>{const v=q.value.trim().toLowerCase();if(!v)return;const c=D.find(x=>x.n.toLowerCase()===v)||D.find(x=>x.n.toLowerCase().startsWith(v));if(c)show(c.n,true)};
+  Object.keys(ST).forEach(k=>{const b=document.createElement('button');b.className='lg';b.dataset.s=k;b.setAttribute('aria-pressed','false');b.title=ST[k].desc;b.innerHTML=`<i style="background:${hex(k)}"></i>${esc(ST[k].label)} <b>${counts[k]||0}</b>`;b.onclick=()=>{filt=filt===k?null:k;style()};lg.appendChild(b)});
+  $('#ctryList').innerHTML=C.map(c=>`<option value="${esc(c.display)}">`).join('');
+  const go=()=>{const v=q.value.trim().toLowerCase();if(!v)return;const c=C.find(x=>x.display.toLowerCase()===v)||C.find(x=>x.display.toLowerCase().startsWith(v));if(c){show(c,true);q.value=''}};
   q.addEventListener('change',go);q.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go()}});
 
-  draw();show(sel,false);
+  const param=new URLSearchParams(location.search).get('country');
+  const start=(param&&C.find(c=>c.display.toLowerCase()===param.toLowerCase()))||byN.get(DEF)||C[0];
+  draw();show(start,!!param);
 })();
 
 /* 4 · impact gap calculator */
@@ -996,8 +1094,8 @@ const D=[
 
 /* 5 · how we work */
 const PATHS=[
-  {n:'01',t:'Closing the information gap',d:'Root-cause research and evidence, so you fund the drivers of a problem and not only its symptoms.',s:['Map the need: what is most urgent in each country and sector','Find the root causes behind it','Review the evidence on what works and what it costs','Publish priorities, starting with the State of the Muslim World']},
-  {n:'02',t:'Closing the allocation gap',d:'Strategic advisory and an investment-style giving portfolio that turns your values and the evidence into decisions.',s:['Agree your giving thesis and horizon','Design a portfolio across causes and partners','Diligence, structure and fund each position','Measure, review and rebalance every year']}
+  {n:'01',t:'Closing the information gap',d:'Our research reaches past the symptoms to the systemic causes of crises — the burdens that emergency aid consistently overlooks. We build the evidence base that turns reactive giving into deliberate, root-cause investment.',s:['Map the need: what is most urgent in each country and sector','Find the root causes behind it','Review the evidence on what works and what it costs','Publish priorities, starting with the State of the Muslim World']},
+  {n:'02',t:'Closing the allocation gap',d:'Through strategic advisory, we guide philanthropists to move beyond temporary fixes — directing capital toward the highest-return, most-solvable priorities, and building a portfolio of giving with the discipline of an investment thesis.',s:['Agree your giving thesis and horizon','Design a portfolio across causes and partners','Diligence, structure and fund each position','Measure, review and rebalance every year']}
 ];
 (function(){
   const tabs=$$('#pathTabs .tab'),panel=$('#pathPanel');
@@ -1010,39 +1108,44 @@ const PATHS=[
   show(0);
 })();
 
-/* 6 · insights — add new articles to the top of INS (newest first; the 3 most recent are shown) */
-const INS_IC={
- Zakat:'<path d="M20 6l12 5v8c0 8-5 13-12 15-7-2-12-7-12-15v-8z"/><path d="M15 20l3.5 3.5L26 16"/>',
- Research:'<path d="M6 34h28"/><path d="M10 28v-6M17 28V16M24 28v-9M31 28V9"/>',
- Strategy:'<circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="7"/><circle cx="20" cy="20" r="1.5" fill="currentColor"/>',
- Maqasid:'<circle cx="20" cy="20" r="14"/><path d="M20 6v28M6 20h28"/>'
-};
-const INS=[
- {c:'Research',t:'Where can Muslim giving do the most good in 2027?',e:'A first look at the priorities dashboard: the gaps that are large, neglected and solvable.',d:'Nov 2026',r:8,u:'#'},
- {c:'Zakat',t:'Can zakat close the gap on safe drinking water?',e:'What it would cost, who is left out, and how zakat rules apply to water infrastructure.',d:'Oct 2026',r:6,u:'#'},
- {c:'Strategy',t:'Writing your first giving thesis',e:'A practical guide for families and foundations deciding what their giving should achieve.',d:'Sep 2026',r:5,u:'#'},
- {c:'Maqasid',t:'The Maqasid as a lens for impact',e:'How al-Ghazali’s five higher objectives can guide modern philanthropic choices.',d:'Aug 2026',r:7,u:'#'},
- {c:'Research',t:'Measuring what changed, not just what was spent',e:'Simple outcome frameworks donors can ask their partners for.',d:'Jul 2026',r:4,u:'#'}
+/* 5b · advisory services */
+const SVC=[
+ ['01','Giving strategy & thesis','We define your objectives against the Maqasid framework and build a clear allocation thesis: what to fund, where, and why it will hold.'],
+ ['02','Priority & portfolio design','Using our country model, we identify the most solvable, most urgent needs and construct a diversified portfolio of high-conviction commitments.'],
+ ['03','Diligence & structuring','We vet vehicles and partners, structure grants and gifts, and align every commitment with the sharia and with your intent.'],
+ ['04','Impact measurement','The relationship does not end at the cheque. We measure real-world outcomes and report, plainly, on the lives your capital reached.'],
+ ['05','Zakat governance','We help institutions and family offices build the policies, oversight and reporting that make zakat allocation defensible and repeatable.'],
+ ['06','Convening & co-investment','We connect aligned givers into pooled, coordinated commitments, so the largest and hardest problems meet capital at the scale they require.']
 ];
+$('#svcGrid').innerHTML=SVC.map(([n,t,d])=>`<article class="svc-card"><span class="svc-n">${n}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></article>`).join('');
+
+/* 5c · client stories (data: IHSANA_CASES in assets/content.js; first two shown) */
 (function(){
-  const cats=['All',...new Set(INS.map(a=>a.c))];let cur='All';
-  const f=$('#insFilters'),g=$('#insGrid');
-  f.innerHTML=cats.map(c=>`<button type="button" data-c="${c}" aria-pressed="${c===cur}">${c}</button>`).join('');
-  function render(){
-    const list=INS.filter(a=>cur==='All'||a.c===cur);
-    g.innerHTML=list.length?list.slice(0,3).map((a,i)=>`<a class="ins-card fade" href="${a.u}"><div class="ins-cover">${i===0&&cur==='All'?'<span class="ins-new">Latest</span>':''}<svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">${INS_IC[a.c]||INS_IC.Research}</svg></div><div class="ins-body"><div class="ins-meta"><span>${esc(a.c)}</span><span>${a.d} · ${a.r} min read</span></div><h3>${esc(a.t)}</h3><p>${esc(a.e)}</p><span class="ins-more">Read article →</span></div></a>`).join(''):'<p class="ins-empty">No articles in this topic yet.</p>';
-  }
-  f.onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.c;$$('#insFilters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
-  render();
+  const g=$('#homeCases');if(!g)return;
+  g.innerHTML=(window.IHSANA_CASES||[]).slice(0,2).map(c=>`<a class="case-card" href="case-study.html?id=${encodeURIComponent(c.id)}">
+    <div class="case-cover"><img src="${esc(c.cover)}" alt="" loading="lazy"><span>${esc(c.pillar)}</span></div>
+    <div class="case-body"><div class="labels"><span>${esc(c.pillar)}</span><span>${esc(c.client)}</span></div>
+    <h3>${esc(c.title)}</h3><p>${esc(c.whatWeDid)}</p>
+    <p class="case-result"><b>Illustrative result:</b> ${esc(c.result)}</p>
+    <blockquote>Sample client quote · “${esc(c.quote)}”</blockquote>
+    <span class="ins-more">Read the case study →</span></div></a>`).join('');
+})();
+
+/* 6 · insights (articles live in IHSANA_ARTICLES in assets/content.js; the 3 newest are shown) */
+(function(){
+  const g=$('#insGrid');if(!g)return;
+  const M=window.IHSANA_MAQASID||[],ml=k=>{const m=M.find(x=>x.key===k);return m?m.full:k};
+  const list=(window.IHSANA_ARTICLES||[]).slice().sort((a,b)=>new Date(b.dateISO)-new Date(a.dateISO)).slice(0,3);
+  g.innerHTML=list.map((a,i)=>`<a class="ins-card" href="article.html?id=${encodeURIComponent(a.id)}"><div class="ins-cover">${a.cover?`<img src="${esc(a.cover)}" alt="" loading="lazy">`:''}${i===0?'<span class="ins-new">Latest</span>':''}</div><div class="ins-body"><div class="labels">${(a.maqasid||[]).map(k=>`<span>${esc(ml(k))}</span>`).join('')}<span class="type">${esc(a.type)}</span></div><h3>${esc(a.title)}</h3>${a.countries?`<p>Countries: ${esc(a.countries)}</p>`:''}<span class="ins-more">Read the article →</span></div></a>`).join('');
 })();
 
 /* 7 · ethical compass wheel */
 const MAQ=[
- {en:'Faith',tr:'al-Din',d:'Protecting religious life, learning and the institutions that hold communities together.',ex:['Muslim students & youth','Anti-Islamophobia monitoring','Civil rights & legal defence']},
- {en:'Life',tr:'al-Nafs',d:'Protecting life and health, from a mother’s survival in childbirth to a child’s fifth birthday.',ex:['Maternal survival','Child survival (under-5)','Respiratory disease & TB']},
- {en:'Intellect',tr:'al-Aql',d:'Protecting the mind through education, skills and access to knowledge.',ex:['Children out of school','Education quality','Skills development']},
- {en:'Progeny',tr:'al-Nasl',d:'Protecting families and the next generation, so children grow up healthy and secure.',ex:['Childhood nutrition & stunting','Child poverty reduction','Youth retention']},
- {en:'Wealth',tr:'al-Mal',d:'Protecting livelihoods and economic dignity, so people can provide for themselves.',ex:['Women’s economic participation','Youth employment','Economic inclusion & poverty']}
+ {en:'Faith',sec:'Religious life and community',fund:'Freedom to worship, community institutions, civil and religious rights',tr:'al-Din',d:'Protecting religious life, learning and the institutions that hold communities together.',ex:['Muslim students & youth','Anti-Islamophobia monitoring','Civil rights & legal defence']},
+ {en:'Life',sec:'Health and survival',fund:'Maternal survival, child survival, disease control',tr:'al-Nafs',d:'Protecting life and health, from a mother’s survival in childbirth to a child’s fifth birthday.',ex:['Maternal survival','Child survival (under-5)','Respiratory disease & TB']},
+ {en:'Intellect',sec:'Education',fund:'Children in school, literacy, skills and training',tr:'al-Aql',d:'Protecting the mind through education, skills and access to knowledge.',ex:['Children out of school','Education quality','Skills development']},
+ {en:'Progeny',sec:'Family and the next generation',fund:'Childhood nutrition, maternal and child health, family stability',tr:'al-Nasl',d:'Protecting families and the next generation, so children grow up healthy and secure.',ex:['Childhood nutrition & stunting','Child poverty reduction','Youth retention']},
+ {en:'Wealth',sec:'Economic wellbeing',fund:'Poverty reduction, employment, financial inclusion',tr:'al-Mal',d:'Protecting livelihoods and economic dignity, so people can provide for themselves.',ex:['Women’s economic participation','Youth employment','Economic inclusion & poverty']}
 ];
 (function(){
   const svg=$('#wheel'),panel=$('#maqPanel'),C=220,R1=210,R0=82,N=5;let cur=1;
