@@ -4,7 +4,7 @@
   'use strict';
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const CALENDLY='https://calendly.com/hassan-ihsana/appointment-with-ihsana';
+  const CONTACT='index.html#contact';
   const DASH='../dashboard/index.html';
   const ARROW='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
   const BACK='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>';
@@ -113,7 +113,7 @@
         '<section class="tight"><div class="wrap"><div class="continue"><div><span class="eyebrow">Continue with Ihsana</span><h2>Turn reading into a giving decision.</h2></div><div class="continue-links">'+
           '<a href="'+DASH+'"><div><span>Explore the data</span>Priorities Dashboard</div>'+ARROW+'</a>'+
           '<a href="methodology.html"><div><span>How we work</span>Read our methodology</div>'+ARROW+'</a>'+
-          '<a href="'+CALENDLY+'" target="_blank" rel="noopener"><div><span>Planning your giving?</span>Get in Touch</div>'+ARROW+'</a>'+
+          '<a href="'+CONTACT+'"><div><span>Planning your giving?</span>Get in Touch</div>'+ARROW+'</a>'+
         '</div></div></div></section></article>';
     }
   }
@@ -141,7 +141,7 @@
           c.sections.map(s=>'<div><h2>'+esc(s.h)+'</h2>'+s.html+'</div>').join('')+
           '<blockquote class="case-quote">“'+esc(c.quote)+'”<footer>— '+esc(c.client)+'</footer></blockquote>'+
           '<div><h2>What we learned</h2><ul class="lessons">'+c.lessons.map(l=>'<li>'+esc(l)+'</li>').join('')+'</ul></div>'+
-          '<div class="case-closing"><p>If you are interested in investing in lasting change and achieving similar results.</p><a class="btn btn-light" href="'+CALENDLY+'" target="_blank" rel="noopener">Get in Touch '+ARROW+'</a></div>'+
+          '<div class="case-closing"><p>If you are interested in investing in lasting change and achieving similar results.</p><a class="btn btn-light" href="'+CONTACT+'">Get in Touch '+ARROW+'</a></div>'+
         '</div></div></section>'+
         (more.length?'<section class="alt"><div class="wrap"><div class="section-head"><div><span class="eyebrow">More case studies</span><h2>See how other clients give.</h2></div></div><div class="case-grid two">'+more.map(x=>caseCard(x)).join('')+'</div></div></section>':'')+
         '</article>';

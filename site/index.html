@@ -214,32 +214,9 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:co
 .facts dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-soft)}
 .facts dd{margin:2px 0 0;font-size:14.5px;font-weight:600;line-height:1.35}
 .facts small{font-size:12px;color:var(--on-dark-soft);font-weight:500}
-.dash-more{color:var(--data);font-weight:700;text-decoration:none;font-size:13.5px}
-.dash-more:hover{color:var(--on-dark)}
 #globe:focus-visible{outline:2px solid var(--data);outline-offset:4px;border-radius:50%}
 
 /* 4 · impact gap */
-.gap-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-.gap h2{font-size:clamp(30px,4vw,46px);margin-top:12px}
-.gap .lede{margin-top:18px}
-.calc{background:var(--paper-2);border-radius:22px;padding:clamp(22px,4vw,36px);display:grid;gap:24px}
-.calc-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
-.calc label{font-weight:700}
-.calc-out{font-family:var(--serif);font-size:44px;line-height:1;font-variant-numeric:tabular-nums;color:var(--olive)}
-.calc-out small{font-family:var(--sans);font-size:15px;color:var(--ink-faint);margin-left:6px}
-input[type=range]{width:100%;accent-color:var(--maroon);height:28px;cursor:pointer}
-.goals{display:grid;gap:14px}
-.goal{display:grid;gap:6px}
-.goal-row{display:flex;justify-content:space-between;gap:12px;font-size:15px}
-.goal-row b{font-variant-numeric:tabular-nums}
-.track{height:12px;border-radius:99px;background:var(--tint);overflow:hidden}
-.track i{display:block;height:100%;width:0;border-radius:99px;background:var(--olive);transition:width .35s cubic-bezier(.2,.7,.2,1),background .3s}
-.goal.done .track i{background:var(--maroon)}
-.goal .state{font-size:13px;color:var(--ink-faint)}
-.goal.done .state{color:var(--maroon);font-weight:700}
-.calc-note{font-size:12.5px;color:var(--ink-faint)}
-@media (max-width:900px){.gap-grid{grid-template-columns:1fr;gap:32px}}
-
 /* 5 · how we work */
 .work{background:var(--paper-2)}
 .tabs{display:inline-flex;background:var(--paper);border-radius:999px;padding:5px;gap:4px;margin-bottom:28px;flex-wrap:wrap}
@@ -319,24 +296,6 @@ input[type=range]{width:100%;accent-color:var(--maroon);height:28px;cursor:point
 @media (max-width:900px){.case-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:600px){.case-card{grid-template-columns:minmax(0,1fr)}.case-cover{min-height:150px}}
 
-/* 5b · advisory services */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vh,20px)}
-.svc-card{border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2.8vh,26px);background:var(--paper)}
-.svc-n{font-family:var(--serif);font-size:clamp(26px,4vh,34px);line-height:1;color:transparent;-webkit-text-stroke:1.2px var(--olive)}
-.svc-card h3{font-size:clamp(19px,2.8vh,22px);margin-top:clamp(8px,1.4vh,12px)}
-.svc-card p{color:var(--ink-soft);margin-top:8px;font-size:15.5px;line-height:1.55}
-
-.maq-compare{margin-top:clamp(14px,3vh,28px);border:1px solid var(--line);border-radius:16px;background:var(--paper)}
-.maq-compare summary{cursor:pointer;padding:14px 20px;font-weight:700;color:var(--olive);list-style-position:inside}
-.maq-table-wrap{overflow-x:auto;padding:0 20px 16px}
-.maq-table{width:100%;border-collapse:collapse;font-size:15px}
-.maq-table th{text-align:left;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
-.maq-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
-.maq-table tr:last-child td{border-bottom:0}
-.maq-table td strong{color:var(--ink)}
-.maq-table td em{color:var(--ink-faint)}
-.maq-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;margin-top:clamp(10px,2vh,18px)}
-.maq-foot .sample-note{margin:0}
 .head-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
 .ins-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ins-body .labels{margin-bottom:2px}
@@ -379,6 +338,14 @@ footer{padding-block:44px;border-top:1px solid var(--line)}
 .foot-col .btn{margin-top:6px;padding:10px 16px;font-size:14px}
 footer .foot-meta{justify-content:space-between;margin-top:clamp(16px,3vh,28px);padding-top:clamp(12px,2vh,18px);border-top:1px solid var(--line)}
 @media (max-width:760px){.foot-top{grid-template-columns:1fr 1fr}.foot-top>div:first-child{grid-column:1/-1}}
+/* homepage: the contact section sits right above, so the footer is one short row */
+.foot-top:has(.foot-links){grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.foot-top:has(.foot-links) .brand{display:none}
+.foot-top:has(.foot-links) .foot-tag{margin-top:0}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 24px;font-size:15px}
+.foot-links a{text-decoration:none;color:var(--ink-soft)}
+.foot-links a:hover{color:var(--ink)}
+@media (max-width:760px){.foot-top:has(.foot-links){grid-template-columns:1fr}.foot-links{justify-content:flex-start}}
 .foot-tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:52ch}
 .foot-meta{display:flex;gap:20px;font-size:14px;color:var(--ink-faint)}
 .foot-meta a{text-decoration:none}
@@ -400,7 +367,6 @@ html{scroll-padding-top:72px}
 .path-num{font-size:clamp(52px,10vh,88px)}
 .steps{gap:clamp(8px,1.4vh,12px)}
 .steps li{padding:clamp(10px,1.6vh,16px) 18px}
-.calc{gap:clamp(14px,3vh,24px)}
 .svc summary{padding:clamp(16px,2.8vh,26px) 22px}
 @media (min-width:601px){
   .svc{position:relative}
@@ -605,12 +571,6 @@ header .wrap,.hero>.wrap{max-width:1400px}
   .news input{flex:none;width:100%}
   .news .btn{justify-content:center;width:100%}
 }
-@media (max-width:900px){
-  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:600px){
-  .svc-grid{grid-template-columns:minmax(0,1fr)}
-}
 @media (max-width:860px){
   .compass-grid{grid-template-columns:minmax(0,1fr)}
   .compass-grid>*{min-width:0}
@@ -631,11 +591,11 @@ header .wrap,.hero>.wrap{max-width:1400px}
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h14M3 14h14"/></svg>
     </button>
     <nav class="nav-links" id="navLinks">
+      <a href="#dashboard">Priorities Dashboard</a>
       <a href="#approach">Approach</a>
       <a href="insights.html">Insights</a>
       <a href="cases.html">Case Studies</a>
-      <a href="../dashboard/index.html">Priorities Dashboard</a>
-      <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
+      <a class="btn btn-primary" href="#contact">Request a Consultation</a>
     </nav>
   </div>
   <div class="progress" id="progress"></div>
@@ -649,7 +609,7 @@ header .wrap,.hero>.wrap{max-width:1400px}
         <h1>Helping Muslim donors give <em>where it matters most.</em></h1>
         <p class="lede">Ihsana is an advisory firm for Muslim philanthropists, family offices and foundations. We help you direct zakat and sadaqah with evidence, clear priorities and the Maqasid al-Sharia.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation
+          <a class="btn btn-primary" href="#contact">Request a Consultation
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a class="btn btn-ghost" href="../dashboard/index.html">Explore the Priorities Dashboard</a>
         </div>
@@ -668,7 +628,6 @@ header .wrap,.hero>.wrap{max-width:1400px}
         </div>
         <div class="zc-labels"><span id="zcCostL">Cost to End Extreme Hunger*</span><span>Total Annual Zakat**</span></div>
         <figcaption class="zc-foot">
-          <span class="zc-src">Illustrative comparison of annual estimates</span>
           <span class="zc-src" id="zcSrc"></span>
         </figcaption>
       </figure>
@@ -723,42 +682,21 @@ header .wrap,.hero>.wrap{max-width:1400px}
           <div class="dash-foot">
             <span>Sample dataset · 27 countries from the published model · illustrative preview</span>
             <a class="btn btn-primary" href="../dashboard/index.html">Open the Priorities Dashboard <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-            <a class="dash-more" href="../dashboard/index.html">See every priority →</a>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- 4 · THE IMPACT GAP -->
-  <section class="gap page" id="approach">
-    <div class="wrap gap-grid">
-      <div class="rv">
-        <p class="eyebrow">The impact gap</p>
-        <h2>The $301 billion <em>paradox</em>.</h2>
-        <p class="lede">Every year, an estimated $301 billion is given in zakat — enough to address the world’s most entrenched challenges, from extreme hunger to preventable death. Yet systemic crises persist and lives are lost to entirely solvable causes. The constraint is not capital. It is the absence of strategic evidence, disciplined prioritisation, and coordination — the same disciplines any serious investor takes for granted.</p>
-      </div>
-      <div class="calc rv">
-        <div class="calc-top">
-          <label for="share">Share of one year’s zakat, directed by evidence</label>
-          <div class="calc-out"><span id="shareOut">$90B</span><small id="pctOut">30%</small></div>
-        </div>
-        <input id="share" type="range" min="1" max="100" value="30" aria-describedby="calcNote">
-        <div class="goals" id="goals"></div>
-        <p class="calc-note" id="calcNote">Illustrative scenarios based on a $301B annual zakat estimate. Each goal is compared separately.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 · HOW WE WORK -->
-  <section class="work page">
+  <!-- 4 · OUR APPROACH: the impact gap, and how we close it -->
+  <section class="work page" id="approach">
     <div class="wrap">
       <div class="section-head rv">
         <div>
-          <p class="eyebrow">How we work</p>
-          <h2>We close the <em>double-impact gap</em>.</h2>
+          <p class="eyebrow">The impact gap</p>
+          <h2>The capital exists. <em>Direction is missing</em>.</h2>
         </div>
-        <p class="lede">Two pathways from intention to impact: build the evidence, then direct capital toward the priorities it reveals.</p>
+        <p class="lede">What holds Muslim giving back is not capital. It is the absence of strategic evidence, disciplined prioritisation and coordination — the same disciplines any serious investor takes for granted. We close that gap in two ways.</p>
       </div>
       <div class="tabs" role="tablist" id="pathTabs">
         <button class="tab" role="tab" aria-selected="true" data-i="0">Closing the information gap</button>
@@ -768,17 +706,21 @@ header .wrap,.hero>.wrap{max-width:1400px}
     </div>
   </section>
 
-  <!-- 5b · ADVISORY SERVICES -->
-  <section class="page" id="services">
+  <!-- 6 · INSIGHTS -->
+  <section class="page" id="insights">
     <div class="wrap">
       <div class="section-head rv">
         <div>
-          <p class="eyebrow">Advisory services</p>
-          <h2>Capital allocation, done <em>with rigour</em>.</h2>
+          <p class="eyebrow">Latest from Insights</p>
+          <h2>New research, plainly written.</h2>
         </div>
-        <p class="lede">A partnership from thesis to measured outcome, designed for families who expect their philanthropy to be governed as carefully as their capital.</p>
+        <div class="head-actions">
+          <a class="btn btn-ghost" href="assets/ihsana-sample-report-2026.pdf" download>Download our latest report (PDF)</a>
+          <a class="link-arrow" href="insights.html">See all articles <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
       </div>
-      <div class="svc-grid rv" id="svcGrid"></div>
+      <div class="ins-grid rv" id="insGrid"></div>
+      <p class="sample-note rv">Sample articles and report · local preview content</p>
     </div>
   </section>
 
@@ -798,7 +740,7 @@ header .wrap,.hero>.wrap{max-width:1400px}
   </section>
 
   <!-- 7 · ETHICAL COMPASS -->
-  <section class="compass page" id="compass" >
+  <section class="compass page" id="compass">
     <div class="wrap">
       <div class="section-head rv">
         <div>
@@ -811,43 +753,9 @@ header .wrap,.hero>.wrap{max-width:1400px}
         <svg class="wheel" id="wheel" viewBox="0 0 440 440" role="tablist" aria-label="Maqasid al-Sharia"></svg>
         <div class="maq-panel" id="maqPanel" aria-live="polite"></div>
       </div>
-      <details class="maq-compare rv"><summary>Compare all five objectives</summary>
-        <div class="maq-table-wrap">
-          <table class="maq-table">
-            <caption class="sr">The five Maqasid, their sectors and what Ihsana funds and measures</caption>
-            <thead><tr><th scope="col">Objective</th><th scope="col">Sector</th><th scope="col">What we fund and measure</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Faith</strong> <em>al-Din</em></td><td>Religious life and community</td><td>Freedom to worship, community institutions, civil and religious rights</td></tr>
-              <tr><td><strong>Life</strong> <em>al-Nafs</em></td><td>Health and survival</td><td>Maternal survival, child survival, disease control</td></tr>
-              <tr><td><strong>Intellect</strong> <em>al-Aql</em></td><td>Education</td><td>Children in school, literacy, skills and training</td></tr>
-              <tr><td><strong>Progeny</strong> <em>al-Nasl</em></td><td>Family and the next generation</td><td>Childhood nutrition, maternal and child health, family stability</td></tr>
-              <tr><td><strong>Wealth</strong> <em>al-Mal</em></td><td>Economic wellbeing</td><td>Poverty reduction, employment, financial inclusion</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
       <div class="maq-foot rv">
-        <p class="sample-note">Framework summary · full article in Insights</p>
         <a class="link-arrow" href="article.html?id=five-maqasid">Read how the five Maqasid shape our priorities <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
-    </div>
-  </section>
-
-  <!-- 6 · INSIGHTS -->
-  <section class="page" id="insights" style="background:var(--paper-2)">
-    <div class="wrap">
-      <div class="section-head rv">
-        <div>
-          <p class="eyebrow">Latest from Insights</p>
-          <h2>New research, plainly written.</h2>
-        </div>
-        <div class="head-actions">
-          <a class="btn btn-ghost" href="assets/ihsana-sample-report-2026.pdf" download>Download our latest report (PDF)</a>
-          <a class="link-arrow" href="insights.html">See all articles <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        </div>
-      </div>
-      <div class="ins-grid rv" id="insGrid"></div>
-      <p class="sample-note rv">Sample articles and report · local preview content</p>
     </div>
   </section>
 
@@ -876,12 +784,14 @@ header .wrap,.hero>.wrap{max-width:1400px}
         <p class="eyebrow">Start a conversation</p>
         <h2>Let’s allocate with <em>intention</em>.</h2>
         <p class="lede">We work with a limited number of principals each year. Tell us about your giving, and we’ll arrange a confidential consultation.</p>
-        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation
+        <a class="btn btn-primary" href="#contact">Request a Consultation
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
       <div class="card rv">
-        <div class="crow"><div><span class="k">Email</span><span class="v"><a href="mailto:info@ihsana.org">info@ihsana.org</a></span></div><button class="copy" data-copy="info@ihsana.org">Copy</button></div>
+        <div class="crow"><div><span class="k">Email</span><span class="v"><a href="mailto:hassan@ihsana.org">hassan@ihsana.org</a></span></div><button class="copy" data-copy="hassan@ihsana.org">Copy</button></div>
       </div>
+      <!-- Static copy of the consultation form so Netlify Forms can detect it on deploy (the visible form is in assets/consult.js) -->
+      <form name="consultation" data-netlify="true" netlify-honeypot="website" hidden><input name="name"><input name="email"><input name="organisation"><input name="giver_type"><textarea name="message"></textarea><input name="website"></form>
     </div>
   </section>
 <footer>
@@ -891,19 +801,13 @@ header .wrap,.hero>.wrap{max-width:1400px}
         <a class="brand" href="#top" aria-label="Ihsana home"><span class="brand-name">IHSANA</span></a>
         <p class="foot-tag">Towards a future where every zakat dinar aligns with a maqsad — and builds a lasting civilisational legacy.</p>
       </div>
-      <div class="foot-col">
-        <h2>Explore</h2>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#dashboard">Priorities Dashboard</a>
         <a href="#approach">Approach</a>
         <a href="insights.html">Insights</a>
         <a href="cases.html">Case Studies</a>
-        <a href="../dashboard/index.html">Priorities Dashboard</a>
         <a href="methodology.html">Methodology</a>
-      </div>
-      <div class="foot-col">
-        <h2>Contact</h2>
-        <a href="mailto:info@ihsana.org">info@ihsana.org</a>
-        <a class="btn btn-primary" href="https://calendly.com/hassan-ihsana/appointment-with-ihsana" target="_blank" rel="noopener">Request a Consultation</a>
-      </div>
+      </nav>
     </div>
     <div class="foot-meta">
       <span>© 2026 Ihsana · All rights reserved</span>
@@ -929,14 +833,14 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 const menuBtn=$('#menuBtn'),links=$('#navLinks');
 menuBtn.onclick=()=>{const o=links.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)};
 links.onclick=e=>{if(e.target.closest('a')){links.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}};
-const navMap=[['approach','#approach']];
+const navMap=[['dashboard','#dashboard'],['approach','#approach'],['insights','insights.html'],['stories','cases.html']];
 function onScroll(){
   const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
   document.querySelector('header').classList.toggle('scrolled',h.scrollTop>8);
   $('#progress').style.transform=`scaleX(${max>0?h.scrollTop/max:0})`;
   let cur=null;
-  navMap.forEach(([id])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<160&&r.bottom>160)cur=id});
-  $$('.nav-links a').forEach(a=>a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur));
+  navMap.forEach(([id,href])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<160&&r.bottom>160)cur=href});
+  $$('.nav-links a').forEach(a=>a.classList.toggle('active',!!cur&&a.getAttribute('href')===cur));
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
@@ -1074,28 +978,10 @@ const SERVE=[
   draw();show(start,!!param);
 })();
 
-/* 4 · impact gap calculator */
-(function(){
-  const Z=301, G=[['End world hunger',40],['End extreme poverty',175]];
-  const r=$('#share'),goals=$('#goals');
-  goals.innerHTML=G.map(([n,c])=>`<div class="goal"><div class="goal-row"><span>${n}</span><b>$${c}B / year</b></div><div class="track"><i></i></div><span class="state"></span></div>`).join('');
-  function upd(){
-    const pct=+r.value, amt=Z*pct/100;
-    $('#shareOut').textContent='$'+Math.round(amt)+'B';$('#pctOut').textContent=pct+'%';
-    $$('.goal').forEach((g,i)=>{
-      const c=G[i][1],f=Math.min(1,amt/c);
-      g.querySelector('i').style.width=(f*100)+'%';
-      g.classList.toggle('done',f>=1);
-      g.querySelector('.state').textContent=f>=1?`Fully funded, ${(amt/c).toFixed(1)}× over`:`${Math.round(f*100)}% funded`;
-    });
-  }
-  r.oninput=upd;upd();
-})();
-
 /* 5 · how we work */
 const PATHS=[
   {n:'01',t:'Closing the information gap',d:'Our research reaches past the symptoms to the systemic causes of crises — the burdens that emergency aid consistently overlooks. We build the evidence base that turns reactive giving into deliberate, root-cause investment.',s:['Map the need: what is most urgent in each country and sector','Find the root causes behind it','Review the evidence on what works and what it costs','Publish priorities, starting with the State of the Muslim World']},
-  {n:'02',t:'Closing the allocation gap',d:'Through strategic advisory, we guide philanthropists to move beyond temporary fixes — directing capital toward the highest-return, most-solvable priorities, and building a portfolio of giving with the discipline of an investment thesis.',s:['Agree your giving thesis and horizon','Design a portfolio across causes and partners','Diligence, structure and fund each position','Measure, review and rebalance every year']}
+  {n:'02',t:'Closing the allocation gap',d:'Through strategic advisory, we guide philanthropists beyond temporary fixes: capital directed to the most solvable priorities, governed with the discipline of an investment thesis.',s:['Giving strategy: what to fund, where, and why','Portfolio design, using our country model','Diligence and structuring of every partner and grant','Impact measurement, reviewed every year','Zakat governance: policy, oversight and reporting','Convening and co-investment with aligned givers']}
 ];
 (function(){
   const tabs=$$('#pathTabs .tab'),panel=$('#pathPanel');
@@ -1108,26 +994,15 @@ const PATHS=[
   show(0);
 })();
 
-/* 5b · advisory services */
-const SVC=[
- ['01','Giving strategy & thesis','We define your objectives against the Maqasid framework and build a clear allocation thesis: what to fund, where, and why it will hold.'],
- ['02','Priority & portfolio design','Using our country model, we identify the most solvable, most urgent needs and construct a diversified portfolio of high-conviction commitments.'],
- ['03','Diligence & structuring','We vet vehicles and partners, structure grants and gifts, and align every commitment with the sharia and with your intent.'],
- ['04','Impact measurement','The relationship does not end at the cheque. We measure real-world outcomes and report, plainly, on the lives your capital reached.'],
- ['05','Zakat governance','We help institutions and family offices build the policies, oversight and reporting that make zakat allocation defensible and repeatable.'],
- ['06','Convening & co-investment','We connect aligned givers into pooled, coordinated commitments, so the largest and hardest problems meet capital at the scale they require.']
-];
-$('#svcGrid').innerHTML=SVC.map(([n,t,d])=>`<article class="svc-card"><span class="svc-n">${n}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></article>`).join('');
-
 /* 5c · client stories (data: IHSANA_CASES in assets/content.js; first two shown) */
 (function(){
   const g=$('#homeCases');if(!g)return;
   g.innerHTML=(window.IHSANA_CASES||[]).slice(0,2).map(c=>`<a class="case-card" href="case-study.html?id=${encodeURIComponent(c.id)}">
     <div class="case-cover"><img src="${esc(c.cover)}" alt="" loading="lazy"><span>${esc(c.pillar)}</span></div>
-    <div class="case-body"><div class="labels"><span>${esc(c.pillar)}</span><span>${esc(c.client)}</span></div>
+    <div class="case-body"><div class="labels"><span>${esc(c.client)}</span></div>
     <h3>${esc(c.title)}</h3><p>${esc(c.whatWeDid)}</p>
     <p class="case-result"><b>Illustrative result:</b> ${esc(c.result)}</p>
-    <blockquote>Sample client quote · “${esc(c.quote)}”</blockquote>
+    <blockquote>“${esc(c.quote)}”</blockquote>
     <span class="ins-more">Read the case study →</span></div></a>`).join('');
 })();
 
@@ -1188,5 +1063,6 @@ $$('.copy').forEach(b=>b.onclick=()=>{
   try{navigator.clipboard.writeText(b.dataset.copy).then(done,sel)}catch(e){sel()}
 });
 </script>
+<script src="assets/consult.js"></script>
 </body>
 </html>
