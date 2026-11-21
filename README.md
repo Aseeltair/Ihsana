@@ -9,7 +9,7 @@ dashboard/index.html   Priorities Dashboard (dashboard.ihsana.org)
 dashboard/world.js     Country shapes for the dashboard globe
 ```
 
-To preview, open either `index.html` in a browser. The "Open the full dashboard" button on the homepage links to `../dashboard/index.html`. Change it to the real dashboard URL when you deploy.
+To preview, open either `index.html` in a browser. The site links to the full dashboard at https://dashboard.ihsana.org (new tab), and the dashboard links back to https://ihsana.org. Its "Request a consultation" links go to https://ihsana.org/#consult, which opens the consultation popup (`site/assets/consult.js`).
 
 ## External dependencies
 - Google Fonts: **Lora** (headings, serif) and **Mulish** (body, sans).
